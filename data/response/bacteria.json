@@ -1,0 +1,108 @@
+﻿{
+    "status": "",
+    "token":  "",
+    "WebMasterSites": {
+        "Site_ID":"",
+        "AwwSiteCode":"10025046",
+        "Active":"True",
+        "CActive":"True",
+        "BActive":"True",
+        "MActive":"True",
+        "HUC11":"031601100403",
+        "HUC8":"",
+        "HUC6":"",
+        "HUC4":"",
+        "GrpID":"",
+        "Group_Abbrev":"",
+        "Group_Name":"",
+        "County":"Winston",
+        "Description":"",
+        "Waterbody_Name":"",  
+        "Latitude":"",
+        "Longitude":"",  
+        "ZipCode":"",
+        "State":"AL",
+        "Location":"",
+        "GraphTitle":"",
+        "FirstDate":"",
+        "FirstCDate":"",
+        "FirstBDate":"",
+        "FirstMDate":"",
+        "LastDate":"",
+        "LastCDate":"",
+        "LastBDate":"",
+
+        "missing-Watershed":"Warrior"
+    },
+    "AWW_Monitors": {
+        "monitor":  {
+            "ContactID":"123",
+            "FirstName":"Eric",
+            "LastName":"Reutebuch"
+        }, 
+        "monitor":  {
+            "ContactID":"123",
+            "FirstName":"Eric",
+            "LastName":"Reutebuch"
+        }, 
+        "monitor":  {
+            "ContactID":"123",
+            "FirstName":"Eric",
+            "LastName":"Reutebuch"
+        }, 
+        "monitor":  {
+            "ContactID":"123",
+            "FirstName":"Eric",
+            "LastName":"Reutebuch"
+        }
+    },
+    "AWW_Contact": {
+        "ContactID":"123",
+        "FirstName":"Eric",
+        "LastName":"Reutebuch",
+        "ActiveUser":"True",
+        "Not-Sent":["Username", "Password"]
+    },
+    "AWW_Groups": {
+        "Groupid":"124",
+        "Group_Abbreviation":"SOS",
+        "Group_Name":"Save Our Saugahatchee",
+        "Date_Established":"1/1/2010",
+        "DateEntered":"3/3/2011"
+    },
+    "awwNewBacteria": {
+        "nbpk":"",
+        "siteID":"",
+        "SampleDate":"",
+        "SampleTime":"",
+        "streams":"",
+        "tides":"",
+        "AirTemp":"",
+        "WaterTemp":"",
+        "sampVolume":"",
+        "incubtime":"",
+        "incubtemp":"",
+        "incubperiod":"",
+        "expdate":"",
+        "plate":"",
+        "ecoli1":"",
+        "ecoli2":"",
+        "ecoli3":"",
+        "ocoli1":"",
+        "ocoli2":"",
+        "ocoli3":"",
+        "ttlecoli":"",
+        "ttlocoli":"",
+        "senderid":"",
+        "cnid":"",
+        "collectors":"",
+        "grpID":"",
+        "Comments":"",
+        "Timestamp":"",
+        
+        "missing-ColonyCategory1":"",
+        "missing-ColonyCategory2":"",
+        "missing-ColonyCategory3":"",
+        "missing-WasTransportedOnIce":""
+    }
+}

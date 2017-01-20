@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<response>
+  <!-- MUST BE RETURNED -->
+  <status>ok</status>
+  <!-- MUST BE RETURNED -->
+  <token>aaaaaaa.bbbbbbbb.cccccccc</token>
+  <!-- SITES AVAILABLE PER USER, GROUP SELECTED, AND TYPE:  ONLY ACTIVE, AMD ONLY BACTIVE OR CACTIVE -->
+  <groups>
+    <group>
+      <Groupid><![CDATA[124]]></Groupid>
+      <Group_Abbreviation><![CDATA[SOS]]></Group_Abbreviation>
+      <Group_Name><![CDATA[Save Our Saugahatchee]]></Group_Name>
+      <Date_Established><![CDATA[1/1/2010]]></Date_Established>
+      <DateEntered><![CDATA[3/3/2011]]></DateEntered>
+    </group>
+    <group>
+      <Groupid><![CDATA[115]]></Groupid>
+      <Group_Abbreviation><![CDATA[LWLM]]></Group_Abbreviation>
+      <Group_Name><![CDATA[Lake Watch of Lake Martin]]></Group_Name>
+      <Date_Established><![CDATA[5/5/2010]]></Date_Established>
+      <DateEntered><![CDATA[7/7/2011]]></DateEntered>
+    </group>
+    <group>
+      <Groupid><![CDATA[129]]></Groupid>
+      <Group_Abbreviation><![CDATA[FCCUW]]></Group_Abbreviation>
+      <Group_Name><![CDATA[Friends of Chewacla Creek and the Uphapee Watershed]]></Group_Name>
+      <Date_Established><![CDATA[1/1/2010]]></Date_Established>
+      <DateEntered><![CDATA[3/3/2011]]></DateEntered>
+    </group>
+    <group>
+      <Groupid><![CDATA[131]]></Groupid>
+      <Group_Abbreviation><![CDATA[FCCUW]]></Group_Abbreviation>
+      <Group_Name><![CDATA[Jake and Donny Water Watch]]></Group_Name>
+      <Date_Established><![CDATA[4/4/2010]]></Date_Established>
+      <DateEntered><![CDATA[5/5/2011]]></DateEntered>
+    </group>
+  </groups>
+</response>

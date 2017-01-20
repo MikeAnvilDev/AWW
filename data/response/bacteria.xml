@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<response>
+  <!-- MUST BE RETURNED -->
+  <status>ok</status>
+  <!-- MUST BE RETURNED -->
+  <token>aaaaaaa.bbbbbbbb.cccccccc</token>
+  <site>
+    <!-- MUST BE RETURNED -->
+    <AwwSiteCode>10025046</AwwSiteCode>
+    <Active>True</Active>
+    <BActive>True</BActive>
+    <CActive>True</CActive>
+    <MActive>True</MActive>
+    <HUC11>031601100403</HUC11>
+    <HUC8></HUC8>
+    <HUC6></HUC6>
+    <HUC4></HUC4>
+    <State>AL</State>
+    <County>Winston</County>
+    <ZipCode></ZipCode>
+    <latitude></latitude>
+    <Longitude></Longitude>
+    <Waterbody_Name></Waterbody_Name>
+    
+    <Watershed>Warrior</Watershed>
+    <Location></Location>
+  </site>
+  <user>
+    <!-- MUST BE RETURNED -->
+    <ContactID>123</ContactID>
+    <FirstName>Eric</FirstName>
+    <LastName>Reutebuch</LastName>
+    <ActiveUser>True</ActiveUser>
+  </user>
+  <group>
+    <!-- MUST BE RETURNED -->
+    <Groupid><![CDATA[124]]></Groupid>
+    <Group_Abbreviation><![CDATA[SOS]]></Group_Abbreviation>
+    <Group_Name><![CDATA[Save Our Saugahatchee]]></Group_Name>
+    <Date_Established><![CDATA[1/1/2010]]></Date_Established>
+    <DateEntered><![CDATA[3/3/2011]]></DateEntered>
+  </group>
+  <entry>
+    <!-- ONLY RETURNED IF nbpk IS SENT -->
+    <nbpk></nbpk>
+    <sampleDate></sampleDate>
+    <sampleTime></sampleTime>
+    <streams></streams>
+    <tides></tides>
+    <AirTemp></AirTemp>
+    <WaterTemp></WaterTemp>
+    <sampVolume></sampVolume>
+    <incubtime></incubtime>
+    <incubtemp></incubtemp>
+    <incubperiod></incubperiod>
+    <expdate></expdate>
+    <plate></plate>
+    <missing-WasTransportedOnIce></missing-WasTransportedOnIce>
+    <ecoli1></ecoli1>
+    <ocoli1></ocoli1>
+    <missing-ColonyCategory1></missing-ColonyCategory1>
+    <ecoli2></ecoli2>
+    <ocoli2></ocoli2>
+    <missing-ColonyCategory2></missing-ColonyCategory2>
+    <ecoli3></ecoli3>
+    <ocoli3></ocoli3>
+    <missing-ColonyCategory3></missing-ColonyCategory3>
+    <ttlecoli></ttlecoli>
+    <ttlocoli></ttlocoli>
+    <Comments></Comments>
+  </entry>
+</response>

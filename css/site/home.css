@@ -1,0 +1,11 @@
+﻿body {
+    background-color: #3d7454;
+}
+main h1{
+    padding: 16px;
+    font-family: Oswald, Arial, Verdana, sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: #ffffff;
+    text-align: center;
+}

@@ -1,0 +1,117 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<widget xmlns = "http://www.w3.org/ns/widgets"
+   xmlns:gap = "http://apache.org/cordova/ns/plugins/1.0" id = "com.AnvilDev.AWW" version = "0.1" versionCode="1">
+
+  <name>AWW Data Entry</name>
+
+  <description>
+    Alabama Water Watch - Data Entry App
+  </description>
+
+  <author>
+    Lee Anderson and Mike Reutebuch
+  </author>
+
+  <preference name="orientation" value="portrait" />
+  <preference name="fullscreen" value="true" />
+  <preference name="detect-data-types" value="false" />
+  
+  <!-- ios overscroll -->
+  <preference name="disallowOverscroll" value="true" />
+  <!-- android overscroll -->
+  <preference name="DisallowOverscroll" value="true" />
+  <!-- ios and android bounce -->
+  <preference name="webviewbounce" value="false" />
+  
+  <gap:plugin name="cordova-plugin-geolocation" source="npm" version="2.4.0" />
+  <gap:plugin name="cordova-plugin-inappbrowser" source="npm" version="1.5.0" />
+  <gap:plugin name="cordova-plugin-whitelist" source="npm" version="1.3.0" />
+  
+  <allow-intent href="http://*/*" />
+  <allow-intent href="https://*/*" />
+  <allow-intent href="sms:*" />
+  <allow-intent href="tel:*" />
+  <allow-intent href="geo:*" />
+  <allow-intent href="mailto:*" />
+    
+  <access origin="*" />
+
+  <!-- iOS-->
+  <feature name="InAppBrowser">
+    <param name="ios-package" value="CDVInAppBrowser" /> 
+  </feature>
+  <!-- Android-->
+  <feature name="InAppBrowser"> 
+    <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser"/>
+  </feature>
+  <!-- Windows Phone 7 and 8-->
+  <feature name="InAppBrowser">
+    <param name="wp-package" value="InAppBrowser"/>
+  </feature>
+  
+  <!-- Icons -->
+  <!-- iPhone 6 / 6+ ios 7.0+ -->
+  <icon src="res/icon/icon-60@3x.png" platform="ios" width="180" height="180" />
+  <!-- iPhone / iPod Touch ios 7.0+  -->
+  <icon src="res/icon/icon-60.png" platform="ios" width="60" height="60" />
+  <icon src="res/icon/icon-60@2x.png" platform="ios" width="120" height="120" />
+  <!-- iPad ios 7.0+ -->
+  <icon src="res/icon/icon-76.png" platform="ios" width="76" height="76" />
+  <icon src="res/icon/icon-76@2x.png" platform="ios" width="152" height="152" />
+  <!-- Settings Icon ios 7.0+ -->
+  <icon src="res/icon/icon-29.png" platform="ios" width="29" height="29" />
+  <icon src="res/icon/icon-29@2x.png" platform="ios" width="58" height="58" />
+  <!-- Spotlight Icon ios 7.0+ -->
+  <icon src="res/icon/icon-40.png" platform="ios" width="40" height="40" />
+  <icon src="res/icon/icon-40@2x.png" platform="ios" width="80" height="80" />
+ 
+  <!-- iPhone / iPod Touch ios 6.1 -->
+  <icon src="res/icon/icon.png" platform="ios" width="57" height="57" />
+  <icon src="res/icon/icon@2x.png" platform="ios" width="114" height="114" />
+  <!-- iPad ios 6.1 -->
+  <icon src="res/icon/icon-72.png" platform="ios" width="72" height="72" />
+  <icon src="res/icon/icon-72@2x.png" platform="ios" width="144" height="144" />
+  <!-- iPhone Spotlight and Settings Icon ios 6.1 -->
+  <icon src="res/icon/icon-29.png" platform="ios" width="29" height="29" />
+  <icon src="res/icon/icon-29@2x.png" platform="ios" width="58" height="58" />
+  <!-- iPad Spotlight and Settings Icon ios 6.1 -->
+  <icon src="res/icon/icon-50.png" platform="ios" width="50" height="50" />
+  <icon src="res/icon/icon-50@2x.png" platform="ios" width="100" height="100" />
+  
+  <!-- android -->
+  <icon src="res/icon/mdpi-48.png" platform="android" qualifier="mdpi" />
+  <icon src="res/icon/hdpi-72.png" platform="android" qualifier="hdpi" />
+  <icon src="res/icon/xhdpi-96.png" platform="android" qualifier="xhdpi" />
+  <icon src="res/icon/xxhdpi-144.png" platform="android" qualifier="xxhdpi" />
+  <icon src="res/icon/xxxhdpi-192.png" platform="android" qualifier="fr-xxhdpi" />
+  
+  
+  
+  <!-- Splash Screens -->
+  <splash src="splash.png" />  
+  <!-- iPhone and iPod touch -->
+  <splash src="res/splash/ios-320x480.png" platform="ios" width="320" height="480" />
+  <splash src="res/splash/ios-320x480@2x.png" platform="ios" width="640" height="960" />
+  <!-- iPhone 5 / iPod Touch (5th Generation) -->
+  <splash src="res/splash/ios-320x568@2x.png" platform="ios" width="640" height="1136" />
+  <!-- iPhone 6 -->
+  <splash src="res/splash/ios-375x667@2x.png" platform="ios" width="750" height="1334" />
+  <splash src="res/splash/ios-portrait-414x736@3x.png" platform="ios" width="1242" height="2208" />
+  <splash src="res/splash/ios-landscape-414x736@3x.png" platform="ios" width="2208" height="1242" />
+  <!-- iPad -->
+  <splash src="res/splash/ios-portrait-768x1024.png" platform="ios" width="768" height="1024" />
+  <splash src="res/splash/ios-landscape-768x1024.png" platform="ios" width="1024" height="768" />
+  <!-- Retina iPad -->
+  <splash src="res/splash/ios-portrait-768x1024@2x.png" platform="ios" width="1536" height="2048" />
+  <splash src="res/splash/ios-landscape-768x1024@2x.png" platform="ios" width="2048" height="1536" />
+  <!-- android -->
+  <splash src="res/splash/android-ldpi-200x320.png" platform="android" qualifier="ldpi" />
+  <splash src="res/splash/android-mdpi-320x480.png" platform="android" qualifier="mdpi" />
+  <splash src="res/splash/android-hdpi-480x800.png" platform="android" qualifier="hdpi" />
+  <splash src="res/splash/android-xhdpi-720x1280.png" platform="android" qualifier="xhdpi" />
+  <splash src="res/splash/android-xxhdpi-960x1600.png" platform="android" qualifier="port-xxhdpi" />
+  <splash src="res/splash/android-xxhdpi-1280x1920.png" platform="android" qualifier="land-xxhdpi" />  
+  <!-- Windows Phone (should be in jpg) -->
+  <splash src="res/splash/winphone/splash.jpg" platform="winphone" />
+</widget>

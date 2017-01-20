@@ -1,0 +1,724 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Bacteria Monitoring Data Form</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, min-zoom=1, minimum-scale=1, user-scalable=no" />
+
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Oswald:700,400">
+    <link rel="stylesheet" type="text/css" href="../../../css/site/master.css" />
+    <link rel="stylesheet" type="text/css" href="../../../css/site/section-selector.css" />
+    <link rel="stylesheet" type="text/css" href="../../../css/site/form.css" />
+    <link rel="stylesheet" type="text/css" href="../../../css/data-entry/master.css" />
+
+    <script type="text/javascript" src="../../../js/site/jquery.min.js"></script>
+    <script type="text/javascript" src="../../../js/site/master.js"></script>
+    <script type="text/javascript" src="../../../js/data-entry/common.js"></script>
+    <script type="text/javascript" src="../../../js/data-entry/form-validation.js"></script>
+
+    <script>
+        function retrieveEntry(loadedIncomplete) {
+            console.log('retrieving entry');
+            var token = getToken();
+            if(token != null){
+                var query = "?token=" + token;
+                if ($('#nbpk').val().length > 0)
+                    query += '&nbpk=' + $('#nbpk').val();
+                ajaxRequest = $.ajax({
+                    url: "../../response/bacteria.xml" + query,
+                    cache: false,
+                    beforeSend: function (xhr) {
+                        xhr.overrideMimeType("text/plain; charset=x-user-defined");
+                    }
+                }).done(function (data) {
+                    console.log('ajax done');
+                    var $xml = $($.parseXML(data));
+                    console.log('checking xml');
+                    if (checkForToken($xml)) {
+                        console.log('token passed');
+                        if (checkStatus($xml)) {
+                            console.log('status passed');
+                            $response = $xml.find("response");
+                            parseGroup($response);
+                            parseUser($response);
+                            parseSite($response);
+                            if (!loadedIncomplete)
+                                parseEntry($response);
+
+                            setUpAutoSave();
+                        } else
+                            console.log('status failed');
+
+                    }
+                }).fail(function () { });
+            }else
+                clearToken();
+        }
+
+        function parseGroup($xml) {
+            var groupObject = createGroupObject($xml);
+            if (groupObject != null) {
+                $('#Groupid').val(groupObject.Groupid);
+                $('#Group_Name').val(groupObject.Group_Name);
+                $('#Group_Abbreviation').val(groupObject.Group_Abbreviation);
+            } else
+                location.href = "../bacteria-sites/index.html?error=Group was not found.";
+        }
+        function parseUser($xml) {
+            var userObject = createUserObject($xml);
+            if (userObject != null) {
+                $('#ContactID').val(userObject.ContactID);
+                $('#collector').val(userObject.collector);
+            } else
+                location.href = "../bacteria-sites/index.html?error=User was not found.";
+        }
+        function parseSite($xml) {
+            var siteObject = createSiteObject($xml);
+            
+            if (siteObject != null) {
+                $('#AwwSiteCode').val(siteObject.AwwSiteCode);
+                $('#Watershed').val(siteObject.Watershed);
+                $('#Waterbody_Name').val(siteObject.Waterbody_Name);
+                $('#HUC11').val(siteObject.HUC11);
+                $('#County').val(siteObject.County);
+                $('#State').val(siteObject.State);
+                $('#Location').val(siteObject.Location);
+            } else
+                location.href = "../bacteria-sites/index.html?error=Site was not found.";
+        }
+        function parseEntry($xml) {
+            var entryObject = createSiteObject($xml);
+
+            if (entryObject != null) {
+                $('#nbpk').val(entryObject.nbpk);
+                $('#sampleDate').val(entryObject.sampleDate);
+                $('#sampleTime').val(entryObject.sampleTime);
+                $('#streams').val(entryObject.streams);
+                $('#tides').val(entryObject.tides);
+                $('#AirTemp').val(entryObject.AirTemp);
+                $('#WaterTemp').val(entryObject.WaterTemp);
+                $('#sampVolume').val(entryObject.sampVolume);
+                $('#incubtime').val(entryObject.incubtime);
+                $('#incubtemp').val(entryObject.incubtemp);
+                $('#incubperiod').val(entryObject.incubperiod);
+                $('#expdate').val(entryObject.expdate);
+                $('#plate').val(entryObject.plate);
+                $('#WasTransportedOnIce').val(entryObject.WasTransportedOnIce);
+                $('#ecoli1').val(entryObject.ecoli1);
+                $('#ocoli1').val(entryObject.ocoli1);
+                $('#ColonyCategory1').val(entryObject.ColonyCategory1);
+                $('#ecoli2').val(entryObject.ecoli2);
+                $('#ocoli2').val(entryObject.ocoli2);
+                $('#ColonyCategory2').val(entryObject.ColonyCategory2);
+                $('#ecoli3').val(entryObject.ecoli3);
+                $('#ocoli3').val(entryObject.ocoli3);
+                $('#ColonyCategory3').val(entryObject.ColonyCategory3);
+                $('#ttlecoli').val(entryObject.ttlecoli);
+                $('#ttlocoli').val(entryObject.ttlocoli);
+                $('#Comments').val(entryObject.Comments);
+            }
+        }
+
+        function createGroupObject($xml) {
+            var groupObject = new Object();
+            if ($xml.find("Groupid").length > 0) {
+                if ($xml.find("Groupid").text().length > 0) {
+                    groupObject.Groupid = $xml.find("Groupid").text();
+                    groupObject.Group_Name = $xml.find("Group_Name").text();
+                    groupObject.Group_Abbreviation = $xml.find("Group_Abbreviation").text();
+                } else
+                    groupObject = null;
+            } else 
+                groupObject = null;
+
+            return groupObject;
+        }
+        function createUserObject($xml) {
+            var userObject = new Object();
+            if ($xml.find("ContactID").length > 0) {
+                if ($xml.find("ContactID").text().length > 0) {
+                    userObject.ContactID = $xml.find("ContactID").text();
+                    userObject.collector = $xml.find("FirstName").text() + ' ' + $xml.find("FirstName").text();
+                } else
+                    userObject = null;
+            } else
+                userObject = null;
+
+            return userObject;
+        }
+        function createSiteObject($xml) {
+            var siteObject = new Object();
+            if ($xml.find("AwwSiteCode").length > 0) {
+                if ($xml.find("AwwSiteCode").text().length > 0) {
+                    siteObject.AwwSiteCode = $xml.find("AwwSiteCode").text();
+                    siteObject.Watershed = $xml.find("Watershed").text();
+                    siteObject.Waterbody_Name = $xml.find("Waterbody_Name").text();
+                    siteObject.HUC11 = $xml.find("HUC11").text();
+                    siteObject.County = $xml.find("County").text();
+                    siteObject.State = $xml.find("State").text();
+                    siteObject.Location = $xml.find("Location").text();
+                } else
+                    siteObject = null;
+            } else
+                siteObject = null;
+
+            return siteObject;
+        }
+        function createEntryObject($xml) {
+            var entryObject = new Object();
+            if ($xml.find("nbpk").length > 0) {
+                if ($xml.find("nbpk").text().length > 0) {
+                    entryObject.nbpk = $xml.find("nbpk").text();
+                    entryObject.sampleDate = $xml.find("sampleDate").text();
+                    entryObject.sampleTime = $xml.find("sampleTime").text();
+                    entryObject.streams = $xml.find("streams").text();
+                    entryObject.tides = $xml.find("tides").text();
+                    entryObject.AirTemp = $xml.find("AirTemp").text();
+                    entryObject.WaterTemp = $xml.find("WaterTemp").text();
+                    entryObject.sampVolume = $xml.find("sampVolume").text();
+                    entryObject.incubtime = $xml.find("incubtime").text();
+                    entryObject.incubtemp = $xml.find("incubtemp").text();
+                    entryObject.incubperiod = $xml.find("incubperiod").text();
+                    entryObject.expdate = $xml.find("expdate").text();
+                    entryObject.plate = $xml.find("plate").text();
+                    entryObject.WasTransportedOnIce = $xml.find("WasTransportedOnIce").text();
+                    entryObject.ecoli1 = $xml.find("ecoli1").text();
+                    entryObject.ocoli1 = $xml.find("ocoli1").text();
+                    entryObject.ColonyCategory1 = $xml.find("ColonyCategory1").text();
+                    entryObject.ecoli2 = $xml.find("ecoli2").text();
+                    entryObject.ocoli2 = $xml.find("ocoli2").text();
+                    entryObject.ColonyCategory2 = $xml.find("ColonyCategory2").text();
+                    entryObject.ecoli3 = $xml.find("ecoli3").text();
+                    entryObject.ocoli3 = $xml.find("ocoli3").text();
+                    entryObject.ColonyCategory3 = $xml.find("ColonyCategory3").text();
+                    entryObject.ttlecoli = $xml.find("ttlecoli").text();
+                    entryObject.ttlocoli = $xml.find("ttlocoli").text();
+                    entryObject.Comments = $xml.find("Comments").text();
+                } else
+                    entryObject = null;
+            } else
+                entryObject = null;
+
+            return entryObject;
+        }
+
+        function setUpAutoSave() {
+            console.log('setUp Auto Save');
+            $('form input').blur(function () { storeFormLocally($('#AwwSiteCode').val() + '-bacteria'); });
+            $('form textarea').blur(function () { storeFormLocally($('#AwwSiteCode').val() + '-bacteria'); });
+            $('form select').change(function () { storeFormLocally($('#AwwSiteCode').val() + '-bacteria'); });
+        }
+
+        function loadSiteInformation() {
+            console.log('loading site information');
+            // check for incomplete test
+            // check local storage for siteCode
+            if (loadLocallyStored($('#AwwSiteCode').val() + '-bacteria')) {
+                // loaded previous incomplete test
+                retrieveEntry(true);
+            } else {
+                // no previous incomplete test
+                retrieveEntry(false);
+            }
+        }
+
+
+        $(document).ready(function () {
+            var siteCode = getQueryVariable('AwwSiteCode');
+            if (siteCode.length > 0) {
+                $('#AwwSiteCode').val(siteCode);
+
+                var nbpk = getQueryVariable('nbpk');
+                if (nbpk.length > 0) 
+                    $('#nbpk').val(nbpk);
+               
+                loadSiteInformation();
+                $('#ecoli1, #ecoli2, #ecoli3, #ocoli1, #ocoli2, #ocoli3').keyup(calculateColiformAverage);
+                calculateColiformAverage();
+            } else
+                location.href = '../data-entry/bacteria-sites/index.html';
+        });
+
+
+        function submitEntry() {
+            if (validateForm(this)) {
+                // save form locally
+                storeFormLocally($('#AwwSiteCode').val() + '-bacteria');
+
+                var bacteriaForm = document.getElementById("Bacteria-Entry-Form");
+                var formData = new FormData(bacteriaForm);
+                $.ajax({
+                    url: "../response/bacteria.xml",
+                    data: formData,
+                    cache: false,
+                    processData: false,
+                    contentType: false,
+                    type: 'POST',
+                    headers: {
+                        'token':'token'
+                    },
+                    success: function (data) {
+                        // clear form locally
+                        clearLocallyStoredForm($('#AwwSiteCode').val() + '-bacteria');
+                        $('form').hide();
+                        $('main').append('<div>Data Entry Completed Successfully</div>');
+                    },
+                    error: function (jqXHR, exception) {
+                        var msg = '';
+                        if (jqXHR.status === 0) {
+                            msg = 'Not connect.\n Verify Network.';
+                        } else if (jqXHR.status == 404) {
+                            msg = 'Requested page not found. [404]';
+                        } else if (jqXHR.status == 500) {
+                            msg = 'Internal Server Error [500].';
+                        } else if (exception === 'parsererror') {
+                            msg = 'Requested JSON parse failed.';
+                        } else if (exception === 'timeout') {
+                            msg = 'Time out error.';
+                        } else if (exception === 'abort') {
+                            msg = 'Ajax request aborted.';
+                        } else {
+                            msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                        }
+                    }
+                });
+
+                
+            }
+        }
+        function calculateColiformAverage() {
+            var ecoliTotal = 0;
+            var ecoliCount = 0;
+            var $ecoli1 = $('#ecoli1');
+            var $ecoli2 = $('#ecoli2');
+            var $ecoli3 = $('#ecoli3');
+            if ($ecoli1.val().length > 0) {
+                ecoli1 = parseInt($ecoli1.val());
+                ecoliTotal += ecoli1;
+                ecoliCount++;
+            }
+            if ($ecoli2.val().length > 0) {
+                ecoli2 = parseInt($ecoli2.val());
+                ecoliTotal += ecoli2;
+                ecoliCount++;
+            }
+            if ($ecoli3.val().length > 0) {
+                ecoli3 = parseInt($ecoli3.val());
+                ecoliTotal += ecoli3;
+                ecoliCount++;
+            }
+            var ecoliAvg = "";
+            if (ecoliCount > 0) {
+                ecoliAvg = Math.ceil(ecoliTotal / ecoliCount);
+            }
+            $('#ttlecoli').val(ecoliAvg);
+
+            var ocoliTotal = 0;
+            var ocoliCount = 0;
+            var $ocoli1 = $('#ocoli1');
+            var $ocoli2 = $('#ocoli2');
+            var $ocoli3 = $('#ocoli3');
+            if ($ocoli1.val().length > 0) {
+                ocoli1 = parseInt($ocoli1.val());
+                ocoliTotal += ocoli1;
+                ocoliCount++;
+            }
+            if ($ocoli2.val().length > 0) {
+                ocoli2 = parseInt($ocoli2.val());
+                ocoliTotal += ocoli2;
+                ocoliCount++;
+            }
+            if ($ocoli3.val().length > 0) {
+                ocoli3 = parseInt($ocoli3.val());
+                ocoliTotal += ocoli3;
+                ocoliCount++;
+            }
+            var ocoliAvg = "";
+            if (ocoliCount > 0) {
+                ocoliAvg = Math.ceil(ocoliTotal / ocoliCount);
+            }
+            $('#ttlocoli').val(ocoliAvg);
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <span></span>
+            <div>
+                <a class="data-entry" href="../login/index.html?logout=true">Log Out</a>
+                <ul>
+                    <li><a href="../../../index.html">Home</a></li>
+                    <li><a href="../../site/about-us/index.html">About Us</a></li>
+                    <li><a href="../../site/related-projects/index.html">Related Projects</a></li>
+                    <li><a href="../../site/resources/index.html">Resources</a></li>
+                    <li><a href="../../site/water-data/index.html">Water Data</a></li>
+                    <li><a href="../../site/get-involved/index.html">Get Involved</a></li>
+                    <li><a href="../../site/environmental-ed/index.html">Enviro Edu</a></li>
+                    <li><a href="../../site/store/index.html">Store</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div>
+            <span class="icon"></span>
+        </div>
+        <p class="hamburger"><span>toggle menu</span></p>
+    </header>
+    <main>
+        <h1 class="heading">Bacterial Monitoring Data Form</h1>
+        <p class="breadcrumbs"><a href="../type/index.html">Data Types</a> &raquo; <a href="../bacteria-sites/index.html">Locations</a> &raquo; Data Form</p>
+        <form id="Bacteria-Entry-Form" class="ml-validation">
+            <section>
+                <input type="hidden" id="collectorID" />
+                <h2>Alabama Water Watch</h2>
+                <div class="section">
+                    <h3>Monitor and Site</h3>
+                    <div class="entry-group">
+                        <input type="hidden" readonly="readonly" id="Groupid" />
+                        <div class="entry-wrap">
+                            <label for="Group_Name">Group Name</label>
+                            <input type="text" readonly="readonly" id="Group_Name" />
+                        </div>
+                        <div class="entry-wrap">
+                            <label for="Group_Abbreviation">Group Abbreviation</label>
+                            <input type="text" readonly="readonly" id="Group_Abbreviation" />
+                        </div>
+                        <div class="entry-wrap">
+                            <input type="hidden" readonly="readonly" id="ContactID" />
+                            <label for="collectors">Collector</label>
+                            <input type="text" readonly="readonly" id="collectors" />
+                        </div>
+                        <div class="entry-wrap">
+                            <input type="hidden" readonly="readonly" id="siteID" />
+                            <label for="AwwSiteCode">AWW Site Code</label>
+                            <input type="text" readonly="readonly" id="AwwSiteCode" />
+                        </div>
+                        <div class="entry-wrap">
+                            <label for="Watershed">Watershed</label>
+                            <input type="text" readonly="readonly" id="Watershed" />
+                        </div>
+                        <div class="entry-wrap">
+                            <label for="Waterbody_Name">Waterbody Name</label>
+                            <input type="text" readonly="readonly" id="Waterbody_Name" />
+                        </div>
+                        <div class="entry-wrap">
+                            <label for="HUC11">HUC11</label>
+                            <input type="text" readonly="readonly" id="HUC11" />
+                        </div>
+                        <div class="entry-wrap">
+                            <label for="HUC8">HUC8</label>
+                            <input type="text" readonly="readonly" id="HUC8" />
+                        </div>
+                        <div class="entry-wrap">
+                            <label for="HUC6">HUC6</label>
+                            <input type="text" readonly="readonly" id="HUC6" />
+                        </div>
+                        <div class="entry-wrap">
+                            <label for="HUC4">HUC4</label>
+                            <input type="text" readonly="readonly" id="HUC4" />
+                        </div>
+                        <div class="entry-wrap">
+                            <label for="county">County</label>
+                            <input type="text" readonly="readonly" id="county" />
+                        </div>
+                        <div class="entry-wrap">
+                            <label for="State">State</label>
+                            <input type="text" readonly="readonly" id="State" />
+                        </div>
+                        <div class="entry-wrap">
+                            <label for="Description">Sample Site Location</label>
+                            <input type="text" readonly="readonly" id="Description" value="" />
+                            <p>
+                                (Be consistent. If the location has changed since the site was last sampled, note change in comments below.)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="section ml-val-container">
+                    <input type="hidden" readonly="readonly" id="nbpk" />
+                    <h3>Sample Date and Time</h3>
+                    <div class="entry-group">
+                        <div class="entry-wrap">
+                            <label for="sampleDate">Sample Date</label>
+                            <input type="date" id="sampleDate"
+                                   ml-val ml-val-required="true" ml-val-type="date"
+                                   ml-val-min="" ml-val-max="0" ml-val-label="Sample Date" />
+                        </div>
+                        <div class="entry-wrap">
+                            <label for="sampleTime">Sample Time</label>
+                            <input type="time" id="sampleTime"
+                                   ml-val ml-val-required="true" ml-val-type="time"
+                                   ml-val-min="0:00" ml-val-max="23:59" ml-val-label="Sample Time" />
+                        </div>
+                        <div class="entry-wrap">
+                            <label for="monitor">Monitor</label>
+                            <select>
+                                <option>select a monitor</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="section ml-val-container">
+                    <h3>Field Conditions</h3>
+                    <div class="entry-group">
+                        <div class="entry-wrap">
+                            <label for="streams">Waterbody Condition</label>
+                            <select id="streams"
+                                    ml-val ml-val-required="true" ml-val-invalid-indexes="0" ml-val-label="Waterbody Condition">
+                                <option value="">-- select one --</option>
+                                <option value="1">Adequate Depth</option>
+                                <option value="2">Inadequate Depth</option>
+                                <option value="3">Dry</option>
+                                <option value="4">No Access</option>
+                            </select>
+                        </div>
+                        <div class="entry-wrap">
+                            <label for="tides">Tidally Influenced Streams &amp; Rivers</label>
+                            <select id="tides"
+                                    ml-val ml-val-required="true" ml-val-invalid-indexes="0" ml-val-label="Tidally Influenced Streams and Rivers">
+                                <option value="">-- select one --</option>
+                                <option value="1" id="TideIdGroup">Rising Tide</option>
+                                <option value="2">Falling Tide</option>
+                                <option value="3">Uncertain</option>
+                                <option value="4">Not Applicable</option>
+                            </select>
+                        </div>
+                        <div class="entry-wrap">
+                            <label for="AirTemp">Air Temperature</label>
+                            <div class="right-units-wrap">
+                                <input type="number" id="AirTemp"
+                                        ml-val ml-val-required="true" ml-val-type="number" ml-val-format="integer"
+                                        ml-val-min="" ml-val-max="" ml-val-label="Air Temperature" />
+                                <span>°C</span>
+                            </div>
+                            <p>Handle thermometer with care</p>
+                        </div>
+                        <div class="entry-wrap">
+                            <label for="WaterTemp">Water Temperature</label>
+                            <div class="right-units-wrap">
+                                <input type="number" id="WaterTemp"
+                                        ml-val ml-val-required="true" ml-val-type="number" ml-val-format="integer"
+                                        ml-val-min="" ml-val-max="" ml-val-label="Water Temperature" />
+                                <span>°C</span>
+                            </div>
+                            <p>Handle thermometer with care</p>
+                        </div>
+                        <div class="entry-wrap">
+                            <label for="sampVolume">Sample Volume</label>
+                            <div class="right-units-wrap">
+                                <select id="sampVolume"
+                                        ml-val ml-val-required="true" ml-val-invalid-indexes="0" ml-val-label="Sample Volume">
+                                    <option value="">-- select sample volume --</option>
+                                    <option value="0.25">0.25</option>
+                                    <option value="0.5">0.5</option>
+                                    <option value="0.75">0.75</option>
+                                    <option value="1">1</option>
+                                    <option value="1.25">1.25</option>
+                                    <option value="1.5">1.5</option>
+                                    <option value="1.75">1.75</option>
+                                    <option value="2">2</option>
+                                    <option value="2.25">2.25</option>
+                                    <option value="2.5">2.5</option>
+                                    <option value="2.75">2.75</option>
+                                    <option value="3">3</option>
+                                    <option value="3.25">3.25</option>
+                                    <option value="3.5">3.5</option>
+                                    <option value="3.75">3.75</option>
+                                    <option value="4">4</option>
+                                    <option value="4.25">4.25</option>
+                                    <option value="4.5">4.5</option>
+                                    <option value="4.75">4.75</option>
+                                    <option value="5">5</option>
+                                </select>
+                                <span>mL</span>
+                            </div>
+                            <p>Use same Volume for all replicates</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="section ml-val-container">
+                    <h3>Incubation Conditions</h3>
+                    <div class="entry-group">
+                        <div class="entry-wrap">
+                            <label for="incubtime">Incubation Start Time</label>
+                            <input type="time" id="incubtime"
+                                    ml-val ml-val-required="true" ml-val-type="time"
+                                    ml-val-min="0:00" ml-val-max="23:59" ml-val-label="Incubation Start Time" />
+                        </div>
+                        <div class="entry-wrap">
+                            <label for="incubtemp">Incubation Temperature</label>
+                            <div class="right-units-wrap">
+                                <input type="text" id="incubtemp"
+                                        ml-val ml-val-required="true" ml-val-type="number" ml-val-format="integer"
+                                        ml-val-min="29" ml-val-max="37" ml-val-label="Incubation Temperature" />
+                                <span>°C</span>
+                            </div>
+                            <p>Incubate between 29-37°C</p>
+                        </div>
+                        <div class="entry-wrap">
+                            <label for="incubperiod">Incubation Period</label>
+                            <div class="right-units-wrap">
+                                <input type="text" id="incubperiod"
+                                        ml-val ml-val-required="true" ml-val-type="number" ml-val-format="integer"
+                                        ml-val-min="1" ml-val-max="48" ml-val-label="Incubation Period" />
+                                <span>hours</span>
+                            </div>
+                            <p>Incubate no more than 48 hours</p>
+                        </div>
+                        <div class="entry-wrap">
+                            <label for="expdate">Sample Media Expiration Date</label>
+                            <input type="date" id="expdate"
+                                    ml-val ml-val-required="true" ml-val-type="date"
+                                    ml-val-min="" ml-val-max="" ml-val-label="Sample Media Expiration Date" />
+                        </div>
+                        <div class="entry-wrap">
+                            <label for="plate">Plated on Site</label>
+                            <select id="plate"
+                                    ml-val ml-val-required="true" ml-val-invalid-indexes="0" ml-val-label="Plated on Site">
+                                <option value="">-- select one --</option>
+                                <option value="True">Yes, plated on site</option>
+                                <option value="False">No, not plated on site</option>
+                            </select>
+                            <p>If possible, plate off sampling site</p>
+                        </div>
+                        <div class="entry-wrap">
+                            <label for="WasTransportedOnIce">Transported On Ice</label>
+                            <select id="WasTransportedOnIce"
+                                    ml-val ml-val-required="true" ml-val-invalid-indexes="0" ml-val-label="Transported On Ice">
+                                <option value="">-- select one --</option>
+                                <option value="True">&lt; 3 hours</option>
+                                <option value="False">No Ice, &lt; 30 minutes</option>
+                            </select>
+                            <p>Media should be plated within 3 hrs on Ice and 30 mins without ice</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="section ml-val-container">
+                    <h3>Replicate 1</h3>
+                    <div class="entry-group">
+                        <div class="entry-wrap">
+                            <label for="ecoli1"># E.coli colonies per plate</label>
+                            <input type="text" id="ecoli1"
+                                    ml-val ml-val-required="true" ml-val-type="number" ml-val-format="integer"
+                                    ml-val-min="" ml-val-max="" ml-val-label="E. Coli Count" />
+                            <p>blue-green to dark blue-purple</p>
+                        </div>
+                        <div class="entry-wrap">
+                            <label for="ocoli1"># Other coliform colonies per plate</label>
+                            <input type="text" id="ocoli1"
+                                    ml-val ml-val-required="true" ml-val-type="number" ml-val-format="integer"
+                                    ml-val-min="" ml-val-max="" ml-val-label="General Coli Count" />
+                            <p>pink to dark red</p>
+                        </div>
+                        <div class="entry-wrap">
+                            <label for="ColonyCategory1"># Total Colonies</label>
+                            <select id="ColonyCategory1"
+                                    ml-val ml-val-required="true" ml-val-invalid-indexes="0" ml-val-label="Total Colonies Count">
+                                <option value="">-- select one --</option>
+                                <option value="1">No Colonies</option>
+                                <option value="2">Rare (1-9)</option>
+                                <option value="3">Common (10-100)</option>
+                                <option value="4">Abundant (101-199)</option>
+                                <option value="5">Too Numerous to Count (&gt; 199)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <h3>Replicate 2</h3>
+                    <div class="entry-group">
+                        <div class="entry-wrap">
+                            <label for="ecoli2"># E.coli colonies per plate</label>
+                            <input type="text" id="ecoli2"
+                                    ml-val ml-val-required="true" ml-val-type="number" ml-val-format="integer"
+                                    ml-val-min="" ml-val-max="" ml-val-label="E. Coli Count" />
+                        </div>
+                        <div class="entry-wrap">
+                            <label for="ocoli2"># Other coliform colonies per plate</label>
+                            <input type="text" id="ocoli2"
+                                    ml-val ml-val-required="true" ml-val-type="number" ml-val-format="integer"
+                                    ml-val-min="" ml-val-max="" ml-val-label="General Coli Count" />
+                        </div>
+                        <div class="entry-wrap">
+                            <label for="ColonyCategory2"># Total Colonies</label>
+                            <select id="ColonyCategory2"
+                                    ml-val ml-val-required="true" ml-val-invalid-indexes="0" ml-val-label="Total Colonies Count">
+                                <option value="">-- select one --</option>
+                                <option value="1">No Colonies</option>
+                                <option value="2">Rare (1-9)</option>
+                                <option value="3">Common (10-100)</option>
+                                <option value="4">Abundant (101-199)</option>
+                                <option value="5">Too Numerous to Count (&gt; 199)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <h3>Replicate 3</h3>
+                    <div class="entry-group">
+                        <div class="entry-wrap">
+                            <label for="ecoli3"># E.coli colonies per plate</label>
+                            <input type="text" id="ecoli3"
+                                    ml-val ml-val-required="true" ml-val-type="number" ml-val-format="integer"
+                                    ml-val-min="" ml-val-max="" ml-val-label="E. Coli Count" />
+                        </div>
+                        <div class="entry-wrap">
+                            <label for="ocoli3"># Other coliform colonies per plate</label>
+                            <input type="text" id="ocoli3"
+                                    ml-val ml-val-required="true" ml-val-type="number" ml-val-format="integer"
+                                    ml-val-min="" ml-val-max="" ml-val-label="General Coli Count" />
+                        </div>
+                        <div class="entry-wrap">
+                            <label for="ColonyCategory3"># Total Colonies</label>
+                            <select id="ColonyCategory3"
+                                    ml-val ml-val-required="true" ml-val-invalid-indexes="0" ml-val-label="Total Colonies Count">
+                                <option value="">-- select one --</option>
+                                <option value="1">No Colonies</option>
+                                <option value="2">Rare (1-9)</option>
+                                <option value="3">Common (10-100)</option>
+                                <option value="4">Abundant (101-199)</option>
+                                <option value="5">Too Numerous to Count (&gt; 199)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <h3>Results Average</h3>
+                    <div class="entry-group">
+                        <div class="entry-wrap">
+                            <label for="ttlecoli">Calculated E. Coli (Average)</label>
+                            <div class="right-units-wrap">
+                                <input type="text" readonly="readonly" disabled id="ttlecoli" />
+                                <span class="small">CFU/100mL</span>
+                            </div>
+                        </div>
+                        <div class="entry-wrap">
+                            <label for="ttlocoli">Other coliforms (Average)</label>
+                            <div class="right-units-wrap">
+                                <input type="text" readonly="readonly" disabled id="ttlocoli" />
+                                <span class="small">CFU/100mL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section">
+                    <h3>Additional Information</h3>
+                    <div>
+                        <label for="Comments">Comments</label>
+                        <textarea id="Comments" cols="20" rows="2"></textarea>
+                    </div>
+                </div>
+
+            </section>
+            <div class="authorization">
+                <h2>Submitted by: <span>Eric Reutebuch</span></h2>
+                <div class="panel-body form-group">
+                    <label>
+                        <input data-val="true" data-val-required="The CertificationConfirmation field is required." id="CertificationConfirmation" name="CertificationConfirmation" type="checkbox" value="true" />
+                        <input name="CertificationConfirmation" type="hidden" value="false" />  Check to confirm that I am or we are certified in AWW Bacteriological Monitoring and the sample media used were within their expiration date.
+                    </label>
+
+                    <span class="field-validation-valid control-label" data-valmsg-for="CertificationConfirmation" data-valmsg-replace="true"></span>
+                </div>
+
+                <input type="submit" class="btn btn-success" value="Submit" onclick="submitEntry(); return false;" />
+            </div>
+        </form>
+    </main>
+</body>
+</html>
