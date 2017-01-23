@@ -1,0 +1,228 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>About Us</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="../../../css/site/master.css" />
+    <style>
+        #GraphOptions{
+            overflow:hidden;
+        }
+            #GraphOptions div.y1-options{
+                float: left;
+                width: 50%;
+                padding: 8px 4px 4px 8px;
+
+                -moz-box-sizing: border-box;
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+            }
+            #GraphOptions div.y2-options{
+                float: left;
+                width: 50%;
+                padding: 4px 4px 4px 8px;
+
+                -moz-box-sizing: border-box;
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+            }
+            #GraphOptions div.range{
+                float: left;
+                width: 50%;
+                padding: 8px 8px 4px 4px;
+
+                -moz-box-sizing: border-box;
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+            }
+            #GraphOptions div.type{
+                float: left;
+                width: 50%;
+                padding: 4px 8px 4px 4px;
+
+                -moz-box-sizing: border-box;
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+            }
+            #GraphOptions div div.options{
+                display: block;
+            }
+        #GraphWrap{
+            position: relative;
+            width: 100%;
+        }
+        #GraphWrap iframe{
+            position: absolute;
+            top: 0px;
+            bottom: 0px;
+            left: 0px;
+            right: 0px;
+            width: 100%;
+            height: 100%;
+            border: 0px;
+        }
+    </style>
+
+    <script type="text/javascript" src="../../../js/site/jquery.min.js"></script>
+    <script type="text/javascript" src="../../../js/site/master.js"></script>
+    <script>
+        var siteCode = "";
+        var siteID = "";
+        var waterBody = "";
+        var latitude = "";
+        var longitude = "";
+        var description = "";
+
+
+        function sizeChart() {
+            var availableHeight = $(window).height();
+            var headerHeight = $('header').outerHeight();
+            var titleHeight = $('main h1').outerHeight();
+            var height = availableHeight - headerHeight - titleHeight;
+            $('#GraphWrap').css({ height: height });
+        }
+        function loadChart() {
+            var query = new Array();
+            query.push("SiteCode=" + siteCode);
+            query.push("siteID=" + siteID);
+            query.push("Y1=" + $('#PlotY1axis').val());
+            query.push("Y1Min=" + $('#PlotY1min').val());
+            query.push("Y1Max=" + $('#PlotY1max').val());
+            query.push("Y2=" + $('#PlotY2axis').val());
+            query.push("Y2Min=" + $('#PlotY2min').val());
+            query.push("Y2Max=" + $('#PlotY2max').val());
+            query.push("sec=" + "");
+            query.push("sal=" + "");
+            query.push("Trend=" + "");
+            var fromDate = $('#PlotFromDate').val().split('-');
+            var startDate = fromDate[1] + '/1/' + fromDate[0];
+            query.push("dateafter=" + "");
+            query.push("datebefore=" + "");
+            query.push("Waterbody=" + waterBody);
+            query.push("Latitude=" + latitude);
+            query.push("Longitude=" + longitude);
+            query.push("Description=" + description);
+        }
+        function getQueryVariable(variable) {
+            var query = window.location.search.substring(1);
+            var vars = query.split("&");
+            for (var i = 0; i < vars.length; i++) {
+                var pair = vars[i].split("=");
+                if (pair[0] == variable) { return pair[1]; }
+            }
+            return '';
+        }
+
+        $(document).ready(function () {
+            $('#PlotFromDate').blur(function () {
+                console.log($(this).val());
+            });
+            $('#PlotToDate').blur(function () {
+                console.log($(this).val());
+            });
+
+            siteCode = getQueryVariable('SiteCode');
+            siteID = getQueryVariable('siteID');
+            waterBody = getQueryVariable('waterBody');
+            latitude = getQueryVariable('latitude');
+            longitude = getQueryVariable('longitude');
+            description = getQueryVariable('description');
+
+            sizeChart();
+            $(window).resize(sizeChart);            
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <span></span>
+            <div>
+                <ul>
+                    <li><a href="../../../index.html">Home</a></li>
+                    <li><a href="../about-us/index.html">About Us</a></li>
+                    <li><a href="../related-projects/index.html">Related Projects</a></li>
+                    <li><a href="../resources/index.html">Resources</a></li>
+                    <li><a href="../water-data/index.html">Water Data</a></li>
+                    <li><a href="../get-involved/index.html">Get Involved</a></li>
+                    <li><a href="../environmental-ed/index.html">Enviro Edu</a></li>
+                    <li><a href="../store/index.html">Store</a></li>
+                </ul>
+                <a class="data-entry" href="../../data-entry/login/index.html">Data Entry</a>
+            </div>
+        </nav>
+        <div>
+            <a href="../../../index.html" class="icon"></a>
+        </div>
+        <p class="hamburger"><span>toggle menu</span></p>
+        <h1>Alabama Water Watch</h1>
+    </header>
+    <main>
+        <h1 class="heading">Chemistry Data</h1>
+        <p class="breadcrumbs"><a href="../../../index.html">Home</a> &raquo; <a href="index.html">Water Data</a> &raquo; Chemistry</p>
+        <div id="GraphOptions">
+            <div class="y1-options">
+                <label>Y1 Axis Data and Range</label>
+                <div class="options">
+                    <select id="PlotY1axis">
+                        <option selected="selected" value="0">Water temperature</option>
+                        <option value="1">pH</option>
+                        <option value="2">Dissolved oxygen</option>
+                        <option value="3">Oxygen saturation</option>
+                        <option value="4">Total Hardness</option>
+                        <option value="5">Total Alkalinity</option>
+                        <option value="6">Turbidity</option>
+                        <option value="7">Salinity</option>
+                    </select>
+                    <div class="min">
+                        <label for="PlotY1min">Y1 Minimum</label>
+                        <input type="number" id="PlotY1min" />
+                    </div>
+                    <div class="max">
+                        <label for="PlotY1max">Y1 Maximum</label>
+                        <input type="number" id="PlotY1max" />
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="range">
+                <label>X Axis Range</label>
+                <div class="options">
+                    <label for="PlotFromDate">From</label><input type="month" id="PlotFromDate" />
+                    <label for="PlotToDate">To</label><input type="month" id="PlotToDate" />
+                </div>
+            </div>
+            <div class="y2-options">
+                <label>Y2 Axis Data and Range</label>
+                <div class="options">
+                    <select id="PlotY2axis">
+                        <option value="0">none</option>
+                        <option value="1">Air temperature</option>
+                        <option value="2">Water temperature</option>
+                        <option value="3">pH</option>
+                        <option value="4">Dissolved oxygen</option>
+                        <option value="5">Oxygen saturation</option>
+                        <option value="6">Total Hardness</option>
+                        <option value="7">Total Alkalinity</option>
+                        <option value="8">Turbidity</option>
+                        <option value="9">Salinity</option>
+                    </select>
+                    <input type="number" id="PlotY2min" />
+                    <input type="number" id="PlotY2max" />
+                </div>
+            </div>
+            <div class="type">
+                <select name="PlotType" id="PlotType">
+                    <option selected="selected" value="0">Bar</option>
+                    <option value="1">TrendLine</option>
+                </select>
+            </div>
+        </div>
+        <div id="GraphWrap">
+            <iframe src="https://web.auburn.edu/aww/charts/bacCharts.aspx?SiteCode=08058006&Y1=0&Y2=0&Y2Max=0&Y2Min=0&eMax=333&FYr=2003&TYr=2006&FMon=12&TMon=8&BacCt=15&ChemCt=18&tMax=0&siteID=1721&Waterbody=Cane%20Creek%20trib&Latitude=34.6&Longitude=-87.8&Trend=0&Y1Min=0&Y1Max=333&sec=0&sal=0&Description=7.5%20mi%20S%20of%20U.S.%20Hwy%2072"></iframe>
+        </div>
+    </main>
+</body>
+</html>

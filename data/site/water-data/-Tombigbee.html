@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Tombigbee Basin</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="../../../css/site/master.css" />
+    <link rel="stylesheet" type="text/css" href="../../../css/site/section-selector.css" />
+    <link rel="stylesheet" type="text/css" href="../../../css/site/water-data.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Oswald:700,400">
+
+    <script type="text/javascript" src="../../../js/site/jquery.min.js"></script>
+    <script type="text/javascript" src="../../../js/site/master.js"></script>
+    <script type="text/javascript" src="../../../js/site/section-selector.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcTMT0DVoMWt9IURdklqtRJMawlSoeoLw"></script>
+    <script type="text/javascript" src="../../../js/site/infobox.js"></script>
+    <script type="text/javascript" src="../../../js/site/water-data.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <span></span>
+            <div>
+                <ul>
+                    <li><a href="../../../index.html">Home</a></li>
+                    <li><a href="../about-us/index.html">About Us</a></li>
+                    <li><a href="../related-projects/index.html">Related Projects</a></li>
+                    <li><a href="../resources/index.html">Resources</a></li>
+                    <li><a href="../water-data/index.html">Water Data</a></li>
+                    <li><a href="../get-involved/index.html">Get Involved</a></li>
+                    <li><a href="../environmental-ed/index.html">Enviro Edu</a></li>
+                    <li><a href="../store/index.html">Store</a></li>
+                </ul>
+                <a class="data-entry" href="../../data-entry/login/index.html">Data Entry</a>
+            </div>
+        </nav>
+        <div>
+            <a href="../../../index.html" class="icon"></a>
+        </div>
+        <p class="hamburger"><span>toggle menu</span></p>
+        <h1>Alabama Water Watch</h1>
+    </header>
+    <main>
+        <h1 class="heading">Watershed: Tombigbee</h1>
+        <div>
+            <input type="hidden" id="BasinTableQuery" value="SELECT geometry FROM 14l51BsV68Zypr117LetrLPxusW7KNm4ASbklgAzP" />
+            <input type="hidden" id="WatershedsTableQuery" value="SELECT * FROM 1aSW0qWKgIm3gC3KLUXF2TIoC0QQ-9giceTxcZhaw WHERE col12 IN ('0316020101','0316020102','0316020103','0316020104','0316020105','0316020106','0316020107','0316020108','0316020109','0316020203','0316020204','0316020205','0316020206','0316020207','0316020301','0316020302','0316020303','0316020304','0316020305','0316020306','0316020307','0316011308','0316020308','0316020309','0316020310','0316020311','0317000205','0317000206','0317000302','0317000801','0316010301','0316010302','0316010303','0316010304','0316010305','0316010306','0316010501','0316010502','0316010503','0316010504','0316010505','0316010602','0316010603','0316010604','0316010605','0316010606','0316010607','0316010701','0316010702','0316010703','0316010809','0316010810','0316010811')" />
+            <input type="hidden" id="AwwSitesTableQuery" value="SELECT * FROM 1KDQw051_tZcf-3rUnvVpNiPo6utopq_ZrMNL_RNb WHERE WSID = 09" />
+            <div id="MapWrap">
+                <div id="MapControls">
+                    <label for="HUC-Button"><input type="checkbox" id="HUC-Button" />HUC10 Watersheds</label>
+                    <label for="Sites-Button"><input type="checkbox" id="Sites-Button" />Aww Sites</label>
+                </div>
+                <div id="MapCanvas"></div>
+                <div id="MapOverlay"><img src="../../../res/images/icons/ajax-loader.gif" /><p>initializing map...</p></div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

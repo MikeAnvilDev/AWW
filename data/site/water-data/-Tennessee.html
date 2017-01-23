@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Tennessee River Basin</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="../../../css/site/master.css" />
+    <link rel="stylesheet" type="text/css" href="../../../css/site/section-selector.css" />
+    <link rel="stylesheet" type="text/css" href="../../../css/site/water-data.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Oswald:700,400">
+
+    <script type="text/javascript" src="../../../js/site/jquery.min.js"></script>
+    <script type="text/javascript" src="../../../js/site/master.js"></script>
+    <script type="text/javascript" src="../../../js/site/section-selector.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcTMT0DVoMWt9IURdklqtRJMawlSoeoLw"></script>
+    <script type="text/javascript" src="../../../js/site/infobox.js"></script>
+    <script type="text/javascript" src="../../../js/site/water-data.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <span></span>
+            <div>
+                <ul>
+                    <li><a href="../../../index.html">Home</a></li>
+                    <li><a href="../about-us/index.html">About Us</a></li>
+                    <li><a href="../related-projects/index.html">Related Projects</a></li>
+                    <li><a href="../resources/index.html">Resources</a></li>
+                    <li><a href="../water-data/index.html">Water Data</a></li>
+                    <li><a href="../get-involved/index.html">Get Involved</a></li>
+                    <li><a href="../environmental-ed/index.html">Enviro Edu</a></li>
+                    <li><a href="../store/index.html">Store</a></li>
+                </ul>
+                <a class="data-entry" href="../../data-entry/login/index.html">Data Entry</a>
+            </div>
+        </nav>
+        <div>
+            <a href="../../../index.html" class="icon"></a>
+        </div>
+        <p class="hamburger"><span>toggle menu</span></p>
+        <h1>Alabama Water Watch</h1>
+    </header>
+    <main>
+        <h1 class="heading">Watershed: Tennessee River Basin</h1>
+        <div>
+            <input type="hidden" id="BasinTableQuery" value="SELECT geometry FROM 1JBeyXT00a6wssG6ipLj9FOWwYdmioMqO53JETNTk WHERE col4 = 060300" />
+            <input type="hidden" id="WatershedsTableQuery" value="SELECT * FROM 1aSW0qWKgIm3gC3KLUXF2TIoC0QQ-9giceTxcZhaw WHERE col12 in ('0603000603','0603000602','0603000601','0603000512','0603000510','0603000509','0603000508','0603000507','0603000506','0603000505','0603000503','0603000502','0603000501','0603000404','0603000403','0603000306','0603000212','0603000211','0603000210','0603000209','0603000208','0603000207','0603000206','0603000205','0603000204','0603000203','0603000202','0603000201','0603000109','0603000108','0603000107','0603000106','0603000105','0603000104','0603000103','0603000102','0602000112','0602000111')" />
+            <input type="hidden" id="AwwSitesTableQuery" value="SELECT * FROM 1KDQw051_tZcf-3rUnvVpNiPo6utopq_ZrMNL_RNb WHERE WSID = 08" />            
+            <div id="MapWrap">
+                <div id="MapControls">
+                    <label for="HUC-Button"><input type="checkbox" id="HUC-Button" />HUC10 Watersheds</label>
+                    <label for="Sites-Button"><input type="checkbox" id="Sites-Button" />Aww Sites</label>
+                </div>
+                <div id="MapCanvas"></div>
+                <div id="MapOverlay"><img src="../../../res/images/icons/ajax-loader.gif" /><p>initializing map...</p></div>
+            </div>
+        </div>        
+    </main>
+</body>
+</html>

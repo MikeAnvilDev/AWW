@@ -1,4 +1,4 @@
-﻿
+﻿var groupsObj = null;
 
 function checkForLocallyStored() {
     console.log('site.js: checkForLocallyStored: check for locally stored');
@@ -16,7 +16,6 @@ function checkForLocallyStored() {
 
 function retrieveGroupList() {
     console.log('sites.js: retrieveGroupList: retrieving group list');
-
 
     $.support.cors;
     var token = getToken();
@@ -36,8 +35,8 @@ function retrieveGroupList() {
                 console.log('sites.js: retrieveGroupList: checking json');
                 if (checkForToken(jsonObj)) {
                     console.log('sites.js: retrieveGroupList: token passed');
-                    var groupsObj = jsonObj.awW_Groups;
-                    parseGroups(groupsObj);
+                    groupsObj = jsonObj.awW_Groups;
+                    parseGroups();
                 }
             }
             ,
@@ -57,7 +56,7 @@ function retrieveGroupList() {
     } else 
         clearToken();
 }
-function parseGroups(groupsObj) {
+function parseGroups() {
     console.log('sites.js: parseGroups: parse groups object');
 
     var $label = $('<label for="GroupSelector">Group</label>');
@@ -199,9 +198,9 @@ function parseLocations(sitesObj) {
 
             var $link = null;
             if (type == "bacteria")
-                $link = $('<a href="../bacteria/default.html?AwwSiteCode=' + locationObject.awwSiteCode + '"><span>Select</span></a>');
+                $link = $('<a href="../bacteria/default.html' + buildLinkQuery(locationObject) + '"><span>Select</span></a>');
             else
-                $link = $('<a href="../chemistry/default.html?AwwSiteCode=' + locationObject.awwSiteCode + '"><span>Select</span></a>');
+                $link = $('<a href="../chemistry/default.html' + buildLinkQuery(locationObject) + '"><span>Select</span></a>');
 
             $li.append($link);
             $ul.append($li);
@@ -211,6 +210,32 @@ function parseLocations(sitesObj) {
     $('#SiteList').append($ul);
     setupSiteList();
     checkForLocallyStored();
+}
+function buildLinkQuery(locationObject) {
+    var query = '?AwwSiteCode=' + locationObject.awwSiteCode +
+        '&WebMasterSiteId=' + locationObject.site_ID +
+        '&Waterbody_Name=' + encodeURIComponent(locationObject.waterbody_Name) +
+        // missing '&Watershed=' + encodeURIComponent(locationObject.Watershed) + 
+        '&HUC11=' + locationObject.huC11 +
+        '&HUC8=' + locationObject.huC8 +
+        '&HUC6=' + locationObject.huC6 +
+        '&HUC4=' + locationObject.huC4 +
+        '&county=' + encodeURIComponent(locationObject.county) +
+        // missing '&state=' + locationObject.state + 
+        '&SamplingSiteLocation=' + encodeURIComponent(locationObject.description);
+
+    var $groupSelector = $('#GroupSelector');
+    if($groupSelector.length > 0){
+        var selectedIndex = $groupSelector[0].selectedIndex;
+        if(selectedIndex > 0){
+            groupObject = groupsObj[selectedIndex - 1];
+            query += '&Groupid=' + encodeURIComponent(groupObject.groupId) +
+            '&Group_Name=' + encodeURIComponent(groupObject.group_Name) +
+            '&Group_Abbreviation=' + encodeURIComponent(groupObject.group_Abbreviation);
+        }
+    }
+        
+    return query;
 }
 
 function setupSiteList() {
@@ -252,5 +277,5 @@ function removeOverlay() {
 }
 
 $(document).ready(function () {
-    retrieveGroupList();
+    validateToken(retrieveGroupList);
 });

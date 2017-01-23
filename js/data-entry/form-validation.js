@@ -25,7 +25,7 @@
                 if (!validated && $firstError == null)
                     $firstError = $field;
             }
-        }
+        } 
     });
 
     if ($firstError != null) {
@@ -79,6 +79,9 @@ function validateInputField($field) {
         if (type == 'time') {
             msg = validateTime($field.val(), label, max, min);
         }
+        if ($field.is('[type=checkbox]')){
+            msg = validateCheckbox($field, label);
+        }
         if (msg.length > 0) {
             validated = false;
             $field.addClass('ml-alert');
@@ -125,6 +128,39 @@ function validateSelectField($field) {
     return validated;
 }
 
+function validateCheckbox($field) {
+    console.log('form-validation.js: validateCheckbox');
+    var validated = true;
+
+    var required = false;
+    if ($field.is('[ml-val-required]'))
+        required = $field.attr('ml-val-required') == 'true';
+    // get the label
+    var label = "";
+    if ($field.is('[ml-val-label]'))
+        label = $field.attr('ml-val-label');
+
+    console.log('form-validation.js: validateCheckbox required = ' + required);
+
+    if (required) {
+        // gather all of the same name in case of list
+        var fieldName = $field.attr('name');
+        var checkboxes = $('input[type=checkbox][name=' + fieldName + ']:checked');
+        console.log('form-validation.js: validateCheckbox checked boxes = ' + checkboxes.length);
+        if (checkboxes.length == 0) {
+            validated = false;
+            var $errorMessageContainer = $field.closest('.ml-val-container');
+            var $errorMessage = $errorMessageContainer.find('.ml-val-message');
+            if ($errorMessage.length == 0) {
+                $errorMessage = $('<p class="ml-val-message"></p>')
+                $errorMessage.prependTo($errorMessageContainer);
+            }
+            $errorMessage.append(label + ' ');
+        }
+    }
+
+    return validated;
+}
 function validateText(value, label, type, minLength) {
     var error = "";
     value = value.trim();

@@ -8,22 +8,6 @@
         color:#ffffff; 
         background-color:#3d7454;
     }
-p.breadcrumbs{
-        padding: 6px 16px;
-        border-top: 1px solid #275c3d;
-        overflow: hidden;
-
-        font-size: 14px;
-        line-height: 20px;
-        font-weight: 400;
-        color:#ffffff; 
-        background-color:#316446;
-}
-p.breadcrumbs a{
-    color: #8eb755;
-    text-decoration: none;
-    border: 0px;
-}
 
 
 
@@ -107,4 +91,9 @@ ul.site-list li > span {
     ul.site-list li > span {
         right: 64px;
     }
+}
+
+
+#Success-Section{
+    display: none;
 }

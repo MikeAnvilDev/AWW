@@ -79,8 +79,48 @@ function checkForToken(jsonObj) {
         return false;
     }
 }
+function validateToken(callback) {
+    console.log('common.js: validateToken: check token');
+    token = getToken();
+
+    if (token != null) {
+        console.log('common.js: validateToken: has token');
+        jQuery.support.cors = true;
+        $.ajax({
+            url: 'https://msapps.acesag.auburn.edu/aww/api/home/ValidateToken',
+            dataType: 'json',
+            type: 'GET',
+            contentType: 'application/json',
+            headers: { 'Authorization': 'Bearer ' + token },
+            cache: false,
+            success: function (jsonObj) {
+                if (convertToBoolean(jsonObj.status)) {
+                    console.log('common.js: validateToken: valid token');
+                    storeToken(jsonObj.token);
+                    if (typeof callback === "function") {
+                        callback();
+                    }
+                } else
+                    clearToken();
+            },
+            error: function (x, y, z) {
+                clearToken();
+            }
+        });
+    } else {
+        console.log('common.js: validateToken: no token');
+        clearToken();
+    }
+}
 
 
+function setUpAutoSave($form, keyName) {
+    //storeFormLocally($('#AwwSiteCode').val() + '-bacteria');
+    console.log('common.js: setUpAutoSave');
+    $form.find('input').blur(function () { console.log('common.js: setUpAutoSave:input fired, ' + keyName + ', ' + $form); storeFormLocally($form, keyName) });
+    $form.find('textarea').blur(function () { console.log('common.js: setUpAutoSave: textarea fired, ' + keyName + ', ' + $form); storeFormLocally($form, keyName) });
+    $form.find('select').change(function () { console.log('common.js: setUpAutoSave: select fired, ' + keyName + ', ' + $form); storeFormLocally($form, keyName) });
+}
 function loadLocallyStored(keyName) {
     console.log('common.js: loadLocallyStored: loading locally stored information');
     if (typeof (Storage) !== "undefined"){
@@ -98,14 +138,24 @@ function loadLocallyStored(keyName) {
                 $.each(inputArray, function (increment, value) {
                     // loop through each item of the array and set the key:pair to the form object
                     var inputKeyValuePair = value.split(':');
-                    formObject[inputKeyValuePair[0]] = inputKeyValuePair[1];
+                    formObject[inputKeyValuePair[0]] = decodeString(inputKeyValuePair[1]);
                 });
 
                 // use the form object to populate the form
                 for (var property in formObject) {
                     if (formObject.hasOwnProperty(property)) {
-                        // because naming is kept consistent we can:
-                        $('#' + property).val(formObject[property]);
+                        console.log('common.js: loadLocallyStored: input id = ' + property);
+                        if ($('#' + property).is('[type=checkbox]')) {
+                            console.log('common.js: loadLocallyStored: populating checkbox');
+                            $('#' + property).prop('checked', formObject[property] == 'true');
+                        } else if ($('#' + property).is('[type=radio]')) {
+                            console.log('common.js: loadLocallyStored: populating radio');
+                            $('#' + property).prop('checked', formObject[property] == 'true');
+                        } else {
+                            console.log('common.js: loadLocallyStored: populating input');
+                            // because naming is kept consistent we can:
+                            $('#' + property).val(formObject[property]);
+                        }
                     }
                 }
                 return true;
@@ -121,22 +171,30 @@ function clearLocallyStoredForm(keyName) {
     if (typeof (Storage) !== "undefined")
         localStorage.removeItem(keyName);
 }
-function storeFormLocally(keyName) {
+function storeFormLocally($form, keyName) {
     console.log('common.js: storeFormLocally: storing form');
+
     if (typeof (Storage) !== "undefined") {
         // because there could be multiple incomplete/unsaved forms,
         // we will save as key = siteID, value = joined array with ',' delimit of key:value
         var inputArray = new Array();
-        var $inputs = $('input, select, textarea');
+        var $inputs = $form.find('input, select, textarea');
         $inputs.each(function () {
             var $input = $(this);
-            inputArray.push($input.attr('id') + ':' + encodeString($input.val()));
+            console.log('common.js: storeFormLocally: input id =' + $input.attr('id'));
+            if ($input.is('[type=checkbox]')) {
+                inputArray.push($input.attr('id') + ':' + $input.prop('checked'));
+            } else if ($input.is('[type=radio]')) {
+                inputArray.push($input.attr('id') + ':' + $input.prop('checked'));
+            } else {
+                inputArray.push($input.attr('id') + ':' + encodeString($input.val()));
+            }
         });
-        localStorage.setItem(keyName, inputArray.join(','));
 
+        localStorage.setItem(keyName, inputArray.join(','));
         console.log('common.js: storeFormLocally: form stored');
         console.log(keyName + ': ' + localStorage.getItem(keyName));
-    }else
+    } else
         console.log('common.js: storeFormLocally: storage unavailable');
 }
 

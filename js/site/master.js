@@ -15,6 +15,22 @@ function Navigation_Toggle(view) {
     }
 }
 
+function showContent() {
+    $('body').animate({ opacity: 1 });
+    loadYouTubes();
+}
+function loadYouTubes() {
+    var $wrappers = $('div.youtube-wrapper');
+    $wrappers.each(function () {
+        $wrapper = $(this);
+        $wrapper.append('<iframe src="' + $wrapper.attr('youtube-iframe') + '" frameborder="0" allowfullscreen="allowfullscreen"></iframe>');
+    });    
+}
+
 $(document).ready(function () {
     Navigation_SetUp();
+});
+
+$(window).on('load', function() {
+    showContent();
 });

@@ -2,8 +2,8 @@
     display: block;
     padding: 0px 0px 0px 16px;
             
-    font-size: 12px;
-    line-height: 14px;
+    font-size: 14px;
+    line-height: 16px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -15,6 +15,7 @@
 input[type=text],
 input[type=time],
 input[type=number],
+input[type=month],
 input[type=password],
 input[type=date]{
     width: 100%;
@@ -130,27 +131,28 @@ p.ml-val-message{
     border-radius: 4px;
 }
 
-    @media(max-width: 360px) {
-        input[type=text],
-        input[type=time],
-        input[type=number],
-        input[type=password],
-        input[type=date] {
-            font-size: 14px;
-            line-height: 28px;
-            height: 30px;
-        }
-        textarea {
-            font-size: 14px;
-            line-height: 20px;
-            height: 120px;
-        }
-        select {
-            font-size: 14px;
-            line-height: 28px;
-            height: 30px;
-        }
+@media(max-width: 360px) {
+    input[type=text],
+    input[type=time],
+    input[type=number],
+    input[type=month],
+    input[type=password],
+    input[type=date] {
+        font-size: 14px;
+        line-height: 28px;
+        height: 30px;
     }
+    textarea {
+        font-size: 14px;
+        line-height: 20px;
+        height: 120px;
+    }
+    select {
+        font-size: 14px;
+        line-height: 28px;
+        height: 30px;
+    }
+}
 
 div.entry-group{
     overflow: hidden;
@@ -287,7 +289,6 @@ form.ml-validation input[type=submit]{
 }
         form.ml-validation input[type=submit]:hover {
             background-color: #3d7454;
-            background-image: url(../../res/images/icons/right-arrow-go-ffffff.svg);
         }
 
 @media(max-width:780px) {
@@ -316,6 +317,64 @@ form.ml-validation input[type=submit]{
     }
 }
 
+div.entry-wrap-full.checklist ul{
+    padding: 0px 0px 0px 0px;
+    margin-bottom: 16px;
+
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+    div.entry-wrap-full.checklist ul li {
+        border-bottom: solid 1px #dddddd;
+    }
+        div.entry-wrap-full.checklist ul li:last-child {
+            border-bottom: 0px;
+        }
+        div.entry-wrap-full.checklist ul li label {
+            display: block;
+            padding: 4px 14px 4px 14px;
+            margin: 0px;
+            background-color: #ffffff;
+            background-position: -20px center;
+            background-size: 16px 16px;
+            background-repeat: no-repeat;
+            background-image: url(../../res/images/icons/checkmark-icon.png);
+                    
+            font-family: Helvetica,Arial,sans-serif;
+            font-size: 16px;
+            line-height: 38px;
+            color: #2c3e50;
+            cursor: pointer;
+
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            -webkit-transition: padding 300ms, background-color 300ms, background-position 100ms;
+            -moz-transition: padding 300ms, background-color 300ms, background-position 100ms;
+            -o-transition: padding 300ms, background-color 300ms, background-position 100ms;
+            -ms-transition: padding 300ms, background-color 300ms, background-position 100ms;
+            transition: padding 300ms, background-color 300ms, background-position 100ms;
+        }
+            div.entry-wrap-full.checklist ul li label.highlite {
+                background-color: #8eb755;
+                padding: 4px 4px 4px 24px;
+                background-position: 4px center;
+                color: #ffffff;
+                -webkit-transition: padding 300ms, background-color 300ms, background-position 600ms;
+                -moz-transition: padding 300ms, background-color 300ms, background-position 600ms;
+                -o-transition: padding 300ms, background-color 300ms, background-position 600ms;
+                -ms-transition: padding 300ms, background-color 300ms, background-position 600ms;
+                transition: padding 300ms, background-color 300ms, background-position 600ms;
+            }
+            div.entry-wrap-full.checklist ul li label input[type=checkbox] {
+                display: none;
+            }
+
+
 div.authorization{
     padding: 16px;
     margin-bottom: 20px;
@@ -323,26 +382,50 @@ div.authorization{
     background-color:#555555;
     overflow: hidden;
 }
+    div.authorization.highlite {
+        background-color: #2f6546;
+    }
     div.authorization h2{
         padding: 0px;
+        text-align: center;
         color:#ffffff;
         font-weight: 400;
     }
-         div.authorization h2 span{
-             text-transform: uppercase;
-         }
     div.authorization label{
         position: relative;
-        padding-left: 20px;
+        padding: 0px 28px 0px 0px;
+
+        background-position: -20px center;
+        background-size: 16px 16px;
+        background-repeat: no-repeat;
+        background-image: url(../../res/images/icons/checkmark-icon.png);
+
         color:#ffffff;
         overflow: auto;
         text-overflow: inherit;
         white-space: normal;
+        font-size: 16px;
+        line-height: 22px;
+        cursor: pointer;
+
+        -webkit-transition: padding 300ms, background-color 300ms, background-position 100ms;
+        -moz-transition: padding 300ms, background-color 300ms, background-position 100ms;
+        -o-transition: padding 300ms, background-color 300ms, background-position 100ms;
+        -ms-transition: padding 300ms, background-color 300ms, background-position 100ms;
+        transition: padding 300ms, background-color 300ms, background-position 100ms;
     }
+        div.authorization.highlite label{
+            padding: 0px 0px 0px 28px;
+            background-position: 4px center;
+            
+            -webkit-transition: padding 300ms, background-color 300ms, background-position 600ms;
+            -moz-transition: padding 300ms, background-color 300ms, background-position 600ms;
+            -o-transition: padding 300ms, background-color 300ms, background-position 600ms;
+            -ms-transition: padding 300ms, background-color 300ms, background-position 600ms;
+            transition: padding 300ms, background-color 300ms, background-position 600ms;
+        }
         div.authorization label input{
-            position: absolute;
-            left: 0px;
-            top: 0px;
+            display: none;
         }
     div.authorization input[type=submit]{
         margin-top: 16px;
@@ -352,3 +435,72 @@ div.authorization{
         div.authorization input[type=submit]:hover {
             background-color: #dedede;
         }
+        div.authorization label span.confirmed{
+            display: none;
+        }
+        div.authorization.highlite label span.unconfirmed{
+            display: none;
+        }
+        div.authorization.highlite label span.confirmed{
+            display: block;
+        }
+
+
+div.paypal{
+    text-align: center;
+    overflow: hidden;
+}
+    div.paypal select{
+        width: 100%;
+        height: 40px;
+        padding: 0px 22px 0px 8px;
+        margin-bottom: 8px;
+            
+        font-family: Helvetica,Arial,sans-serif;
+        font-size: 16px;
+        line-height: 38px;
+        color: #2c3e50;
+
+        background-color: #ffffff;
+        background-image: url(../../res/images/icons/down-arrow.png);
+        background-size: 19px 15px;
+        background-position: right center;
+        background-repeat: no-repeat;
+
+        border: 1px solid #dddddd;
+    
+        -webkit-appearance: none;
+
+        -moz-border-radius: 4px;
+        -webkit-border-radius: 4px;
+        border-radius: 4px;
+                        
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    div.paypal label{
+        display: block;
+        padding: 0px 0px 0px 16px;
+            
+        font-size: 12px;
+        line-height: 14px;
+        text-overflow: ellipsis;
+        text-align: left;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+
+main{
+    
+}
+    main div.overlay{    
+        z-index: 2;
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        width: 100%;
+        opacity: 0;
+        background: rgba(239, 239, 239, 0.75);
+    }

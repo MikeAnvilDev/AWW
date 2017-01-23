@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Water Data</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="../../../css/site/master.css" />
+    <link rel="stylesheet" type="text/css" href="../../../css/site/form.css" />
+    <link rel="stylesheet" type="text/css" href="../../../css/site/section-selector.css" />
+    <link rel="stylesheet" type="text/css" href="../../../css/site/water-data-table.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Oswald:700,400">
+    <style>
+
+    </style>
+
+    <script type="text/javascript" src="../../../js/site/jquery.min.js"></script>
+    <script type="text/javascript" src="../../../js/site/master.js"></script>
+    <script type="text/javascript" src="../../../js/site/section-selector.js"></script>
+    <script type="text/javascript" src="../../../js/site/water-data-table.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <span></span>
+            <div>
+                <ul>
+                    <li><a href="../../../index.html">Home</a></li>
+                    <li><a href="../about-us/index.html">About Us</a></li>
+                    <li><a href="../related-projects/index.html">Related Projects</a></li>
+                    <li><a href="../resources/index.html">Resources</a></li>
+                    <li><a href="../water-data/index.html">Water Data</a></li>
+                    <li><a href="../get-involved/index.html">Get Involved</a></li>
+                    <li><a href="../environmental-ed/index.html">Enviro Edu</a></li>
+                    <li><a href="../store/index.html">Store</a></li>
+                </ul>
+                <a class="data-entry" href="../../data-entry/login/index.html">Data Entry</a>
+            </div>
+        </nav>
+        <div>
+            <a href="../../../index.html" class="icon"></a>
+        </div>
+        <p class="hamburger"><span>toggle menu</span></p>
+        <h1>Alabama Water Watch</h1>
+    </header>
+    <main>
+        <h1 class="heading">Water Data</h1>
+        <p class="breadcrumbs"><a href="../../../index.html">Home</a> &raquo; <a href="index.html">Water Data</a> &raquo; Table</p>
+        <section>
+            <div>
+                <div class="entry-group">
+                    <div class="entry-wrap">
+                        <label>Search by:</label>
+                        <select id="Search-Type">
+                            <option value="0">AWW Watershed</option>
+                            <option value="1">HUC Watershed</option>
+                        </select>
+                    </div>
+                    <div class="entry-wrap">
+                        <label>Data Type:</label>
+                        <select id="Data-Type">
+                            <option value="0">Chemistry</option>
+                            <option value="1">Bacteria</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="HUC-Search" class="entry-group">
+                    <div class="entry-wrap">
+                        <label>HUC6 Basin:</label>
+                        <select id="HUC6-Basin">
+                            <option value="060300">Middle Tennessee-Elk</option>
+                            <option value="031601">Black Warrior-Tombigbee</option>
+                            <option value="031501">Coosa-Tallapoosa</option>
+                            <option value="031502">Alabama</option>
+                            <option value="031300">Apalachicola</option>
+                            <option value="031402">Choctawatchee</option>
+                            <option value="031401">Florida Panhandle Coastal</option>
+                            <option value="031403">Escambia</option>
+                            <option value="031602">Mobile Bay - Tombigbee</option>
+                        </select>
+                    </div>
+                    <div class="entry-wrap">
+                        <label>HUC10 Watershed:</label>
+                        <select id="HUC10-Watershed"></select>
+                    </div>
+                </div>
+                <div id="AWW-Search" class="entry-group">
+                    <div class="entry-wrap">
+                        <label>AWW Watershed:</label>
+                        <select id="AWW-Watershed">
+                            <option value="01">Alabama</option>
+                            <option value="02">Cahaba</option>
+                            <option value="03">Chattahoochee</option>
+                            <option value="04">Coastal_Plain</option>
+                            <option value="05">Coosa</option>
+                            <option value="06">Mobile</option>
+                            <option value="07">Tallapoosa</option>
+                            <option value="08">Tennessee</option>
+                            <option value="09">Tombigbee</option>
+                            <option value="10">Warrior</option>
+                        </select>
+                    </div>
+                    <div class="entry-wrap">
+                        <label>Group:</label>
+                        <select id="AWW-Group"></select>
+                    </div>
+                </div>
+            </div>
+            <table id="Sites-List"></table>
+        </section>
+    </main>
+</body>
+</html>

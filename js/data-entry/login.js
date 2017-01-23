@@ -21,7 +21,6 @@
                 console.log('login.js: getUserToken: ajax success');
                 console.log(jsonObj);
                 if (jsonObj.hasOwnProperty('access_token')) {
-                    console.log(jsonObj.access_token);
                     storeToken(jsonObj.access_token);
                     location.href = '../type/index.html';
                 } 
@@ -50,31 +49,8 @@
         });
     }
 }
-function validateToken(token) {
-    //var query = "?token=" + token;
-    //ajaxRequest = $.ajax({
-    //    url: "../../response/validateToken.xml" + query,
-    //    cache: false,
-    //    beforeSend: function (xhr) {
-    //        xhr.overrideMimeType("text/plain; charset=x-user-defined");
-    //    }
-    //}).done(function (data) {
-    //    var $xml = $($.parseXML(data));
-    //    if (checkStatus($xml)) {
-    //        if ($xml.find("token").length > 0 && $xml.find("activeUser").length > 0) {
-    //            if (convertToBoolean($xml.find("activeUser").text())) {
-    //                storeToken($xml.find("token").text());
-    //                location.href = '../type/index.html';
-    //            }else
-    //                clearToken();
-    //        } else
-    //            clearToken();
-    //    } else 
-    //        clearToken();
-
-    //}).fail(function () {
-    //    clearToken();
-    //});
+function redirectToType() {
+    location.href = '../type/index.html';
 }
 
 
@@ -90,12 +66,11 @@ $(document).ready(function () {
             $errorMessage.prependTo($errorMessageContainer);
         }
         $errorMessage.append(decodeURIComponent(message));
-    }
-        
+    }        
 
     // if token exists validate
     token = getToken();
     if (token != null)
-        validateToken(token);
+        validateToken(redirectToType);
 
 });

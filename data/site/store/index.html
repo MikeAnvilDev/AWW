@@ -5,13 +5,16 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Oswald:700,400">
     <link rel="stylesheet" type="text/css" href="../../../css/site/master.css" />
     <link rel="stylesheet" type="text/css" href="../../../css/site/section-selector.css" />
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Oswald:700,400">
+    <link rel="stylesheet" type="text/css" href="../../../css/site/form.css" />
+    <link rel="stylesheet" type="text/css" href="../../../css/site/store.css" />
 
     <script type="text/javascript" src="../../../js/site/jquery.min.js"></script>
     <script type="text/javascript" src="../../../js/site/master.js"></script>
     <script type="text/javascript" src="../../../js/site/section-selector.js"></script>
+    <script type="text/javascript" src="../../../js/data-entry/form-validation.js"></script>
 </head>
 <body>
     <header>
@@ -32,14 +35,16 @@
             </div>
         </nav>
         <div>
-            <span class="icon"></span>
+            <a href="../../../index.html" class="icon"></a>
         </div>
         <p class="hamburger"><span>toggle menu</span></p>
+        <h1>Alabama Water Watch</h1>
     </header>
     <main>
         <div class="section-selector">
             <div class="ss-nav">
                 <h1>Store</h1>
+                <p class="breadcrumbs"><a href="../../../index.html">Home</a> &raquo; Store</p>
                 <ul>
                     <li>Apparel</li>
                     <li>Books &amp; Games</li>
@@ -55,13 +60,819 @@
             </div>
             <div class="ss-sections">
                 <!-- BEGIN Apparel -->
-                <section></section>
+                <section>
+                    <form class="ml-validation" ml-submission="shop-apparel.aspx">
+                        <div class="ml-val-container">
+                            <h2>Apparel</h2>
+                            <div class="order-item">
+                                <h3>20th Anniversary AWW Tee <span>$20<span>00</span></span></h3>
+                                <div class="order-item-descr">
+                                    <img src="http://cdn.firespring.com/images/554300a3-d9ff-4359-a36b-e6f5aa29892e.jpg" />
+                                    <p>
+                                        Celebrate AWW's 20th Anniversary with this natural colored tee that has the Alabama Water Watch 
+                                        standard logo and the special 20th Anniversary design on the back. Shirts are available in sizes S - 3XL.
+                                    </p>
+                                </div>
+                                <div class="order-item-details">
+                                    <div class="entry-group">
+                                        <div class="entry-wrap-full">
+                                            <label for="Shirt-20th-Anni-Tee-Quantity">Quantity</label>
+                                            <select id="Shirt-20th-Anni-Tee-Quantity"
+                                                    ml-val ml-val-required="false" aria-price="20">
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                            </select>
+                                        </div>
+                                        <div class="entry-wrap-full">
+                                            <label for="Shirt-20th-Anni-Tee-Size">Size</label>
+                                            <select id="Shirt-20th-Anni-Tee-Size"
+                                                    ml-val ml-val-required="false">
+                                                <option value="">-- select one --</option>
+                                                <option value="S">S (small)</option>
+                                                <option value="M">M (medium)</option>
+                                                <option value="L">L (large)</option>
+                                                <option value="XL">XL (extra large)</option>
+                                                <option value="2XL">2XL (double extra large)</option>
+                                                <option value="3XL">3XL (triple extra large)</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="order-item">
+                                <h3>AWW Short Sleeve Tee (XXL ONLY) <span>$20<span>00</span></span></h3>
+                                <div class="order-item-descr">
+                                    <img src="http://cdn.firespring.com/images/0fc4dd18-bb57-453a-934a-c3de8bd14f91.jpg" />
+                                    <p>
+                                        At this time we only have XXL size available for this shirt.
+                                    </p>
+                                </div>
+                                <div class="order-item-details">
+                                    <div class="entry-group">
+                                        <div class="entry-wrap-full">
+                                            <label for="AWW-Short-Sleeve-Tee-Quantity">Quantity</label>
+                                            <select id="AWW-Short-Sleeve-Tee-Quantity"
+                                                    ml-val ml-val-required="false">
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                            </select>
+                                        </div>
+                                        <div class="entry-wrap-full">
+                                            <label for="AWW-Short-Sleeve-Tee-Size">Size</label>
+                                            <select id="AWW-Short-Sleeve-Tee-Size"
+                                                    ml-val ml-val-required="false">
+                                                <option value="">-- select one --</option>
+                                                <option value="2XL">2XL (double extra large)</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="order-item">
+                                <h3>Global Water Watch Long Sleeve Tee <span>$20<span>00</span></span></h3>
+                                <div class="order-item-descr">
+                                    <img src="http://cdn.firespring.com/images/d216c2b0-99be-4541-83db-1458d3e739fc.jpg" />
+                                    <p>
+                                        Description: A grey long sleeve t-shirt with a guide to aquatic insects on the front 
+                                        and the GWW logo on the left sleeve. Text on shirt is in Spanish.
+                                    </p>
+                                </div>
+                                <div class="order-item-details">
+                                    <div class="entry-group">
+                                        <div class="entry-wrap-full">
+                                            <label for="Global-Water-Watch-Long-Sleeve-Tee-Quantity">Quantity</label>
+                                            <select id="Global-Water-Watch-Long-Sleeve-Tee-Quantity"
+                                                    ml-val ml-val-required="false">
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                            </select>
+                                        </div>
+                                        <div class="entry-wrap-full">
+                                            <label for="Global-Water-Watch-Long-Sleeve-Tee-Size">Size</label>
+                                            <select id="Global-Water-Watch-Long-Sleeve-Tee-Size"
+                                                    ml-val ml-val-required="false">
+                                                <option value="">-- select one --</option>
+                                                <option value="S">S (small)</option>
+                                                <option value="M">M (medium)</option>
+                                                <option value="L">L (large)</option>
+                                                <option value="XL">XL (extra large)</option>
+                                                <option value="2XL">2XL (double extra large)</option>
+                                                <option value="3XL">3XL (triple extra large)</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="order-item">
+                                <h3>Global Water Watch Womens V-Neck <span>$12<span>00</span></span></h3>
+                                <div class="order-item-descr">
+                                    <img src="http://cdn.firespring.com/images/8743c32b-c3aa-442b-8b8d-2554608655e9.jpg" />
+                                    <p>
+                                        Description: The front of the shirts show aquatic insects, the right sleeve of the 
+                                        shirts have the GWW logo. Available in White or Tan.
+                                    </p>
+                                </div>
+                                <div class="order-item-details">
+                                    <div class="entry-group">
+                                        <div class="entry-wrap-full">
+                                            <label for="Global-Water-Watch-Womens-VNeck-Tee-Quantity">Quantity</label>
+                                            <select id="Global-Water-Watch-Womens-VNeck-Tee-Quantity"
+                                                    ml-val ml-val-required="false">
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                            </select>
+                                        </div>
+                                        <div class="entry-wrap-full">
+                                            <label for="Global-Water-Watch-Womens-VNeck-Tee-Color">Color</label>
+                                            <select id="Global-Water-Watch-Womens-VNeck-Tee-Color"
+                                                    ml-val ml-val-required="false">
+                                                <option value="">-- select one --</option>
+                                                <option value="White">White</option>
+                                                <option value="Tan">Tan</option>
+                                            </select>
+                                        </div>
+                                        <div class="entry-wrap-full">
+                                            <label for="Global-Water-Watch-Womens-VNeck-Tee-Size">Size</label>
+                                            <select id="Global-Water-Watch-Womens-VNeck-Tee-Size"
+                                                    ml-val ml-val-required="false">
+                                                <option value="">-- select one --</option>
+                                                <option value="S">S (small)</option>
+                                                <option value="M">M (medium)</option>
+                                                <option value="L">L (large)</option>
+                                                <option value="XL">XL (extra large)</option>
+                                                <option value="2XL">2XL (double extra large)</option>
+                                                <option value="3XL">3XL (triple extra large)</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="order-item">
+                                <h3>AWW Long Sleeve Crew Neck (XXL ONLY) <span>$20<span>00</span></span></h3>
+                                <div class="order-item-descr">
+                                    <img src="http://cdn.firespring.com/images/64143fa2-0a43-4485-8ffb-dcca1e3a9076.jpg" />
+                                    <p>
+                                        This shirt is currently only available in XXL
+                                    </p>
+                                </div>
+                                <div class="order-item-details">
+                                    <div class="entry-group">
+                                        <div class="entry-wrap-full">
+                                            <label for="AWW-Long-Sleeve-Crew-Neck-Quantity" class="required">Quantity</label>
+                                            <select id="AWW-Long-Sleeve-Crew-Neck-Quantity"
+                                                    ml-val ml-val-required="false">
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                            </select>
+                                        </div>
+                                        <div class="entry-wrap-full">
+                                            <label for="AWW-Long-Sleeve-Crew-Neck-Size">Size</label>
+                                            <select id="AWW-Long-Sleeve-Crew-Neck-Size"
+                                                    ml-val ml-val-required="true" ml-val-invalid-indexes="0"
+                                                    ml-val-label="AWW Long Sleeve Crew Neck Size">
+                                                <option value="">-- select one --</option>
+                                                <option value="2XL">2XL (double extra large)</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h2>Order Total</h2>
+                        </div>
+                        <div class="ml-val-container">
+                            <h2>Shipping Information</h2>
+                            <div class="entry-wrap">
+                                <label for="FirstName" class="required">First Name</label>
+                                <input type="text" id="FirstName"
+                                        ml-val ml-val-required="true" ml-val-type="text"
+                                        ml-val-min="1" ml-val-label="First Name" placeholder="first name" />
+                            </div>
+                            <div class="entry-wrap">
+                                <label for="LastName" class="required">Last Name</label>
+                                <input type="text" id="LastName"
+                                        ml-val ml-val-required="true" ml-val-type="text"
+                                        ml-val-min="1" ml-val-label="Last Name" placeholder="last name" />
+                            </div>
+                            <div class="entry-wrap-full">
+                                <label for="AddressLine1">Street</label>
+                                <input type="text" id="AddressLine1" placeholder="street address" />
+                            </div>
+                            <div class="entry-wrap-full">
+                                <label for="Street">Street (Line 2)</label>
+                                <input type="text" id="AddressLine2" placeholder="street address" />
+                            </div>
+                            <div class="entry-group">
+                                <div class="entry-wrap">
+                                    <label for="City">City</label>
+                                    <input type="text" id="City" placeholder="city/town" />
+                                </div>
+                                <div class="entry-wrap">
+                                    <label for="State">State/Province/Region</label>
+                                    <input type="text" id="State" placeholder="state/province/region" />
+                                </div>
+                                <div class="entry-wrap">
+                                    <label for="Zip">Zip/Postal Code</label>
+                                    <input type="text" id="Zip" placeholder="zip/postal code" />
+                                </div>
+                                <div class="entry-wrap">
+                                    <label for="Country">Country</label>
+                                    <select id="Country">
+                                        <option value="" selected="selected">please select one</option>
+
+                                        <option value="Afghanistan">Afghanistan</option>
+                                        <option value="Albania">Albania</option>
+                                        <option value="Algeria">Algeria</option>
+                                        <option value="American Samoa">American Samoa</option>
+                                        <option value="Andorra">Andorra</option>
+                                        <option value="Angola">Angola</option>
+                                        <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                                        <option value="Argentina">Argentina</option>
+                                        <option value="Armenia">Armenia</option>
+                                        <option value="Australia">Australia</option>
+                                        <option value="Austria">Austria</option>
+                                        <option value="Azerbaijan">Azerbaijan</option>
+
+                                        <option value="Bahamas">Bahamas</option>
+                                        <option value="Bahrain">Bahrain</option>
+                                        <option value="Bangladesh">Bangladesh</option>
+                                        <option value="Barbados">Barbados</option>
+                                        <option value="Belarus">Belarus</option>
+                                        <option value="Belgium">Belgium</option>
+                                        <option value="Belize">Belize</option>
+                                        <option value="Benin">Benin</option>
+                                        <option value="Bermuda">Bermuda</option>
+                                        <option value="Bhutan">Bhutan</option>
+                                        <option value="Bolivia">Bolivia</option>
+                                        <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                                        <option value="Botswana">Botswana</option>
+                                        <option value="Brazil">Brazil</option>
+                                        <option value="Brunei">Brunei</option>
+                                        <option value="Bulgaria">Bulgaria</option>
+                                        <option value="Burkina Faso">Burkina Faso</option>
+                                        <option value="Burundi">Burundi</option>
+
+                                        <option value="Cambodia">Cambodia</option>
+                                        <option value="Cameroon">Cameroon</option>
+                                        <option value="Canada">Canada</option>
+                                        <option value="Cape Verde">Cape Verde</option>
+                                        <option value="Cayman Islands">Cayman Islands</option>
+                                        <option value="Central African Republic">Central African Republic</option>
+                                        <option value="Chad">Chad</option>
+                                        <option value="Chile">Chile</option>
+                                        <option value="China">China</option>
+                                        <option value="Colombia">Colombia</option>
+                                        <option value="Comoros">Comoros</option>
+                                        <option value="Congo, Democratic Republic of the">Congo, Democratic Republic of the</option>
+                                        <option value="Congo, Republic of the">Congo, Republic of the</option>
+                                        <option value="Costa Rica">Costa Rica</option>
+                                        <option value="Côte d'Ivoire">Côte d'Ivoire</option>
+                                        <option value="Croatia">Croatia</option>
+                                        <option value="Cuba">Cuba</option>
+                                        <option value="Curaçao">Curaçao</option>
+                                        <option value="Cyprus">Cyprus</option>
+                                        <option value="Czech Republic">Czech Republic</option>
+
+                                        <option value="Denmark">Denmark</option>
+                                        <option value="Djibouti">Djibouti</option>
+                                        <option value="Dominica">Dominica</option>
+                                        <option value="Dominican Republic">Dominican Republic</option>
+
+                                        <option value="East Timor">East Timor</option>
+                                        <option value="Ecuador">Ecuador</option>
+                                        <option value="Egypt">Egypt</option>
+                                        <option value="El Salvador">El Salvador</option>
+                                        <option value="Equatorial Guinea">Equatorial Guinea</option>
+                                        <option value="Eritrea">Eritrea</option>
+                                        <option value="Estonia">Estonia</option>
+                                        <option value="Ethiopia">Ethiopia</option>
+
+                                        <option value="Faroe Islands">Faroe Islands</option>
+                                        <option value="Fiji">Fiji</option>
+                                        <option value="Finland">Finland</option>
+                                        <option value="France">France</option>
+                                        <option value="French Polynesia">French Polynesia</option>
+
+                                        <option value="Gabon">Gabon</option>
+                                        <option value="Gambia">Gambia</option>
+                                        <option value="Georgia">Georgia</option>
+                                        <option value="Germany">Germany</option>
+                                        <option value="Ghana">Ghana</option>
+                                        <option value="Greece">Greece</option>
+                                        <option value="Greenland">Greenland</option>
+                                        <option value="Grenada">Grenada</option>
+                                        <option value="Guam">Guam</option>
+                                        <option value="Guatemala">Guatemala</option>
+                                        <option value="Guinea">Guinea</option>
+                                        <option value="Guinea-Bissau">Guinea-Bissau</option>
+                                        <option value="Guyana">Guyana</option>
+
+                                        <option value="Haiti">Haiti</option>
+                                        <option value="Honduras">Honduras</option>
+                                        <option value="Hong Kong">Hong Kong</option>
+                                        <option value="Hungary">Hungary</option>
+
+                                        <option value="Iceland">Iceland</option>
+                                        <option value="India">India</option>
+                                        <option value="Indonesia">Indonesia</option>
+                                        <option value="Iran">Iran</option>
+                                        <option value="Iraq">Iraq</option>
+                                        <option value="Ireland">Ireland</option>
+                                        <option value="Israel">Israel</option>
+                                        <option value="Italy">Italy</option>
+
+                                        <option value="Jamaica">Jamaica</option>
+                                        <option value="Japan">Japan</option>
+                                        <option value="Jordan">Jordan</option>
+
+                                        <option value="Kazakhstan">Kazakhstan</option>
+                                        <option value="Kenya">Kenya</option>
+                                        <option value="Kiribati">Kiribati</option>
+
+                                        <option value="Korea, North">Korea, North</option>
+                                        <option value="Korea, South">Korea, South</option>
+                                        <option value="Kosovo">Kosovo</option>
+                                        <option value="Kuwait">Kuwait</option>
+                                        <option value="Kyrgyzstan">Kyrgyzstan</option>
+
+                                        <option value="Laos">Laos</option>
+                                        <option value="Latvia">Latvia</option>
+                                        <option value="Lebanon">Lebanon</option>
+                                        <option value="Lesotho">Lesotho</option>
+                                        <option value="Liberia">Liberia</option>
+                                        <option value="Libya">Libya</option>
+                                        <option value="Liechtenstein">Liechtenstein</option>
+                                        <option value="Lithuania">Lithuania</option>
+                                        <option value="Luxembourg">Luxembourg</option>
+
+                                        <option value="Macedonia">Macedonia</option>
+                                        <option value="Madagascar">Madagascar</option>
+                                        <option value="Malawi">Malawi</option>
+                                        <option value="Malaysia">Malaysia</option>
+                                        <option value="Maldives">Maldives</option>
+                                        <option value="Mali">Mali</option>
+                                        <option value="Malta">Malta</option>
+                                        <option value="Marshall Islands">Marshall Islands</option>
+                                        <option value="Mauritania">Mauritania</option>
+                                        <option value="Mauritius">Mauritius</option>
+                                        <option value="Mexico">Mexico</option>
+                                        <option value="Micronesia">Micronesia</option>
+                                        <option value="Moldova">Moldova</option>
+                                        <option value="Monaco">Monaco</option>
+                                        <option value="Mongolia">Mongolia</option>
+                                        <option value="Montenegro">Montenegro</option>
+                                        <option value="Morocco">Morocco</option>
+                                        <option value="Mozambique">Mozambique</option>
+                                        <option value="Myanmar">Myanmar</option>
+                                        <option value="Namibia">Namibia</option>
+
+                                        <option value="Nauru">Nauru</option>
+                                        <option value="Nepal">Nepal</option>
+                                        <option value="Netherlands">Netherlands</option>
+                                        <option value="New Zealand">New Zealand</option>
+                                        <option value="Nicaragua">Nicaragua</option>
+                                        <option value="Niger">Niger</option>
+                                        <option value="Nigeria">Nigeria</option>
+                                        <option value="Northern Mariana Islands">Northern Mariana Islands</option>
+                                        <option value="Norway">Norway</option>
+                                        <option value="North Korea">North Korea</option>
+
+                                        <option value="Oman">Oman</option>
+
+                                        <option value="Pakistan">Pakistan</option>
+                                        <option value="Palau">Palau</option>
+                                        <option value="Palestine, State of">Palestine, State of</option>
+                                        <option value="Panama">Panama</option>
+                                        <option value="Papua New Guinea">Papua New Guinea</option>
+                                        <option value="Paraguay">Paraguay</option>
+                                        <option value="Peru">Peru</option>
+                                        <option value="Philippines">Philippines</option>
+                                        <option value="Poland">Poland</option>
+                                        <option value="Portugal">Portugal</option>
+                                        <option value="Puerto Rico">Puerto Rico</option>
+
+                                        <option value="Qatar">Qatar</option>
+
+                                        <option value="Romania">Romania</option>
+                                        <option value="Russia">Russia</option>
+                                        <option value="Rwanda">Rwanda</option>
+
+                                        <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
+                                        <option value="Saint Lucia">Saint Lucia</option>
+                                        <option value="Saint Vincent and the Grenadines">Saint Vincent and the Grenadines</option>
+                                        <option value="Samoa">Samoa</option>
+                                        <option value="San Marino">San Marino</option>
+                                        <option value="Sao Tome and Principe">Sao Tome and Principe</option>
+                                        <option value="Saudi Arabia">Saudi Arabia</option>
+                                        <option value="Senegal">Senegal</option>
+                                        <option value="Serbia">Serbia</option>
+                                        <option value="Seychelles">Seychelles</option>
+                                        <option value="Sierra Leone">Sierra Leone</option>
+                                        <option value="Singapore">Singapore</option>
+                                        <option value="Sint Maarten">Sint Maarten</option>
+                                        <option value="Slovakia">Slovakia</option>
+                                        <option value="Slovenia">Slovenia</option>
+                                        <option value="Solomon Islands">Solomon Islands</option>
+                                        <option value="Somalia">Somalia</option>
+                                        <option value="South Africa">South Africa</option>
+                                        <option value="Spain">Spain</option>
+                                        <option value="Sri Lanka">Sri Lanka</option>
+                                        <option value="Sudan">Sudan</option>
+                                        <option value="Sudan, South">Sudan, South</option>
+                                        <option value="Suriname">Suriname</option>
+                                        <option value="Swaziland">Swaziland</option>
+                                        <option value="Sweden">Sweden</option>
+                                        <option value="Switzerland">Switzerland</option>
+                                        <option value="Syria">Syria</option>
+
+                                        <option value="Taiwan">Taiwan</option>
+                                        <option value="Tajikistan">Tajikistan</option>
+                                        <option value="Tanzania">Tanzania</option>
+                                        <option value="Thailand">Thailand</option>
+                                        <option value="Togo">Togo</option>
+                                        <option value="Tonga">Tonga</option>
+                                        <option value="Trinidad and Tobago">Trinidad and Tobago</option>
+                                        <option value="Tunisia">Tunisia</option>
+                                        <option value="Turkey">Turkey</option>
+                                        <option value="Turkmenistan">Turkmenistan</option>
+                                        <option value="Tuvalu">Tuvalu</option>
+
+                                        <option value="Uganda">Uganda</option>
+                                        <option value="Ukraine">Ukraine</option>
+                                        <option value="United Arab Emirates">United Arab Emirates</option>
+                                        <option value="United Kingdom">United Kingdom</option>
+                                        <option value="United States">United States</option>
+                                        <option value="Uruguay">Uruguay</option>
+                                        <option value="Uzbekistan">Uzbekistan</option>
+
+                                        <option value="Vanuatu">Vanuatu</option>
+                                        <option value="Vatican City">Vatican City</option>
+                                        <option value="Venezuela">Venezuela</option>
+                                        <option value="Vietnam">Vietnam</option>
+                                        <option value="Virgin Islands, British">Virgin Islands, British</option>
+                                        <option value="Virgin Islands, U.S.">Virgin Islands, U.S.</option>
+
+                                        <option value="Yemen">Yemen</option>
+
+                                        <option value="Zambia">Zambia</option>
+                                        <option value="Zimbabwe">Zimbabwe</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="entry-group">
+                                <div class="entry-wrap">
+                                    <label for="FirstName">Phone</label>
+                                    <input type="text" id="Phone" placeholder="phone number" />
+                                </div>
+                            </div>
+                            <div class="entry-wrap-full">
+                                <label for="Organization" class="required">Email</label>
+                                <input type="text" id="Email"
+                                        ml-val ml-val-required="true" ml-val-type="email"
+                                        ml-val-label="Email" placeholder="email address" />
+                            </div>
+                        </div>
+                        <input type="submit" class="btn btn-success" value="Submit" onclick="validateForm(this); return false;" />
+                    </form>
+                    <div id="Cart">
+
+                    </div>
+                </section>
                 <!-- END Apparel -->
+
                 <!-- BEGIN Books & Games -->
-                <section></section>
+                <section>
+                    <h2>Books &amp; Games</h2>
+                    <p class="image-holder">
+                        <img src="http://cdn.firespring.com/images/07c0cfdb-d144-4a63-bf30-7678677d3a16.jpg"
+                             alt="Macro Mania Game"
+                             title="Macro Mania Game: Leaf Pack Experiments Stream Ecology Kit and Full color Identification and Life Cycle/Habitat Flashcards" />
+                    </p>
+                    <p>
+                        Macro Mania is a classroom adventure that introduces the use of stream macroinvertebrates 
+                        to determine water quality. Lecture material sets the scene for the activity that shows 
+                        the connection between aquatic macroinvertebrates and water quality. Great for elementary, 
+                        middle school, and special needs classes too. Prepares students for field trips to 
+                        investigate water quality using the Leaf Pack Experiments Stream Ecology Kit and Full 
+                        color Identification and Life Cycle/Habitat Flashcards.
+                    </p>
+                    <p>
+                        The game is currently in the hands of educators and resource managers throughout the U.S., 
+                        including several agents of the Natural Resources Conservation Service and public Aquaria 
+                        and Science Centers in Washington, Alabama, Tennessee and California.
+                    </p>
+                    <p>
+                        Macro Mania is now a bilingual English/Spanish game and can be purchased directly from 
+                        <a href="http://www.lamotte.com/en/education/macroinvertebrates/5942.html" target="_blank">lamotte.</a>
+                    </p>
+                    <p>
+                        Macro Mania is a scaled-down version of BIO-ASSESS©, an advanced card game developed by an 
+                        Auburn University fisheries researcher Dr. Bill Deutsch. He invented and copyrighted the 
+                        game in 1993 as a tool to train AWW volunteers in identifying aquatic bugs and their ecologies 
+                        and using that information to assess water quality.
+                    </p>
+                </section>
                 <!-- END Books & Games -->
+
+
                 <!-- BEGIN Monitoring Supplies -->
-                <section></section>
+                <section>
+                    <h2>Monitoring Supplies</h2>
+                    <div class="detail-viewer">
+                        <ul>
+                            <li>
+                                <span class="detail-label">Bacteriological Monitoring Supplies</span>
+                                <div class="detail-view">
+                                    <h2>Bacteriological Monitoring Supplies</h2>
+                                    <div class="group-joiner">
+                                        <h3 class="label">Bacteria Test Kit (per sample – 3 replicates)</h3>
+                                        <p>
+                                            Approximately $7.60 – $8.50 (depending on quantity discounts and shipping charges)
+                                        </p>
+                                        <p>
+                                            A test kit includes enough supplies to collect three replicate samples at each sampling site.
+                                            The average of three replicates provides a much more reliable estimate of the actual number
+                                            of bacterial colonies than a single sample.
+                                        </p>
+                                        <p>
+                                            Micrology Laboratories L.L.C.<br />
+                                            1303 Eisenhower Drive South<br />
+                                            Goshen, IN 46526
+                                        </p>
+                                        <p>
+                                            or
+                                        </p>
+                                        <p>
+                                            P.O. Box 340<br />
+                                            Goshen, IN 46527
+                                        </p>
+                                        <p>
+                                            Phone: <a href="tel:888-327-9435">888-EASYGEL</a><br />
+                                            Fax: <a href="tel:219-533-3370">219-533-3370</a><br />
+                                            Email: <a href="mailto:info@micrologylabs.com">info@micrologylabs.com</a><br />
+                                            Web: <a href="http://www.micrologylabs.com" target="_blank">www.micrologylabs.com</a>
+                                        </p>
+                                    </div>
+                                    <div class="group-joiner">
+                                        <h3 class="label">ColiScan EasyGel Media & Pre-treated Petri Dishes</h3>
+                                        <p>
+                                            (Catalog no. 25001)<br />
+                                            $2.75 – $3.00 per replicate (depending on quantity discounts and shipping charges)
+                                        </p>
+                                    </div>
+                                    <div class="group-joiner">
+                                        <h3 class="label">1-mL sterile-wrapped pipette</h3>
+                                        <p>
+                                            (Catalog no. DRP01)<br />
+                                            $0.23 each
+                                        </p>
+                                    </div>
+                                    <div class="group-joiner">
+                                        <h3 class="label">Incubator</h3>
+                                        <p>
+                                            The incubator for culturing bacterial samples can be made for less than $10. A small cooler
+                                            or other type of insulated container with a lid may be used as an incubator. Uniform
+                                            temperatures may be maintained using a small light bulb such as a night-light attached to
+                                            an extension cord. Use a piece of cardboard or plastic to shield the sample plates from
+                                            direct light. A thermostat is not needed. The number and/or wattage of bulbs may be adjusted
+                                            to maintain the proper temperatures, depending on the ambient room temperature and size of
+                                            incubator. For example, a 4-watt bulb in a 1 cubic foot container usually makes a good
+                                            incubator. A thermometer is needed to determine ambient incubator temperature. This can be
+                                            obtained from the AWW water chemistry test kit or a dial thermometer found in garden centers
+                                            and hardware stores. The thermometer should be placed within the incubator away from the
+                                            heat source or inserted through the lid so temperature may be read without opening the container.
+                                        </p>
+                                        <p>
+                                            Monitors can purchase high-quality, economic incubators from GQF Manufacturing Company here:
+                                            <a href="http://www.gqfmfg.com/table-top-models/" target="_blank">hova-bacter table top incubators</a>.
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="detail-label">Water Chemistry Monitoring Supplies</span>
+                                <div class="detail-view">
+                                    <h2>Water Chemistry Monitoring Supplies</h2>
+                                    <div class="group-joiner">
+                                        <p>
+                                            To Order:
+                                        </p>
+                                        <h3 class="label">Typical Monitoring Kit </h3>
+                                        <p>
+                                            (Catalog no. 9844-02)<br />
+                                            $299.00*
+                                        </p>
+                                        <h3 class="label">Monitoring Kit with Secchi Disk</h3>
+                                        <p>
+                                            (Catalog no. 9845-02)<br />
+                                            $437.85*
+                                        </p>
+                                        <h3 class="label">Full set of Reagents for Typical Kit</h3>
+                                        <p>
+                                            (Catalog no. R-9844-01)<br />
+                                            $100.70*
+                                        </p>
+                                        <h3 class="label">Hydrometer – for Coastal Groups (1.000/1.070) </h3>
+                                        <p>
+                                            (Catalog no. 3-0011)<br />
+                                            $44.50*
+                                        </p>
+                                        <p>
+                                            Contact:<br />
+                                            LaMotte Company<br />
+                                            P.O. Box 329<br />
+                                            Chestertown, MD 21620<br />
+                                            Phone: <a href="tel:410-778-3100">410-778-3100</a> or <a href="tel:800-344-3100">800-344-3100</a><br />
+                                            Fax: <a href="tel:410-778-6394">410-778-6394</a><br />
+                                            Web: <a href="http://www.lamotte.com/en/environmental-education-resources/partnership-programs" target="_blank">LaMotte Website</a>
+                                        </p>
+                                    </div>
+                                    <div class="group-joiner">
+                                        <p>
+                                            To Order:
+                                        </p>
+                                        <h3 class="label">Remote Sampler – for deep water sampling, bridge crossings, docks, etc.</h3>
+                                        <p>
+                                            $75.00*
+                                        </p>
+                                        <p>
+                                            Contact:<br />
+                                            Alabama Water Watch<br />
+                                            Phone: <a href="tel:334-844-4785">334-844-4785</a><br />
+                                            Web: <a href="mailto:awwprog@auburn.edu">awwprog@auburn.edu</a>
+                                        </p>
+                                        <p>
+                                            <i>*Contact listed company to get updated price for any equipment.</i>
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="detail-label">Instructions and Tips for Ordering Chemical Reagent Refills or Hardware from LaMotte</span>
+                                <div class="detail-view">
+                                    <h2>Instructions and Tips for Ordering Chemical Reagent Refills or Hardware from LaMotte</h2>
+                                    <p>
+                                        <b>
+                                            Call LaMotte Company’s Customer Service department at <a href="tel:1-800-344-3100">1-800-344-3100</a>
+                                            to place your orders. lamotte does not have an online purchasing option.
+                                        </b>
+                                    </p>
+                                    <p>
+                                        When placing an order – ALWAYS stress that you are ordering items for the Alabama Water Watch Program.
+                                    </p>
+                                    <p>
+                                        To see a price list of items in the AWW Water Chemistry Kit – access the lamotte website using this link:
+                                        <a href="http://www.lamotte.com/en/environmental-education-resources/partnership-programs" target="_blank">Lamotte Order</a>
+                                    </p>
+                                    <p>
+                                        The hours of operation are 8:15 AM to 5:00 PM EST, Monday through Friday.
+                                    </p>
+                                    <p>
+                                        Payment for your order may be by MasterCard, VISA or American Express to speed order processing. 
+                                        Orders are shipped via UPS surface from Chestertown, MD.
+                                    </p>
+                                    <p>
+                                        Organizations and non-profits may apply for net 30 day open account terms, but are required to provide 
+                                        trade references and a bank reference. Customer Service can send you the appropriate forms upon request.
+                                    </p>
+                                    <p>
+                                        LaMotte Company will accept purchase orders from school systems and local, state, and federal agencies. 
+                                        Purchase orders may be faxed to <a href="tel:1-410-778-6394">1-410-778-6394</a>. Please ask for an Order 
+                                        Acknowledgement to confirm your order.
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="detail-label">Stream Biomonitoring Supplies</span>
+                                <div class="detail-view">
+                                    <h2>Stream Biomonitoring Supplies</h2>       
+                                    <div class="group-joiner">
+                                        <h3 class="label">Ben Meadows</h3>
+                                        <p>
+                                            <a href="http://www.benmeadows.com/" target="_blank">www.benmeadows.com</a><br />
+                                            <a href="tel:800-241-6401">800-241-6401</a><br />
+                                            Fax: <a href="tel:800-628-2068">800-628-2068</a>
+                                        </p>
+                                        <p>
+                                            <a href="http://www.benmeadows.com/lamotte-student-grade-kick-net-without-poles_s_123662/" target="_blank">Student Grade Kick Net without Poles</a><br />
+                                            $32.30*
+                                        </p>
+                                    </div>
+                                    <div class="group-joiner">
+                                        <h3 class="label">Acorn Naturalists</h3>
+                                        <p>
+                                            <a href="http://www.acornnaturalists.com/" target="_blank">www.acornnaturalists.com</a><br />
+                                            <a href="tel:800-422-8886">800-422-8886</a><br />
+                                        </p>
+                                        <p>
+                                            <a href="http://www.acornnaturalists.com/store/TRIANGULAR-AQUATIC-NET-P402C0.aspx" target="_blank">D-Net</a><br />
+                                            $44.95*
+                                        </p>
+                                        <p>
+                                            <a href="http://www.acornnaturalists.com/store/6x-TWO-WAY-MAGNIFYING-VIEWER-P4958C0.aspx" target="_blank">Two-way Microscope</a><br />
+                                            $11.90*
+                                        </p>
+                                        <p>
+                                            <a href="http://www.acornnaturalists.com/store/FORCEP-METAL-straight-tip-P2452C0.aspx" target="_blank">Forceps(metal)</a><br />
+                                            $4.80*
+                                        </p>
+                                        <p>
+                                            <a href="http://www.acornnaturalists.com/store/MACROMANIA-KIT-P3528C0.aspx" target="_blank">Macromania Game</a><br />
+                                            $56.90*
+                                        </p>
+                                    </div>
+                                    <div class="group-joiner">
+                                        <h3 class="label">LaMotte Company</h3>
+                                        <p>
+                                            <a href="http://www.lamotte.com/en/" target="_blank">www.lamotte.com</a><br />
+                                            <a href="tel:410-773-3100">410-773-3100</a><br />
+                                            Fax: <a href="tel:410-778-6394">410-778-6394</a><br />
+                                        </p>
+                                        <p>
+                                            <a href="http://www.lamotte.com/en/education/macroinvertebrates/5942.html" target="_blank">Macromania Game</a><br />
+                                            $57.35*
+                                        </p>
+                                    </div>
+                                    <div class="group-joiner">
+                                        <h3 class="label">Wildco</h3>
+                                        <p>
+                                            <a href="http://wildco.com/" target="_blank">www.wildco.com</a><br />
+                                            <a href="tel:800-799-8301">800-799-8301</a><br />
+                                            Fax: <a href="tel:904-225-2228">904-225-2228</a><br />
+                                        </p>
+                                        <p>
+                                            <a href="http://shop.sciencefirst.com/wildco/800900um-d-frame-dip-net/6624-complete-d-frame-dip-net-52in-handle-multifilament-800-900m.html" target="_blank">D-Frame Dip Net</a><br />
+                                            $116.00*
+                                        </p>
+                                        <p>
+                                            <a href="http://shop.sciencefirst.com/wildco/insect-lab-equipment/5925-spade-tip-forceps-425.html" target="_blank">Forceps(metal)</a><br />
+                                            $3.50*
+                                        </p>
+                                    </div>
+                                    <div class="group-joiner">
+                                        <h3 class="label">Lowe’s</h3>
+                                        <p>
+                                            <a href="https://www.lowes.com/" target="_blank">www.lowes.com</a>
+                                        </p>
+                                        <p>
+                                            <a href="https://www.lowes.com/pd/Madison-Mill-Round-Poplar-Dowel-Actual-48-in-L-x-1-25-in-dia/3040777" target="_blank">2 Wooden Dowels(poles)</a><br />
+                                            $4.48* each
+                                        </p>
+                                        <p>
+                                            <a href="https://www.lowes.com/pd/Encore-Plastics-5-Gallon-Commercial-Food-Grade-Bucket/3694238" target="_blank">Buckets</a><br />
+                                            $3.98*
+                                        </p>
+                                    </div>
+                                    <p>
+                                        <i>*Prices as of January, 2017</i>
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </section>
                 <!-- END Monitoring Supplies -->
             </div>
         </div>

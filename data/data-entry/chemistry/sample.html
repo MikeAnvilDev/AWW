@@ -1,0 +1,124 @@
+﻿
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <script src="https://ssl.acesag.auburn.edu/main/jquery/jquery-1.7.1.min.js"></script>
+    <script src="https://ssl.acesag.auburn.edu/main/jquery/jquery.hoverIntent.minified.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://ssl.acesag.auburn.edu/main/jquery/jquery.corner.js"></script>
+</head>
+<body>
+
+    <form id='myform'>
+
+        --WebMasterSiteId=186
+        --WebMasterSiteId  <input id='WebMasterSiteId' name='WebMasterSiteId' type='text' value='186'> <br />
+        
+        --SampleDateTime=2017-01-18%2015%3A15
+        --SampleDateTime  <input id='SampleDateTime' name='SampleDateTime' type='text' value='10/1/2016 4:00:00 AM'><br />
+        
+        --&SubmitterContactId=2096
+        --SubmitterContactId  <input id='SubmitterContactId' name='SubmitterContactId' type='text' value='2096'><br />
+
+        MonitorIDs_0_  <input id='MonitorIDs_0_' name='MonitorIDs[0]' type='text' value='2096'><br />
+        MonitorIDs_1_  <input id='MonitorIDs_1_' name='MonitorIDs[1]' type='text' value='6616'><br />
+        MonitorIDs_2_  <input id='MonitorIDs_2_' name='MonitorIDs[2]' type='text' value='6862'><br />
+        
+        --&SamplingSiteLocation=at%20West%20Longleaf%20Drive
+        --SamplingSiteLocation  <input id='SamplingSiteLocation' name='SamplingSiteLocation' type='text' value='at West Longleaf Drive'><br />
+        
+        --&WaterbodyConditionId=1
+        --WaterbodyConditionId  <input id='WaterbodyConditionId' name='WaterbodyConditionId' type='text' value='1'><br />
+        
+        --&TideId=4
+        --TideId  <input id='TideId' name='TideId' type='text' value='2'><br />
+
+        --&AirTemp=23
+        --AirTemp<input id='AirTemp' name='AirTemp' type='text' value='29'> <br />
+        
+        --&WaterTemp=5
+        --WaterTemp<input id='WaterTemp' name='WaterTemp' type='text' value='32'> <br />
+        
+        --&Alkalinity=45
+        --Alkalinity<input id='Alkalinity' name='Alkalinity' type='text' value='9'> <br />
+        
+        --&Hardness=33
+        --Hardness<input id='Hardness' name='Hardness' type='text' value='2'> <br />
+        
+        --&Turb1=34
+        --Turb1<input id='Turb1' name='Turb1' type='text' value='0'> <br />
+        
+        --&Turb2=18
+        --Turb2<input id='Turb2' name='Turb1' type='text' value='0'>  <br />
+        
+        --&Secchi=7
+        --Secchi<input id='Secchi' name='Secchi' type='text' value='1'>    <br />
+        
+        --&Ph=6
+        --Ph<input id='Ph' name='Ph' type='text' value='0.01'> <br />
+        
+        --&DO1=34.3
+        --DO1<input id='DO1' name='DO1' type='text' value='5.4'><br />
+        
+        --&DO2=35.1
+        --DO2<input id='DO2' name='DO2' type='text' value='5.4'> <br />
+        
+        --&SG=5
+        --SG<input id='SG' name='SG' type='text' value=''> <br />
+
+        --&Salinity=5
+        --Salinity<input id='Salinity' name='Salinity' type='text' value='13.4'> <br />
+        
+        --&AvgDo=34.7
+        --AvgDo<input id='AvgDo' name='AvgDo' type='text' value='4.9'> <br />
+
+        --&DOSat=12
+        --DOSat<input id='DOSat' name='DOSat' type='text' value='0.74'> <br />
+        
+        --&Other=
+        --Other<input id='Other' name='Other' type='text' value='test'> <br />
+        
+        --&Comments=
+        --Comments<input id='Comments' name='Comments' type='text' value='This is a test.'> <br />
+
+        >>&CertificationConfirmation=true
+
+        <input id="btnSubmit" type="submit" value="Submit" onclick="Submit(); return false;" />
+    </form>
+
+    <script>
+
+        $(document).ready(function () {
+
+        });
+
+		function Submit() {
+			   jQuery.support.cors = true;
+
+				var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6InJ1aXpzZXIwNyIsInN1YiI6InJ1aXpzZXIwNyIsInJvbGUiOlsidXNlciIsIlN1cGVydmlzb3IiXSwiaXNzIjoiaHR0cHM6Ly9tc2FwcHMuYWNlc2FnLmF1YnVybi5lZHUvYWNlc2F1dGgiLCJhdWQiOiIxNTBjNTgyOTRlOGE0MDhkYWU5ZjExNWE5ZDIxODVjMiIsImV4cCI6MTQ4NDQxNDg4MywibmJmIjoxNDg0MzI4NDgzfQ.5rDKmuHBHwhGbQpIc3bAnc6SMf6wkso1e0yvQi16amQ";
+
+				var a = $('#myform').serialize();
+
+				$.ajax({
+						url: 'https://msapps.acesag.auburn.edu/aww/api/home/SubmitChemSample',
+				type: 'POST',
+					headers: { 'Authorization': 'Bearer ' + token },
+				data: a,
+				cache: false,
+						success: function (data) {
+					  console.log(data);
+						},
+						error: function (x, y, z) {
+							console.log(x);
+						}
+				});
+		};
+
+
+		
+    </script>
+
+
+</body>
+</html>

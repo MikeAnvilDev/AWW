@@ -3,6 +3,7 @@
 }
 
 body{
+    opacity: 0;
     color: #555;
     background: #efefef;
     font-family: Arial,Helvetica,sans-serif;
@@ -14,6 +15,7 @@ header{
     top: 0px;
     left: 0px;
     width: 100%;
+    max-width: 100%;
     height: 50px;
     background:#ffffff;
 }
@@ -219,18 +221,21 @@ header{
         width: 40px;
         height: 40px;
         margin: 5px;
-        background-image: url(../../res/images/icons/cad-green.gif);
+        background-image: url(../../res/images/icons/cad-white-on-green.png);
         background-size: contain;
         background-repeat: no-repeat;
+        -moz-border-radius: 3px;
+        -webkit-border-radius: 3px;
+        border-radius: 3px;
     }
     header h1{
-        float: left;
         font-family: Oswald, Arial, Verdana, sans-serif;
         font-size: 28px;
         font-weight: 400;
         color: #3d7454;
         text-align: center;
         line-height: 50px;
+        text-align: center;
     }
 
     @media(max-width: 360px) {
@@ -244,9 +249,10 @@ header{
         }
     }
 
-main{            
+main{          
     margin-top: 50px;
     width: 100%;
+    max-width: 100%;
     overflow: hidden;
 }
     main h1{
@@ -272,6 +278,7 @@ main{
         font-family: Oswald, Arial, Verdana, sans-serif;
         color: #3d7454;
         font-size: 24px;
+        line-height: 30px;
         font-weight: 400;
     }
     main h3{
@@ -285,14 +292,14 @@ main{
         padding-bottom: 16px;
         font-family: Oswald, Arial, Verdana, sans-serif;
         color: #3d7454;
-        font-size: 16px;
+        font-size: 18px;
         font-weight: 400;
     }
     main h5{
         padding-bottom: 6px;
         font-family: Oswald, Arial, Verdana, sans-serif;
         color: #3d7454;
-        font-size: 14px;
+        font-size: 16px;
         font-weight: 400;
     }
 
@@ -301,19 +308,21 @@ main{
         padding-bottom: 16px;
     }
     main ul li, main ol li{
-        font-size: 12px;
+        padding-bottom: 12px;
+        font-size: 16px;
         line-height: 22px;
     }
     main p{
-        font-size: 12px;
+        font-size: 16px;
         line-height: 22px;
-        padding-bottom: 16px;
+        padding-bottom: 26px;
     }
     main a{
-        color: #3c75c4;
+        color: #555555;
+        font-size: 14px;
         font-weight: bold;
         text-decoration: none;
-        border-bottom: 1px dashed #3c75c4;
+        border-bottom: 1px dashed #8eb755;
     }
     main section {
         width: 100%;
@@ -325,10 +334,44 @@ main{
         box-sizing: border-box;
     }
 
+    p.breadcrumbs{
+        padding: 6px 16px;
+        border-top: 1px solid #275c3d;
+        overflow: hidden;
+
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 400;
+        color:#ffffff; 
+        background-color:#316446;
+    }
+        p.breadcrumbs a{
+            color: #8eb755;
+            text-decoration: none;
+            border: 0px;
+        }
+
+    main div.section{
+        padding-bottom: 16px;
+        margin-bottom: 16px;
+        border-bottom: 1px solid #dddddd;
+    }
+
+    @media(max-width: 500px) {
+        main h1.heading {
+            font-size: 14px;
+            line-height: 18px;
+            background-size: 4px 16px;
+        }
+    }
+
         main p.image-holder{
             padding: 4px 4px 16px 4px;
             text-align: center;
         }
+            main p.image-holder a{
+                border: 0px;
+            }
             main p.image-holder img{
                 width: 100%;                
                 border:5px solid #ffffff;
@@ -379,6 +422,26 @@ main{
             width: 100%;
             height: 100%;
         }
+    main div.youtube-image{
+        padding: 6px;
+        text-align: center;
+        overflow: hidden;
+    }
+        main div.youtube-image a{
+            border: 0px;
+        }
+        main div.youtube-image img{
+            max-width: 100%;                
+            border:5px solid #ffffff;
+        
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+
+            -moz-box-shadow: 0px 0px 6px rgba(0,0,0,.5);
+            -webkit-box-shadow: 0px 0px 6px rgba(0,0,0,.5);
+            box-shadow: 0px 0px 6px rgba(0,0,0,.5);
+        }
 
     main div.detail-viewer {
         margin-bottom: 16px;
@@ -389,7 +452,8 @@ main{
             border: 1px solid #cccccc;
         }
             main div.detail-viewer ul li{
-                display: block;                
+                display: block;     
+                padding-bottom: 0px;           
                 border-bottom: 1px solid #dddddd;
             }
                 main div.detail-viewer ul li:last-child{
@@ -506,7 +570,7 @@ main{
     @media(max-width: 360px) {
         main div.detail-viewer ul li span.detail-label,        
         main div.detail-viewer ul li span.detail-label-no-link {
-            font-size: 14px;
+            font-size: 16px;
             line-height: 24px;
             background-size: 16px 16px;
         }
@@ -589,7 +653,7 @@ main{
     @media(max-width: 360px){
         main ul.name-link-list li {
             padding:6px 70px 6px 16px; 
-            font-size: 14px;
+            font-size: 16px;
             line-height: 24px;
         }
             main ul.name-link-list li a {
@@ -612,7 +676,8 @@ main{
             border: 1px solid #cccccc;
         }
             main div.generic-link-list ul li{
-                display: block;                
+                display: block;               
+                padding-bottom: 0px; 
                 border-bottom: 1px solid #dddddd;
             }
                 main div.generic-link-list ul li:last-child{
@@ -649,4 +714,11 @@ main{
             line-height: 24px;
             background-size: 16px 16px;
         }
+    }
+
+    main div.list-followed{
+        margin-bottom: 0px;
+    }
+    main div.list-continued ul{
+        border-top: 0px;
     }

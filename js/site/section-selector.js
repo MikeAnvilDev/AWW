@@ -2,10 +2,11 @@
     var $sectionSelectors = $('div.section-selector');
     $sectionSelectors.each(function (index) {
         var $sectionSelector = $(this);
+        $sectionSelector.attr('index', index);
         var $selectorListItems = $sectionSelector.find('> div.ss-nav li');
-        $selectorListItems.each(function (index) {
+        $selectorListItems.each(function (childIndex) {
             var $item = $(this);
-            $item.attr('index', index);
+            $item.attr('index', childIndex);
             $item.click(function () {
                 SectionSelector_StartSelection($(this));
             });
@@ -18,6 +19,8 @@
         $selectorSelect.change(function () { SectionSelector_UpdateSelection($(this)); });
         
     });
+
+    SectionSelector_GoToHash();
 }
 function SectionSelector_StartSelection($obj) {
     var selectedIndex = $obj.attr('index');
@@ -33,6 +36,10 @@ function SectionSelector_StartSelection($obj) {
 }
 function SectionSelector_UpdateSelection($obj) {
     var selectedIndex = $obj[0].selectedIndex;
+    var $section = $obj.closest('div.section-selector');
+
+    SectionSelector_UpdateHash($section.attr('index') + '_' + $obj[0].selectedIndex);
+
     var $sections = $obj.closest('div.section-selector').find('> div.ss-sections > section');
     var $currentSection = $obj.closest('div.section-selector').find('> div.ss-sections > section.ss-active');
     var $nextSection = $sections.eq(selectedIndex);
@@ -46,6 +53,26 @@ function SectionSelector_UpdateSelection($obj) {
             $(this).removeClass('ss-shift').removeClass('ss-upper');
         });
     }
+}
+function SectionSelector_GoToHash() {
+    var hash = window.location.hash;
+    if (hash.length > 0) {
+        var hash = hash.substr(1);
+        var indexes = hash.split('_');
+        var $sectionSelectors = $('div.section-selector');
+        var $selectorListItems = $sectionSelectors.eq(indexes[0]).find('> div.ss-nav li');
+        var $selectedListItem = $selectorListItems.eq(indexes[1]);
+        SectionSelector_StartSelection($selectedListItem);
+    }
+}
+function SectionSelector_UpdateHash(hash) {
+    window.location.hash = hash;
+}
+function SectionSelector_Link_GoTo(selectEq, index) {
+    var $sectionSelectors = $('div.section-selector');
+    var $selectorListItems = $sectionSelectors.eq(selectEq).find('> div.ss-nav li');
+    var $selectedListItem = $selectorListItems.eq(index);
+    SectionSelector_StartSelection($selectedListItem);
 }
 $(document).ready(function () {
     SectionSelector_SetUp();
