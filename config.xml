@@ -16,7 +16,7 @@
   <preference name="orientation" value="portrait" />
   <preference name="fullscreen" value="true" />
   <preference name="detect-data-types" value="false" />
-  <preference name="loadUrlTimeoutValue" value="120000" />
+  <preference name="loadUrlTimeoutValue" value="300000" />
   
   <!-- ios overscroll -->
   <preference name="disallowOverscroll" value="true" />
