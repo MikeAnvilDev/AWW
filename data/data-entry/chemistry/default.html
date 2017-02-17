@@ -17,6 +17,8 @@
     <script type="text/javascript" src="../../../js/data-entry/common.min.js"></script>
     <script type="text/javascript" src="../../../js/data-entry/chemistry.min.js"></script>
     <script type="text/javascript" src="../../../js/data-entry/form-validation.min.js"></script>
+    <script type="text/javascript" src="../../../js/data-entry/jwt-decode.min.js"></script>
+    <script type="text/javascript" src="../../../js/data-entry/image-upload.min.js"></script>
 </head>
 <body>
     <header>
@@ -48,6 +50,19 @@
 
         <section id="Success-Section">
             <h2>Chemistry Monitoring Data Entry Completed Successfully!</h2>
+            <p>
+                Would you like to upload a photo of your site?
+            </p>
+            <div class="image-wrap">
+                <div class="imageInputs">
+                    <label for="ImageUpload" class="required">Image: <span>jpg, png, bmp or gif</span></label>
+                    <div class="file-upload"><input type="file" id="ImageUpload" /><p>select an image</p><span></span></div>
+                </div>
+
+                <div id="ImageStatus"></div>
+                <div id="ImagePreview"></div>
+                <div id="ImageLoaded"></div>
+            </div>
             <div class="generic-link-list">
                 <ul>
                     <li><a href="../login/index.html?logout=true">Log Out</a></li>
@@ -387,7 +402,7 @@
                 <h2>Authorization</h2>
                 <div class="panel-body form-group">
                     <label for="CertificationConfirmation">
-                        <input type="hidden" id="SubmitterContactId" name="SubmitterContactId" value="2096" />
+                        <input type="hidden" id="SubmitterContactId" name="SubmitterContactId" value="" />
                         <input id="CertificationConfirmation" name="CertificationConfirmation" type="checkbox" value="true"
                                ml-val ml-val-required="true" ml-val-label="The Certification Confirmation field is required." />
                         <span class="unconfirmed">Press to confirm that you are certified in AWW Chemistry Monitoring and the sample media used were within its expiration date.</span>

@@ -14,6 +14,7 @@
     <script type="text/javascript" src="../../../js/site/jquery.min.js"></script>
     <script type="text/javascript" src="../../../js/site/master.min.js"></script>
     <script type="text/javascript" src="../../../js/site/section-selector.min.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcTMT0DVoMWt9IURdklqtRJMawlSoeoLw"></script>
     <script type="text/javascript" src="../../../js/site/water-data-table.min.js"></script>
 </head>
 <body>
@@ -99,11 +100,20 @@
                     </div>
                     <div class="entry-wrap">
                         <label>Group:</label>
-                        <select id="AWW-Group"></select>
+                        <div class="group-select">
+                            <select id="AWW-Group"></select>
+                            <div class="group-loading"><p>loading...</p><div><div></div><div></div></div></div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <table id="Sites-List"></table>
+
+            <div class="scroll-instructions"><p><span class="left"></span><span class="right"></span>scroll to view more columns</p></div>
+            <div id="Sites-List-Wrap">
+                <div id="Sites-List-Sizer">
+                    <table id="Sites-List"></table>
+                </div>
+            </div>
         </section>
     </main>
     <div id="Loading"><div><div></div><div></div></div></div>

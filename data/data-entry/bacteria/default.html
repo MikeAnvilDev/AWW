@@ -17,6 +17,8 @@
     <script type="text/javascript" src="../../../js/data-entry/common.min.js"></script>
     <script type="text/javascript" src="../../../js/data-entry/bacteria.min.js"></script>
     <script type="text/javascript" src="../../../js/data-entry/form-validation.min.js"></script>
+    <script type="text/javascript" src="../../../js/data-entry/jwt-decode.min.js"></script>
+    <script type="text/javascript" src="../../../js/data-entry/image-upload.min.js"></script>
 </head>
 <body>
     <header>
@@ -48,6 +50,19 @@
 
         <section id="Success-Section">
             <h2>Bacteria Monitoring Data Entry Completed Successfully!</h2>
+            <p>
+                Would you like to upload a photo of your site? 
+            </p>
+            <div class="image-wrap">
+                <div class="imageInputs">
+                    <label for="ImageUpload" class="required">Image: <span>jpg, png, bmp or gif</span></label>
+                    <div class="file-upload"><input type="file" id="ImageUpload" /><p>select an image</p><span></span></div>
+                </div>
+                
+                <div id="ImageStatus"></div>
+                <div id="ImagePreview"></div>
+                <div id="ImageLoaded"></div>
+            </div>
             <div class="generic-link-list">
                 <ul>
                     <li><a href="../login/index.html?logout=true">Log Out</a></li>
