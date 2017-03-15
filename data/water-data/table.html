@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Water Data</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="../../css/master.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/form.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/section-selector.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/water-data-table.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Oswald:700,400">
+
+    <script type="text/javascript" src="../../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../../js/master.min.js"></script>
+    <script type="text/javascript" src="../../js/common.min.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcTMT0DVoMWt9IURdklqtRJMawlSoeoLw"></script>
+    <script type="text/javascript" src="../../js/water-data-table.min.js"></script>
+</head>
+<body>
+    <header>
+        <a href="../../../index.html" class="icon"></a>
+        <h1>Alabama Water Watch</h1>
+    </header>
+    <main>
+        <p class="breadcrumbs"><a href="../type/index.html">Home</a> &raquo; <a href="index.html">Water Data</a> &raquo; Table</p>
+        <section>
+            <div class="back">
+                <a href="index.html">Back to Water Data</a>
+            </div>
+            <div>
+                <div class="entry-group">
+                    <div class="entry-wrap">
+                        <label>Search by:</label>
+                        <select id="Search-Type">
+                            <option value="0">AWW Watershed</option>
+                            <option value="1">HUC Watershed</option>
+                        </select>
+                    </div>
+                    <div class="entry-wrap">
+                        <label>Data Type:</label>
+                        <select id="Data-Type">
+                            <option value="0">Chemistry</option>
+                            <option value="1">Bacteria</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="HUC-Search" class="entry-group">
+                    <div class="entry-wrap">
+                        <label>HUC6 Basin:</label>
+                        <select id="HUC6-Basin">
+                            <option value="060300">Middle Tennessee-Elk</option>
+                            <option value="031601">Black Warrior-Tombigbee</option>
+                            <option value="031501">Coosa-Tallapoosa</option>
+                            <option value="031502">Alabama</option>
+                            <option value="031300">Apalachicola</option>
+                            <option value="031402">Choctawatchee</option>
+                            <option value="031401">Florida Panhandle Coastal</option>
+                            <option value="031403">Escambia</option>
+                            <option value="031602">Mobile Bay - Tombigbee</option>
+                        </select>
+                    </div>
+                    <div class="entry-wrap">
+                        <label>HUC10 Watershed:</label>
+                        <select id="HUC10-Watershed"></select>
+                    </div>
+                </div>
+                <div id="AWW-Search" class="entry-group">
+                    <div class="entry-wrap">
+                        <label>AWW Watershed:</label>
+                        <select id="AWW-Watershed">
+                            <option value="01">Alabama</option>
+                            <option value="02">Cahaba</option>
+                            <option value="03">Chattahoochee</option>
+                            <option value="04">Coastal_Plain</option>
+                            <option value="05">Coosa</option>
+                            <option value="06">Mobile</option>
+                            <option value="07">Tallapoosa</option>
+                            <option value="08">Tennessee</option>
+                            <option value="09">Tombigbee</option>
+                            <option value="10">Warrior</option>
+                        </select>
+                    </div>
+                    <div class="entry-wrap">
+                        <label>Group:</label>
+                        <div class="group-select">
+                            <select id="AWW-Group"></select>
+                            <div class="group-loading"><p>loading...</p><div><div></div><div></div></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="scroll-instructions"><p><span class="left"></span><span class="right"></span>scroll to view more columns</p></div>
+            <div id="Sites-List-Wrap">
+                <div id="Sites-List-Sizer">
+                    <table id="Sites-List"></table>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="Loading"><div><div></div><div></div></div></div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Site Selection</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Oswald:700,400">
+    <link rel="stylesheet" type="text/css" href="../../css/master.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/form.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/sites.min.css" /> 
+
+    <script type="text/javascript" src="../../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../../js/master.min.js"></script>
+    <script type="text/javascript" src="../../js/common.min.js"></script>
+    <script type="text/javascript" src="../../js/sites.min.js"></script>
+</head>
+<body>
+    <header>
+        <a href="../types/index.html" class="icon"></a>
+        <h1>Alabama Water Watch</h1>
+    </header>
+    <main>
+        <p class="breadcrumbs"><a href="../type/index.html">Home</a> &raquo; Chemistry Data Locations</p>
+        <section>
+            <div class="back">
+                <a href="../type/index.html">Back to Data Selection</a>
+            </div>
+            <form class="ml-validation">
+                <div id="Order" class="entry-wrap-full">
+                    <label for="OrderSelector">Order by</label>
+                    <select id="OrderSelector">
+                        <option value="0">Nearby</option>
+                        <option value="1">Site Code</option>
+                    </select>
+                </div>
+                <div id="Groups" class="entry-wrap-full"></div>
+            </form>
+
+            <div id="SiteList" data-type="chemistry"></div>
+        </section>
+    </main>
+    <div id="Loading"><div><div></div><div></div></div></div>
+</body>
+</html>
+
