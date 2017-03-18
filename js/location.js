@@ -9,11 +9,6 @@ function setPositionWatch() {
         timeout: 1000,
         maximumAge: 0
     };
-    document.addEventListener("deviceready", startPositionWatch, false);
-
-    watchID = navigator.geolocation.watchPosition(updateWatchedPosition, watchedPositionError, options);
-}
-function startPositionWatch() {
     watchID = navigator.geolocation.watchPosition(updateWatchedPosition, watchedPositionError, options);
 }
 function updateWatchedPosition(position) {
@@ -25,7 +20,6 @@ function watchedPositionError(err) {
 }
 
 function recenterMap() {
-    console.log('recenterMap');
     if (center != null) {
         map.setCenter(center);
         marker.setPosition(center);
@@ -80,8 +74,8 @@ function addMarker() {
     marker = new google.maps.Marker({
         map: map,
         position: center,
-        title: 'Current Location'//,
-        //icon: icon
+        title: 'Current Location',
+        icon: icon
     });
 }
 
@@ -123,6 +117,8 @@ function getMonitors(){
     return monitors;
 }
 
-$(window).on('load', function () {
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
+    alert('device ready');
     validateToken(setUpMap);
-});
+}
