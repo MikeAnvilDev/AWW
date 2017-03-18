@@ -6,18 +6,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, min-zoom=1, minimum-scale=1, user-scalable=no" />
 
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Oswald:700,400">
-    <link rel="stylesheet" type="text/css" href="../../css/master.min.css" />
-    <link rel="stylesheet" type="text/css" href="../../css/form.min.css" />
-    <link rel="stylesheet" type="text/css" href="../../css/data-entry.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/master.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/form.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/data-entry.css" />
 
     <script type="text/javascript" src="../../js/jquery.min.js"></script>
-    <script type="text/javascript" src="../../js/master.min.js"></script>
-    <script type="text/javascript" src="../../js/common.min.js"></script>
-    <script type="text/javascript" src="../../js/bacteria.min.js"></script>
-    <script type="text/javascript" src="../../js/form-validation.min.js"></script>
+    <script type="text/javascript" src="../../js/master.js"></script>
+    <script type="text/javascript" src="../../js/common.js"></script>
+    <script type="text/javascript" src="../../js/bacteria.js"></script>
+    <script type="text/javascript" src="../../js/form-validation.js"></script>
     <script type="text/javascript" src="../../js/jwt-decode.min.js"></script>
-    <script type="text/javascript" src="../../js/image-upload.min.js"></script>
+    <script type="text/javascript" src="../../js/image-upload.js"></script>
 </head>
 <body>
     <header>
@@ -63,22 +62,9 @@
                     <h3>Site</h3>
                     <div class="entry-group">
                         <div class="entry-wrap">
-                            <input type="hidden" readonly="readonly" id="Groupid" />
-                            <label for="Group_Name">Group Name</label>
-                            <input type="text" readonly="readonly" id="Group_Name" />
-                        </div>
-                        <div class="entry-wrap">
-                            <label for="Group_Abbreviation">Group Abbreviation</label>
-                            <input type="text" readonly="readonly" id="Group_Abbreviation" />
-                        </div>
-                        <div class="entry-wrap">
                             <input type="hidden" id="WebMasterSiteId" name="WebMasterSiteId" />
                             <label for="AwwSiteCode">AWW Site Code</label>
                             <input type="text" readonly="readonly" id="AwwSiteCode" />
-                        </div>
-                        <div class="entry-wrap">
-                            <label for="Watershed">Watershed</label>
-                            <input type="text" readonly="readonly" id="Watershed" />
                         </div>
                         <div class="entry-wrap">
                             <label for="Waterbody_Name">Waterbody Name</label>
@@ -89,37 +75,49 @@
                             <input type="text" readonly="readonly" id="HUC11" />
                         </div>
                         <div class="entry-wrap">
-                            <label for="HUC8">HUC8</label>
-                            <input type="text" readonly="readonly" id="HUC8" />
-                        </div>
-                        <div class="entry-wrap">
-                            <label for="HUC6">HUC6</label>
-                            <input type="text" readonly="readonly" id="HUC6" />
-                        </div>
-                        <div class="entry-wrap">
-                            <label for="HUC4">HUC4</label>
-                            <input type="text" readonly="readonly" id="HUC4" />
-                        </div>
-                        <div class="entry-wrap">
-                            <label for="county">County</label>
-                            <input type="text" readonly="readonly" id="county" />
-                        </div>
-                        <div class="entry-wrap">
-                            <label for="state">State</label>
-                            <input type="text" readonly="readonly" id="state" />
-                        </div>
-                        <div class="entry-wrap">
                             <label for="SamplingSiteLocation">Sample Site Location</label>
                             <input type="text" readonly="readonly" id="SamplingSiteLocation" name="SamplingSiteLocation" value="" />
                             <p>
                                 (Be consistent. If the location has changed since the site was last sampled, note change in comments below.)
                             </p>
                         </div>
-                        <div class="entry-wrap">
-
+                        <div class="entry-wrap hidden">
+                            <label for="HUC8">HUC8</label>
+                            <input type="text" readonly="readonly" id="HUC8" />
+                        </div>
+                        <div class="entry-wrap hidden">
+                            <label for="HUC6">HUC6</label>
+                            <input type="text" readonly="readonly" id="HUC6" />
+                        </div>
+                        <div class="entry-wrap hidden">
+                            <input type="hidden" readonly="readonly" id="Groupid" />
+                            <label for="Group_Name">Group Name</label>
+                            <input type="text" readonly="readonly" id="Group_Name" />
+                        </div>
+                        <div class="entry-wrap hidden">
+                            <label for="Group_Abbreviation">Group Abbreviation</label>
+                            <input type="text" readonly="readonly" id="Group_Abbreviation" />
+                        </div>
+                        <div class="entry-wrap hidden">
+                            <label for="Watershed">Watershed</label>
+                            <input type="text" readonly="readonly" id="Watershed" />
+                        </div>
+                        <div class="entry-wrap hidden">
+                            <label for="HUC4">HUC4</label>
+                            <input type="text" readonly="readonly" id="HUC4" />
+                        </div>
+                        <div class="entry-wrap hidden">
+                            <label for="county">County</label>
+                            <input type="text" readonly="readonly" id="county" />
+                        </div>
+                        <div class="entry-wrap hidden">
+                            <label for="state">State</label>
+                            <input type="text" readonly="readonly" id="state" />
                         </div>
                     </div>
                 </div>
+
+                <!-- Date, Time, Monitors -->
                 <div class="section ml-val-container">
                     <h3>Monitor, Sample Date and Time</h3>
                     <div class="entry-group">
@@ -127,13 +125,13 @@
                             <input type="hidden" id="SampleDateTime" name="SampleDateTime" />
                             <label for="SampleDate">Sample Date</label>
                             <input type="date" id="SampleDate"
-                                   ml-val ml-val-required="true" ml-val-type="date"
+                                   ml-val ml-val-required="true" ml-val-type="date" placeholder="sample date"
                                    ml-val-min="" ml-val-max="0" ml-val-label="Sample Date" />
                         </div>
                         <div class="entry-wrap">
                             <label for="SampleTime">Sample Time</label>
                             <input type="time" id="SampleTime"
-                                   ml-val ml-val-required="true" ml-val-type="time"
+                                   ml-val ml-val-required="true" ml-val-type="time" placeholder="sample item"
                                    ml-val-min="0:00" ml-val-max="23:59" ml-val-label="Sample Time" />
                         </div>
                         <div class="entry-wrap-full checklist">
@@ -144,6 +142,8 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Waterbody Condition, Tide Influence, Air Temperature, Water Temperature, Sample Volume -->
                 <div class="section ml-val-container">
                     <h3>Field Conditions</h3>
                     <div class="entry-group">
@@ -161,7 +161,7 @@
                         <div class="entry-wrap">
                             <label for="TideId">Tidally Influenced Streams &amp; Rivers</label>
                             <select id="TideId" name="TideId"
-                                    ml-val ml-val-required="true" ml-val-invalid-indexes="0" ml-val-label="Tidally Influenced Streams and Rivers">
+                                    ml-val ml-val-required="false" ml-val-invalid-indexes="0" ml-val-label="Tidally Influenced Streams and Rivers">
                                 <option value="">-- select one --</option>
                                 <option value="1" id="TideIdGroup">Rising Tide</option>
                                 <option value="2">Falling Tide</option>
@@ -172,8 +172,8 @@
                         <div class="entry-wrap">
                             <label for="AirTemp">Air Temperature</label>
                             <div class="right-units-wrap">
-                                <input type="number" id="AirTemp" name="AirTemp"
-                                       ml-val ml-val-required="true" ml-val-type="number" ml-val-format="integer"
+                                <input type="number" id="AirTemp" name="AirTemp" placeholder="air temperature"
+                                       ml-val ml-val-required="false" ml-val-type="number" ml-val-format="integer"
                                        ml-val-min="" ml-val-max="" ml-val-label="Air Temperature" />
                                 <span>°C</span>
                             </div>
@@ -182,8 +182,8 @@
                         <div class="entry-wrap">
                             <label for="WaterTemp">Water Temperature</label>
                             <div class="right-units-wrap">
-                                <input type="number" id="WaterTemp" name="WaterTemp"
-                                       ml-val ml-val-required="true" ml-val-type="number" ml-val-format="integer"
+                                <input type="number" id="WaterTemp" name="WaterTemp" placeholder="water temperature"
+                                       ml-val ml-val-required="false" ml-val-type="number" ml-val-format="integer"
                                        ml-val-min="" ml-val-max="" ml-val-label="Water Temperature" />
                                 <span>°C</span>
                             </div>
@@ -193,7 +193,7 @@
                             <label for="SampleVolume">Sample Volume</label>
                             <div class="right-units-wrap">
                                 <select id="SampleVolume" name="SampleVolume"
-                                        ml-val ml-val-required="true" ml-val-invalid-indexes="0" ml-val-label="Sample Volume">
+                                        ml-val ml-val-required="false" ml-val-invalid-indexes="0" ml-val-label="Sample Volume">
                                     <option value="">-- select sample volume --</option>
                                     <option value="0.25">0.25</option>
                                     <option value="0.5">0.5</option>
@@ -222,20 +222,22 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Incubation Start Time, Incubation Temperature, Incubation Period, Expiration Date, Plated on Site, Transported On Ice  -->
                 <div class="section ml-val-container">
                     <h3>Incubation Conditions</h3>
                     <div class="entry-group">
                         <div class="entry-wrap">
                             <label for="IncubationTime">Incubation Start Time</label>
-                            <input type="time" id="IncubationTime" name="IncubationTime"
-                                   ml-val ml-val-required="true" ml-val-type="time"
+                            <input type="time" id="IncubationTime" name="IncubationTime" placeholder="start time"
+                                   ml-val ml-val-required="false" ml-val-type="time"
                                    ml-val-min="0:00" ml-val-max="23:59" ml-val-label="Incubation Start Time" />
                         </div>
                         <div class="entry-wrap">
                             <label for="IncubationTemp">Incubation Temperature</label>
                             <div class="right-units-wrap">
-                                <input type="number" id="IncubationTemp" name="IncubationTemp"
-                                       ml-val ml-val-required="true" ml-val-type="number" ml-val-format="integer"
+                                <input type="text" id="IncubationTemp" name="IncubationTemp" placeholder="incubation temperature"
+                                       ml-val ml-val-required="false" ml-val-type="number" ml-val-format="integer"
                                        ml-val-min="29" ml-val-max="37" ml-val-label="Incubation Temperature" />
                                 <span>°C</span>
                             </div>
@@ -244,8 +246,8 @@
                         <div class="entry-wrap">
                             <label for="IncubationPeriod">Incubation Period</label>
                             <div class="right-units-wrap">
-                                <input type="number" id="IncubationPeriod" name="IncubationPeriod"
-                                       ml-val ml-val-required="true" ml-val-type="number" ml-val-format="integer"
+                                <input type="text" id="IncubationPeriod" name="IncubationPeriod" placeholder="incubation period"
+                                       ml-val ml-val-required="false" ml-val-type="number" ml-val-format="integer"
                                        ml-val-min="1" ml-val-max="48" ml-val-label="Incubation Period" />
                                 <span>hours</span>
                             </div>
@@ -253,14 +255,14 @@
                         </div>
                         <div class="entry-wrap">
                             <label for="ExpirationDate">Sample Media Expiration Date</label>
-                            <input type="number" id="ExpirationDate" name="ExpirationDate"
-                                   ml-val ml-val-required="true" ml-val-type="date"
+                            <input type="date" id="ExpirationDate" name="ExpirationDate"
+                                   ml-val ml-val-required="false" ml-val-type="date" placeholder="expiration date"
                                    ml-val-min="" ml-val-max="" ml-val-label="Sample Media Expiration Date" />
                         </div>
                         <div class="entry-wrap">
                             <label for="IsPlateOnSite">Plated on Site</label>
                             <select id="IsPlateOnSite" name="IsPlateOnSite"
-                                    ml-val ml-val-required="true" ml-val-invalid-indexes="0" ml-val-label="Plated on Site">
+                                    ml-val ml-val-required="false" ml-val-invalid-indexes="0" ml-val-label="Plated on Site">
                                 <option value="">-- select one --</option>
                                 <option value="True">Yes, plated on site</option>
                                 <option value="False">No, not plated on site</option>
@@ -270,7 +272,7 @@
                         <div class="entry-wrap">
                             <label for="WasTransportedOnIce">Transported On Ice</label>
                             <select id="WasTransportedOnIce" name="WasTransportedOnIce"
-                                    ml-val ml-val-required="true" ml-val-invalid-indexes="0" ml-val-label="Transported On Ice">
+                                    ml-val ml-val-required="false" ml-val-invalid-indexes="0" ml-val-label="Transported On Ice">
                                 <option value="">-- select one --</option>
                                 <option value="True">&lt; 3 hours</option>
                                 <option value="False">No Ice, &lt; 30 minutes</option>
@@ -279,27 +281,29 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Replicate 1,2,3 E Coli, Coliforms -->
                 <div class="section ml-val-container">
                     <h3>Replicate 1</h3>
                     <div class="entry-group">
                         <div class="entry-wrap">
                             <label for="EColi1"># E.coli colonies per plate</label>
-                            <input type="number" id="EColi1" name="EColi1"
-                                   ml-val ml-val-required="true" ml-val-type="number" ml-val-format="integer"
+                            <input type="text" id="EColi1" name="EColi1" placeholder="e. coli colony count"
+                                   ml-val ml-val-required="false" ml-val-type="number" ml-val-format="integer"
                                    ml-val-min="" ml-val-max="" ml-val-label="E. Coli Count" />
                             <p>blue-green to dark blue-purple</p>
                         </div>
                         <div class="entry-wrap">
                             <label for="ColonyCount1"># Other coliform colonies per plate</label>
-                            <input type="number" id="ColonyCount1" name="ColonyCount1"
-                                   ml-val ml-val-required="true" ml-val-type="number" ml-val-format="integer"
+                            <input type="text" id="ColonyCount1" name="ColonyCount1" placeholder="other colony count"
+                                   ml-val ml-val-required="false" ml-val-type="number" ml-val-format="integer"
                                    ml-val-min="" ml-val-max="" ml-val-label="General Coli Count" />
                             <p>pink to dark red</p>
                         </div>
                         <div class="entry-wrap">
                             <label for="ColonyCategory1"># Total Colonies</label>
                             <select id="ColonyCategory1" name="ColonyCategory1"
-                                    ml-val ml-val-required="true" ml-val-invalid-indexes="0" ml-val-label="Total Colonies Count">
+                                    ml-val ml-val-required="false" ml-val-invalid-indexes="0" ml-val-label="Total Colonies Count">
                                 <option value="">-- select one --</option>
                                 <option value="1">No Colonies</option>
                                 <option value="2">Rare (1-9)</option>
@@ -313,20 +317,20 @@
                     <div class="entry-group">
                         <div class="entry-wrap">
                             <label for="EColi2"># E.coli colonies per plate</label>
-                            <input type="number" id="EColi2" name="EColi2"
-                                   ml-val ml-val-required="true" ml-val-type="number" ml-val-format="integer"
+                            <input type="text" id="EColi2" name="EColi2" placeholder="e. coli colony count"
+                                   ml-val ml-val-required="false" ml-val-type="number" ml-val-format="integer"
                                    ml-val-min="" ml-val-max="" ml-val-label="E. Coli Count" />
                         </div>
                         <div class="entry-wrap">
                             <label for="ColonyCount2"># Other coliform colonies per plate</label>
-                            <input type="number" id="ColonyCount2" name="ColonyCount2"
-                                   ml-val ml-val-required="true" ml-val-type="number" ml-val-format="integer"
+                            <input type="text" id="ColonyCount2" name="ColonyCount2" placeholder="other colony count"
+                                   ml-val ml-val-required="false" ml-val-type="number" ml-val-format="integer"
                                    ml-val-min="" ml-val-max="" ml-val-label="General Coli Count" />
                         </div>
                         <div class="entry-wrap">
                             <label for="ColonyCategory2"># Total Colonies</label>
                             <select id="ColonyCategory2" name="ColonyCategory2"
-                                    ml-val ml-val-required="true" ml-val-invalid-indexes="0" ml-val-label="Total Colonies Count">
+                                    ml-val ml-val-required="false" ml-val-invalid-indexes="0" ml-val-label="Total Colonies Count">
                                 <option value="">-- select one --</option>
                                 <option value="1">No Colonies</option>
                                 <option value="2">Rare (1-9)</option>
@@ -340,20 +344,20 @@
                     <div class="entry-group">
                         <div class="entry-wrap">
                             <label for="ecoli3"># E.coli colonies per plate</label>
-                            <input type="number" id="EColi3" name="EColi3"
-                                   ml-val ml-val-required="true" ml-val-type="number" ml-val-format="integer"
+                            <input type="text" id="EColi3" name="EColi3" placeholder="e. coli colony count"
+                                   ml-val ml-val-required="false" ml-val-type="number" ml-val-format="integer"
                                    ml-val-min="" ml-val-max="" ml-val-label="E. Coli Count" />
                         </div>
                         <div class="entry-wrap">
                             <label for="ColonyCount3"># Other coliform colonies per plate</label>
-                            <input type="number" id="ColonyCount3" name="ColonyCount3"
-                                   ml-val ml-val-required="true" ml-val-type="number" ml-val-format="integer"
+                            <input type="text" id="ColonyCount3" name="ColonyCount3"
+                                   ml-val ml-val-required="false" ml-val-type="number" ml-val-format="integer"
                                    ml-val-min="" ml-val-max="" ml-val-label="General Coli Count" />
                         </div>
                         <div class="entry-wrap">
                             <label for="ColonyCategory3"># Total Colonies</label>
                             <select id="ColonyCategory3" name="ColonyCategory3"
-                                    ml-val ml-val-required="true" ml-val-invalid-indexes="0" ml-val-label="Total Colonies Count">
+                                    ml-val ml-val-required="false" ml-val-invalid-indexes="0" ml-val-label="Total Colonies Count">
                                 <option value="">-- select one --</option>
                                 <option value="1">No Colonies</option>
                                 <option value="2">Rare (1-9)</option>
@@ -381,11 +385,13 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Comments -->
                 <div class="section">
                     <h3>Additional Information</h3>
                     <div>
                         <label for="Comments">Comments</label>
-                        <textarea id="Comments" name="Comments" cols="20" rows="2"></textarea>
+                        <textarea id="Comments" name="Comments" cols="20" rows="2" placeholder="additional comments"></textarea>
                     </div>
                 </div>
 

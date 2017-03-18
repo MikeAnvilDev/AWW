@@ -1,0 +1,59 @@
+﻿#MapWrap {
+    position: relative;
+}
+    #MapWrap #MapCanvas {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        height: 100%;
+        width: 100%;
+    }
+
+#MapWrap span.capture{
+    display: none;
+    z-index: 4;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    margin-left: -80px;
+    float: left;
+    width: 130px;
+    height: 32px;
+    padding: 0 4px 0 32px;
+    border: 0;
+    cursor: pointer;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    line-height: 36px;
+    font-size: 16px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    background-size: 32px 32px;
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-color: #2f6546;
+    background-image: url(../res/images/icons/capture-icon.png);
+
+    -webkit-transition: background-position 300ms;
+	-moz-transition: background-position 300ms;
+	-o-transition: background-position 300ms;
+	-ms-transition: background-position 300ms;
+	transition: background-position 300ms;
+}
+    #MapWrap span.capture:hover{
+        background-position: 4px center;
+
+        -webkit-transition: background-position 300ms;
+		-moz-transition: background-position 300ms;
+		-o-transition: background-position 300ms;
+		-ms-transition: background-position 300ms;
+		transition: background-position 300ms;
+    }
+
+#SiteInformationForm{
+    display: none;
+}

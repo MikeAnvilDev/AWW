@@ -6,18 +6,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, min-zoom=1, minimum-scale=1, user-scalable=no" />
 
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Oswald:700,400">
-    <link rel="stylesheet" type="text/css" href="../../css/master.min.css" />
-    <link rel="stylesheet" type="text/css" href="../../css/form.min.css" />
-    <link rel="stylesheet" type="text/css" href="../../css/data-entry.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/master.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/form.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/data-entry.css" />
 
     <script type="text/javascript" src="../../js/jquery.min.js"></script>
-    <script type="text/javascript" src="../../js/master.min.js"></script>
-    <script type="text/javascript" src="../../js/common.min.js"></script>
-    <script type="text/javascript" src="../../js/chemistry.min.js"></script>
-    <script type="text/javascript" src="../../js/form-validation.min.js"></script>
+    <script type="text/javascript" src="../../js/master.js"></script>
+    <script type="text/javascript" src="../../js/common.js"></script>
+    <script type="text/javascript" src="../../js/chemistry.js"></script>
+    <script type="text/javascript" src="../../js/form-validation.js"></script>
     <script type="text/javascript" src="../../js/jwt-decode.min.js"></script>
-    <script type="text/javascript" src="../../js/image-upload.min.js"></script>
+    <script type="text/javascript" src="../../js/image-upload.js"></script>
 </head>
 <body>
     <header>
@@ -25,13 +24,13 @@
         <h1>Alabama Water Watch</h1>
     </header>
     <main>
-        <p class="breadcrumbs"><a href="../type/index.html">Home</a> &raquo; <a href="../bacteria-sites/index.html">Locations</a> &raquo; Chemistry Entry</p>
+        <p class="breadcrumbs"><a href="../type/index.html">Home</a> &raquo; <a href="../chemistry-sites/index.html">Locations</a> &raquo; Water Chemistry Entry</p>
         
         <section id="Success-Section">
             <div class="back">
                 <a href="../chemistry-sites/index.html">Back to Location Selection</a>
             </div>
-            <h2>Chemistry Monitoring Data Entry Completed Successfully!</h2>
+            <h2>Water Chemistry Monitoring Data Entry Completed Successfully!</h2>
             <p>
                 Would you like to upload a photo of your site?
             </p>
@@ -59,27 +58,14 @@
                 <div class="back">
                     <a href="../chemistry-sites/index.html">Back to Location Selection</a>
                 </div>
-                <h2>Chemistry Monitoring Data Form</h2>
+                <h2>Water Chemistry Monitoring Data Form</h2>
                 <div class="section">
                     <h3>Site</h3>
                     <div class="entry-group">
                         <div class="entry-wrap">
-                            <input type="hidden" readonly="readonly" id="Groupid" />
-                            <label for="Group_Name">Group Name</label>
-                            <input type="text" readonly="readonly" id="Group_Name" />
-                        </div>
-                        <div class="entry-wrap">
-                            <label for="Group_Abbreviation">Group Abbreviation</label>
-                            <input type="text" readonly="readonly" id="Group_Abbreviation" />
-                        </div>
-                        <div class="entry-wrap">
                             <input type="hidden" id="WebMasterSiteId" name="WebMasterSiteId" />
                             <label for="AwwSiteCode">AWW Site Code</label>
                             <input type="text" readonly="readonly" id="AwwSiteCode" />
-                        </div>
-                        <div class="entry-wrap">
-                            <label for="Watershed">Watershed</label>
-                            <input type="text" readonly="readonly" id="Watershed" />
                         </div>
                         <div class="entry-wrap">
                             <label for="Waterbody_Name">Waterbody Name</label>
@@ -90,52 +76,64 @@
                             <input type="text" readonly="readonly" id="HUC11" />
                         </div>
                         <div class="entry-wrap">
-                            <label for="HUC8">HUC8</label>
-                            <input type="text" readonly="readonly" id="HUC8" />
-                        </div>
-                        <div class="entry-wrap">
-                            <label for="HUC6">HUC6</label>
-                            <input type="text" readonly="readonly" id="HUC6" />
-                        </div>
-                        <div class="entry-wrap">
-                            <label for="HUC4">HUC4</label>
-                            <input type="text" readonly="readonly" id="HUC4" />
-                        </div>
-                        <div class="entry-wrap">
-                            <label for="county">County</label>
-                            <input type="text" readonly="readonly" id="county" />
-                        </div>
-                        <div class="entry-wrap">
-                            <label for="state">State</label>
-                            <input type="text" readonly="readonly" id="state" />
-                        </div>
-                        <div class="entry-wrap">
                             <label for="SamplingSiteLocation">Sample Site Location</label>
                             <input type="text" readonly="readonly" id="SamplingSiteLocation" name="SamplingSiteLocation" value="" />
                             <p>
                                 (Be consistent. If the location has changed since the site was last sampled, note change in comments below.)
                             </p>
                         </div>
-                        <div class="entry-wrap">
-                            
+                        <div class="entry-wrap hidden">
+                            <input type="hidden" readonly="readonly" id="Groupid" />
+                            <label for="Group_Name">Group Name</label>
+                            <input type="text" readonly="readonly" id="Group_Name" />
+                        </div>
+                        <div class="entry-wrap hidden">
+                            <label for="Group_Abbreviation">Group Abbreviation</label>
+                            <input type="text" readonly="readonly" id="Group_Abbreviation" />
+                        </div>
+                        <div class="entry-wrap hidden">
+                            <label for="Watershed">Watershed</label>
+                            <input type="text" readonly="readonly" id="Watershed" />
+                        </div>
+                        <div class="entry-wrap hidden">
+                            <label for="HUC8">HUC8</label>
+                            <input type="text" readonly="readonly" id="HUC8" />
+                        </div>
+                        <div class="entry-wrap hidden">
+                            <label for="HUC6">HUC6</label>
+                            <input type="text" readonly="readonly" id="HUC6" />
+                        </div>
+                        <div class="entry-wrap hidden">
+                            <label for="HUC4">HUC4</label>
+                            <input type="text" readonly="readonly" id="HUC4" />
+                        </div>
+                        <div class="entry-wrap hidden">
+                            <label for="county">County</label>
+                            <input type="text" readonly="readonly" id="county" />
+                        </div>
+                        <div class="entry-wrap hidden">
+                            <label for="state">State</label>
+                            <input type="text" readonly="readonly" id="state" />
                         </div>
                     </div>
                 </div>
+
+                <!-- Date, Time, Monitors -->
                 <div class="section ml-val-container">
                     <h3>Monitor, Sample Date and Time</h3>
                     <div class="entry-group">
                         <div class="entry-wrap">
                             <input type="hidden" id="SampleDateTime" name="SampleDateTime" />
                             <label for="SampleDate">Sample Date</label>
-                            <input type="date" id="SampleDate"
+                            <input type="date" id="SampleDate" placeholder="sample date"
                                     ml-val ml-val-required="true" ml-val-type="date"
                                     ml-val-min="" ml-val-max="0" ml-val-label="Sample Date" />
                         </div>
                         <div class="entry-wrap">
                             <label for="SampleTime">Sample Time</label>
-                            <input type="time" id="SampleTime"
-                                    ml-val ml-val-required="true" ml-val-type="time"
-                                    ml-val-min="0:00" ml-val-max="23:59" ml-val-label="Sample Time" />
+                            <input type="time" id="SampleTime" placeholder="sample time"
+                                   ml-val ml-val-required="true" ml-val-type="time"
+                                   ml-val-min="0:00" ml-val-max="23:59" ml-val-label="Sample Time" />
                         </div>
                         <div class="entry-wrap-full checklist">
                             <label for="monitor">Monitors</label>
@@ -145,6 +143,8 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Waterbody Condition, Tide Influence, Air Temperature, Water Temperature, pH -->
                 <div class="section ml-val-container">
                     <h3>Field Conditions</h3>
                     <div class="entry-group">
@@ -162,7 +162,7 @@
                         <div class="entry-wrap">
                             <label for="TideId">Tidally Influenced Streams &amp; Rivers</label>
                             <select id="TideId" name="TideId"
-                                    ml-val ml-val-required="true" ml-val-invalid-indexes="0" ml-val-label="Tidally Influenced Streams and Rivers">
+                                    ml-val ml-val-required="false" ml-val-invalid-indexes="0" ml-val-label="Tidally Influenced Streams and Rivers">
                                 <option value="">-- select one --</option>
                                 <option value="1">Rising Tide</option>
                                 <option value="2">Falling Tide</option>
@@ -174,8 +174,8 @@
                             <label for="AirTemp">Air Temperature</label>
                             <div class="right-units-wrap">
                                 <input type="number" id="AirTemp" name="AirTemp" pattern="[0-9]*"
-                                        ml-val ml-val-required="true" ml-val-type="number" ml-val-format="integer"
-                                        ml-val-min="" ml-val-max="" ml-val-label="Air Temperature" />
+                                       ml-val ml-val-required="false" ml-val-type="number" ml-val-format="integer"
+                                       ml-val-min="" ml-val-max="" ml-val-label="Air Temperature" placeholder="air temperature" />
                                 <span>°C</span>
                             </div>
                             <p>Handle thermometer with care</p>
@@ -184,8 +184,8 @@
                             <label for="WaterTemp">Water Temperature</label>
                             <div class="right-units-wrap">
                                 <input type="number" id="WaterTemp" name="WaterTemp" pattern="[0-9]*"
-                                        ml-val ml-val-required="true" ml-val-type="number" ml-val-format="integer"
-                                        ml-val-min="" ml-val-max="" ml-val-label="Water Temperature" />
+                                       ml-val ml-val-required="false" ml-val-type="number" ml-val-format="integer"
+                                       ml-val-min="" ml-val-max="" ml-val-label="Water Temperature" placeholder="water temperature" />
                                 <span>°C</span>
                             </div>
                             <p>Handle thermometer with care</p>
@@ -194,8 +194,8 @@
                             <label for="Ph">pH</label>
                             <div class="right-units-wrap">
                                 <select id="Ph" name="Ph"
-                                        ml-val ml-val-required="true" ml-val-invalid-indexes="0" ml-val-label="pH">
-                                    <option value="">-- select sample volume --</option>
+                                        ml-val ml-val-required="false" ml-val-invalid-indexes="0" ml-val-label="pH">
+                                    <option value="">-- select pH value --</option>
                                     <option value="">N/A</option>
                                     <option value="2">2</option>
                                     <option value="2.5">2.5</option>
@@ -225,23 +225,24 @@
                 </div>
 
                 <h3>Test Results</h3>
+                <!-- Dissolved Oxygen -->
                 <div class="section ml-val-container">
                     <div class="entry-group">
                         <div class="entry-wrap">
                             <label for="DO1" class="required">Rep #1 Dissolved Oxygen (DO)</label>
                             <div class="right-units-wrap">
-                                <input type="number" id="DO1" name="DO1" pattern="[0-9\.]*"
-                                        ml-val ml-val-required="true" ml-val-type="number" ml-val-format="decimal"
-                                        ml-val-min="" ml-val-max="" ml-val-label="Dissolved Oxygen (DO) for Rep #1" />
+                                <input type="number" id="DO1" name="DO1" pattern="[0-9\.]*" placeholder="dissolved oxygen"
+                                       ml-val ml-val-required="false" ml-val-type="number" ml-val-format="decimal" ml-val-function="DOValidation(true)"
+                                       ml-val-min="" ml-val-max="" ml-val-label="Dissolved Oxygen (DO) for Rep #1" />
                                 <span>ppm</span>
                             </div>
                         </div>
                         <div class="entry-wrap">
                             <label for="DO2" class="required">Rep #2 Dissolved Oxygen (DO)</label>
                             <div class="right-units-wrap">
-                                <input type="number" id="DO2" name="DO2" pattern="[0-9\.]*"
-                                        ml-val ml-val-required="true" ml-val-type="number" ml-val-format="decimal"
-                                        ml-val-min="" ml-val-max="" ml-val-label="Dissolved Oxygen (DO) for Rep #2" />
+                                <input type="number" id="DO2" name="DO2" pattern="[0-9\.]*" placeholder="dissolved oxygen"
+                                       ml-val ml-val-required="false" ml-val-type="number" ml-val-format="decimal" ml-val-function="DOValidation(false)"
+                                       ml-val-min="" ml-val-max="" ml-val-label="Dissolved Oxygen (DO) for Rep #2" />
                                 <span>ppm</span>
                             </div>
                         </div>
@@ -249,8 +250,8 @@
                             <label for="AvgDo">Average DO</label>
                             <div class="right-units-wrap">
                                 <input type="number" id="AvgDo" name="AvgDo" readonly="readonly"
-                                        ml-val ml-val-required="true" ml-val-type="number" ml-val-format="decimal"
-                                        ml-val-min="" ml-val-max="" ml-val-label="Dissolved Oxygen must be within 6" />
+                                       ml-val ml-val-required="false" ml-val-type="number" ml-val-format="decimal"
+                                       ml-val-min="" ml-val-max="" ml-val-label="Dissolved Oxygen must be within 6" />
                                 <span>ppm</span>
                             </div>
                         </div>
@@ -258,36 +259,37 @@
                             <label for="DOSat" class="required">% Oxygen Sat</label>
                             <div class="right-units-wrap">
                                 <input type="number" id="DOSat" name="DOSat" pattern="[0-9\.]*"
-                                        ml-val ml-val-required="true" ml-val-type="number" ml-val-format="decimal"
-                                        ml-val-min="0" ml-val-max="100" ml-val-label="Oxygen Saturation Percentage" />
+                                       ml-val ml-val-required="false" ml-val-type="number" ml-val-format="decimal"
+                                       ml-val-min="0" ml-val-max="100" ml-val-label="Oxygen Saturation Percentage" />
                                 <span>%</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
+                <!-- Specific Gravity, Salinity, Alkalinity, Hardness -->
                 <div class="section ml-val-container">
                     <div class="entry-group">
                         <div class="entry-wrap">
                             <label for="SG">Specific Gravity</label>
                             <input type="number" id="SG" name="SG" pattern="[0-9\.]*"
-                                    ml-val ml-val-required="true" ml-val-type="number" ml-val-format="decimal"
-                                    ml-val-min="" ml-val-max="" ml-val-label="Specific Gravity" />
+                                   ml-val ml-val-required="false" ml-val-type="number" ml-val-format="decimal" ml-val-function="specificGravityValidation()"
+                                   ml-val-min="" ml-val-max="" ml-val-label="Specific Gravity" placeholder="specific gravity" />
                             <p>Record to nearest 0.5 unit</p>
                         </div>
                         <div class="entry-wrap">
                             <label for="Salinity">Salinity</label>
                             <input type="number" id="Salinity" name="Salinity" pattern="[0-9\.]*"
-                                    ml-val ml-val-required="true" ml-val-type="number" ml-val-format="decimal"
-                                    ml-val-min="" ml-val-max="" ml-val-label="Salinity" />
+                                   ml-val ml-val-required="false" ml-val-type="number" ml-val-format="decimal"
+                                   ml-val-min="" ml-val-max="" ml-val-label="Salinity" placeholder="salinity" />
                             <p>If present do not test for Hardness</p>
                         </div>
                         <div class="entry-wrap">
                             <label for="Alkalinity">Alkalinity</label>
                             <div class="right-units-wrap">
                                 <input type="number" id="Alkalinity" name="Alkalinity" pattern="[0-9]*"
-                                        ml-val ml-val-required="true" ml-val-type="number" ml-val-format="integer"
-                                        ml-val-min="" ml-val-max="" ml-val-label="Alkalinity" />
+                                       ml-val ml-val-required="false" ml-val-type="number" ml-val-format="integer"
+                                       ml-val-min="" ml-val-max="" ml-val-label="Alkalinity" placeholder="alkalinity" />
                                 <span># drops</span>
                             </div>
                         </div>
@@ -301,67 +303,82 @@
                         <div class="entry-wrap">
                             <label for="Hardness">Hardness</label>
                             <div class="right-units-wrap">
-                                <input type="number" id="Hardness" name="Hardness" pattern="[0-9]*"
-                                        ml-val ml-val-required="false" ml-val-type="number" ml-val-format="integer"
-                                        ml-val-min="" ml-val-max="" ml-val-label="Hardness" />
+                                <input type="number" id="Hardness" name="Hardness" pattern="[0-9]*" ml-val-function="hardnessValidation()"
+                                       ml-val ml-val-required="false" ml-val-type="number" ml-val-format="integer"
+                                       ml-val-min="" ml-val-max="" ml-val-label="Hardness" placeholder="drop count" />
                                 <span># drops</span>
                             </div>
                         </div>
                         <div class="entry-wrap">
                             <label for="Hardness-calculated">Hardness mg/L</label>
                             <div class="right-units-wrap">
-                                <input type="number" id="Hardness-calculated" readonly="readonly" />
+                                <input type="number" id="Hardness-calculated" readonly="readonly" placeholder="drop count" />
                                 <span>mg/L</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
+                <!-- Turbidity -->
                 <div class="section ml-val-container">
                     <div class="entry-group">
                         <div class="entry-wrap">
-                            <label for="Turb1">Turbidity 50ml Sample Volume</label>
-                            <div class="right-units-wrap">
-                                <input type="number" id="Turb1" name="Turb1" pattern="[0-9]*"
-                                        ml-val ml-val-required="true" ml-val-type="number" ml-val-format="integer"
-                                        ml-val-min="" ml-val-max="" ml-val-label="Turbidity 50ml Sample Volume" />
-                                <span>50 ml</span>
+                            <label for="TurbiditySampleSize">Turbidity Sample Volume</label>
+                            <select id="TurbiditySampleSize" ml-val ml-val-required="false">
+                                <option value="">-- select sample volume --</option>
+                                <option value="">N/A</option>
+                                <option value="50">50 ml</option>
+                                <option value="25">25 ml</option>
+                            </select>
+                        </div>
+                        <div id="Turb50" class="hidden">
+                            <div class="entry-wrap">
+                                <label for="Turb1">Turbidity 50ml Sample Volume</label>
+                                <div class="right-units-wrap">
+                                    <input type="number" id="Turb1" name="Turb1" pattern="[0-9]*"
+                                           ml-val ml-val-required="false" ml-val-type="number" ml-val-format="integer"
+                                           ml-val-min="" ml-val-max="" ml-val-label="Turbidity 50ml Sample Volume" placeholder="turbidity" />
+                                    <span>50 ml</span>
+                                </div>
+                            </div>
+                            <div class="entry-wrap">
+                                <label for="Turb1-calculated">Turbidity JTU</label>
+                                <div class="right-units-wrap">
+                                    <input type="number" id="Turb1-calculated" readonly="readonly" />
+                                    <span>JTU</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="entry-wrap">
-                            <label for="Turb1-calculated">Turbidity JTU</label>
-                            <div class="right-units-wrap">
-                                <input type="number" id="Turb1-calculated" readonly="readonly" />
-                                <span>JTU</span>
+                        <div id="Turb25" class="hidden">
+                            <div class="entry-wrap">
+                                <label for="Turb2">Turbidity 25ml Sample Volume</label>
+                                <div class="right-units-wrap">
+                                    <input type="number" id="Turb2" name="Turb2" pattern="[0-9]*"
+                                           ml-val ml-val-required="false" ml-val-type="number" ml-val-format="integer"
+                                           ml-val-min="" ml-val-max="" ml-val-label="Turbidity 25ml Sample Volume" placeholder="turbidity" />
+                                    <span>25 ml</span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="entry-wrap">
-                            <label for="Turb2">Turbidity 25ml Sample Volume</label>
-                            <div class="right-units-wrap">
-                                <input type="number" id="Turb2" name="Turb2" pattern="[0-9]*"
-                                        ml-val ml-val-required="true" ml-val-type="number" ml-val-format="integer"
-                                        ml-val-min="" ml-val-max="" ml-val-label="Turbidity 25ml Sample Volume" />
-                                <span>25 ml</span>
-                            </div>
-                        </div>
-                        <div class="entry-wrap">
-                            <label for="Turb2-calculated">Turbidity JTU</label>
-                            <div class="right-units-wrap">
-                                <input type="number" id="Turb2-calculated" readonly="readonly" />
-                                <span>JTU</span>
+                            <div class="entry-wrap">
+                                <label for="Turb2-calculated">Turbidity JTU</label>
+                                <div class="right-units-wrap">
+                                    <input type="number" id="Turb2-calculated" readonly="readonly" />
+                                    <span>JTU</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
+                <!-- Secchi, Other Tests -->
                 <div class="section ml-val-container">
                     <div class="entry-group">
                         <div class="entry-wrap">
                             <label for="Secchi">Secchi Depth</label>
                             <div class="right-units-wrap">
                                 <input type="number" id="Secchi" name="Secchi" pattern="[0-9\.]*"
-                                        ml-val ml-val-required="true" ml-val-type="number" ml-val-format="decimal"
-                                        ml-val-min="" ml-val-max="" ml-val-label="Secchi Depth" />
+                                       ml-val ml-val-required="false" ml-val-type="number" ml-val-format="decimal"
+                                       ml-val-min="" ml-val-max="" ml-val-label="Secchi Depth" placeholder="depth in meters" />
                                 <span>meters</span>
                             </div>
                             <p>Do not record depth if disk hits bottom while visible</p>
@@ -369,7 +386,7 @@
                     </div>
                     <div class="entry-wrap-full">
                         <label for="Other">Other Tests</label>
-                        <input type="text" id="Other" name="Other" />
+                        <input type="text" id="Other" name="Other" placeholder="other tests performed" />
                         <p>Nitrate, Phosphate et al.</p>
                     </div>
                 </div>

@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>New Location</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="../../css/master.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/form.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/location.css" /> 
+
+    <script type="text/javascript" src="../../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../../js/master.js"></script>
+    <script type="text/javascript" src="../../js/common.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcTMT0DVoMWt9IURdklqtRJMawlSoeoLw"></script>
+    <script type="text/javascript" src="../../js/location.js"></script>
+</head>
+<body>
+    <header>
+        <a href="../types/index.html" class="icon"></a>
+        <h1>Alabama Water Watch</h1>
+    </header>
+    <main>
+        <p class="breadcrumbs"><a href="../type/index.html">Home</a> &raquo; New Sampling Site</p>
+        <div id="SiteInformationMap">
+            <div id="MapWrap">
+                <div id="MapCanvas"></div>
+                <span class="capture">Capture Location</span>
+            </div>
+        </div>
+        <div id="SiteInformationForm">
+            <form class="ml-validation">
+                <section>
+                    <div class="back">
+                        <a href="../type/index.html">Back to Data Selection</a>
+                    </div>
+                    <h2>New Sampling Site From</h2>
+                    <p>
+                        <b>Sampling Sites:</b> Remember the general factors to consider when selecting a water monitoring site:
+                        to be safe, convenient and accessible, to have legal access and to be strategic. Optimal water
+                        monitoring sites are those that provide the best information to satisfy objectives with the least
+                        amount of effort. Choose a site that is not too difficult or dangerous to access and is strategically
+                        located to be tested in an efficient manner. It is essential to know the precise location of a
+                        monitoring site for full use of the data. Please carefully describe your site information, and submit
+                        this form with your first set of data taken at the site.
+                    </p>
+                    <div class="section ml-val-container">
+                        <h3>Monitor Information</h3>
+
+                        <div class="entry-group">
+                            <div class="entry-wrap-full">
+                                <label for="Monitors">Monitors</label>
+                                <textarea id="Monitors" placeholder="monitor full name, one per line"></textarea>
+                            </div>
+                        </div>
+                        <div class="entry-group">
+                            <div class="entry-wrap">
+                                <label for="Phone">Contact Phone Number</label>
+                                <input type="tel" id="Phone" placeholder="###.###.####" />
+                            </div>
+                            <div class="entry-wrap">
+                                <label for="GroupName">AWW Group Affiliation</label>
+                                <input type="text" id="GroupName" placeholder="e.g. Little River Watch" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section ml-val-container">
+                        <h3>Location Information</h3>
+                        <div class="entry-group">
+                            <div class="entry-wrap">
+                                <label for="Waterbody">Waterbody</label>
+                                <input type="text" id="Waterbody" placeholder="waterbody name" />
+                            </div>
+                            <div class="entry-wrap">
+                                <label for="Watershed">Watershed</label>
+                                <input type="text" id="Watershed" placeholder="watershed name" />
+                            </div>
+                            <div class="entry-wrap">
+                                <label for="State">State where Site is Located</label>
+                                <input type="text" id="State" placeholder="state abbreviation" />
+                            </div>
+                            <div class="entry-wrap">
+                                <label for="County">County where Site is Located</label>
+                                <input type="text" id="County" placeholder="county name" />
+                            </div>
+                        </div>
+                        <div class="entry-group">
+                            <div class="entry-wrap-full">
+                                <label for="Description">Site Location Description</label>
+                                <textarea id="Description" placeholder="Site Location Description"></textarea>
+                                <p>
+                                    Be very detailed. Include information such as the name or number
+                                    of the nearest road. Indicate if it is upstream or downstream of a bridge, etc.
+                                    Call the AWW Office for assistance.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="entry-group">
+                            <div class="entry-wrap">
+                                <label for="Latitude">Latitude</label>
+                                <input type="text" id="Latitude" placeholder="latitude" />
+                            </div>
+                            <div class="entry-wrap">
+                                <label for="Longitude">Longitude</label>
+                                <input type="text" id="Longitude" placeholder="latitude" />
+                            </div>
+                        </div>
+                        <div class="entry-group">
+                            <input id="SubmitButton" type="submit" />
+                        </div>
+                    </div>
+                </section>
+            </form>
+        </div>
+    </main>
+    <div id="Loading"><div><div></div><div></div></div></div>
+</body>
+</html>
+

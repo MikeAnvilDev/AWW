@@ -1,0 +1,43 @@
+﻿#Entry-Nav ul li a {
+    position: relative;
+    padding-left: 36px;
+}
+    #Entry-Nav ul li a i {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        height: 40px;
+        width: 40px;
+        margin-top: -20px;
+
+        background-size: 28px 28px;
+        background-repeat: no-repeat;
+        background-position: 0px center;
+
+        -webkit-transition: background-position 300ms;
+		-moz-transition: background-position 300ms;
+		-o-transition: background-position 300ms;
+		-ms-transition: background-position 300ms;
+		transition: background-position 300ms;
+    }
+        #Entry-Nav ul li a:hover i{            
+            background-position: 4px center;
+
+            -webkit-transition: background-position 300ms;
+		    -moz-transition: background-position 300ms;
+		    -o-transition: background-position 300ms;
+		    -ms-transition: background-position 300ms;
+		    transition: background-position 300ms;
+        }
+#Entry-Nav ul li.chemistry a i {
+    background-image: url(../res/images/icons/chemistry-icon.png);
+}
+#Entry-Nav ul li.bacteria a i {
+    background-image: url(../res/images/icons/bacteria-icon.png);
+}
+#Entry-Nav ul li.data a i {
+    background-image: url(../res/images/icons/graph-icon.png);
+}
+#Entry-Nav ul li.logout a i {
+    background-image: url(../res/images/icons/logout-icon.png);
+}

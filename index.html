@@ -5,14 +5,13 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
-    <link rel="stylesheet" type="text/css" href="css/login.min.css" />
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Oswald:700,400">
+    <link rel="stylesheet" type="text/css" href="css/login.css" />
 
     <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/master.min.js"></script>
-    <script type="text/javascript" src="js/common.min.js"></script>
-    <script type="text/javascript" src="js/form-validation.min.js"></script>
-    <script type="text/javascript" src="js/login.min.js"></script>
+    <script type="text/javascript" src="js/master.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script type="text/javascript" src="js/form-validation.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
 
 </head>
 <body>
@@ -29,15 +28,13 @@
                     <div class="entry-group">
                         <div class="entry-wrap">
                             <label for="Username" class="required">Username</label>
-                            <input type="text" id="Username"
-                                   ml-val ml-val-required="true" ml-val-type="text"
-                                   ml-val-min="3" ml-val-label="Username" placeholder="Username" value="ruizser07" />
+                            <input type="text" id="Username" placeholder="Username" value="ruizser07"
+                                   ml-val ml-val-required="true" ml-val-type="text" ml-val-min="3" ml-val-label="Username" />
                         </div>
                         <div class="entry-wrap">
                             <label for="Password" class="required">Password</label>
-                            <input type="password" id="Password"
-                                   ml-val ml-val-required="true" ml-val-type="text"
-                                   ml-val-min="3" ml-val-label="Password" placeholder="Password" value="2096" />
+                            <input type="password" id="Password" placeholder="Password" value="2096"
+                                   ml-val ml-val-required="true" ml-val-type="text" ml-val-min="3" ml-val-label="Password" />
                         </div>
                     </div>
                     <input type="submit" class="btn btn-success" value="Submit"  onclick="getUserToken(validateForm(this)); return false;" />

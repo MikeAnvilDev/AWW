@@ -1,0 +1,40 @@
+﻿#Water-Nav ul li a {
+    position: relative;
+    padding-left: 40px;
+}
+    #Water-Nav ul li a i {
+        position: absolute;
+        top: 50%;
+        left: 0px;
+        height: 40px;
+        width: 40px;
+        margin-top: -20px;
+
+        background-size: 28px 28px;
+        background-repeat: no-repeat;
+        background-position: 4px center;
+
+        -webkit-transition: background-position 300ms;
+		-moz-transition: background-position 300ms;
+		-o-transition: background-position 300ms;
+		-ms-transition: background-position 300ms;
+		transition: background-position 300ms;
+    }
+        #Water-Nav ul li a:hover i{            
+            background-position: 8px center;
+
+            -webkit-transition: background-position 300ms;
+		    -moz-transition: background-position 300ms;
+		    -o-transition: background-position 300ms;
+		    -ms-transition: background-position 300ms;
+		    transition: background-position 300ms;
+        }
+#Water-Nav ul li.info a i {
+    background-image: url(../res/images/icons/info-icon.svg);
+}
+#Water-Nav ul li.table a i {
+    background-image: url(../res/images/icons/table-icon.svg);
+}
+#Water-Nav ul li.map a i {
+    background-image: url(../res/images/icons/map-icon.svg);
+}
