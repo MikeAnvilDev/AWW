@@ -9,6 +9,11 @@ function setPositionWatch() {
         timeout: 1000,
         maximumAge: 0
     };
+    document.addEventListener("deviceready", startPositionWatch, false);
+
+    watchID = navigator.geolocation.watchPosition(updateWatchedPosition, watchedPositionError, options);
+}
+function startPositionWatch() {
     watchID = navigator.geolocation.watchPosition(updateWatchedPosition, watchedPositionError, options);
 }
 function updateWatchedPosition(position) {
