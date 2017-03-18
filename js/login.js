@@ -17,7 +17,7 @@
             success: function (jsonObj) {
                 if (jsonObj.hasOwnProperty('access_token')) {
                     storeToken(jsonObj.access_token);
-                    location.href = '../data/type/index.html';
+                    location.href = 'data/type/index.html';
                 }
             },
             error: function (xhrObj, textStatus, errorThrown) {
@@ -44,7 +44,7 @@
     }
 }
 function redirectToType() {
-    location.href = '../data/type/index.html';
+    location.href = 'data/type/index.html';
 }
 
 
