@@ -80,8 +80,8 @@ function addMarker() {
     marker = new google.maps.Marker({
         map: map,
         position: center,
-        title: 'Current Location',
-        icon: icon
+        title: 'Current Location'//,
+        //icon: icon
     });
 }
 
