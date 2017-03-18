@@ -120,4 +120,4 @@ function getMonitors(){
 document.addEventListener("deviceready", function () {
     alert('device ready');
     validateToken(setUpMap);
-}, true);
+}, false);
