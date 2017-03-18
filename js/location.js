@@ -20,6 +20,7 @@ function watchedPositionError(err) {
 }
 
 function recenterMap() {
+    console.log('recenterMap');
     if (center != null) {
         map.setCenter(center);
         marker.setPosition(center);
@@ -117,9 +118,8 @@ function getMonitors(){
     return monitors;
 }
 
-document.addEventListener("deviceready", onDeviceReady, false);
-function onDeviceReady() {
-    alert('device ready');
+document.addEventListener("deviceready", function () { alert('actually freaking loaded'); }, false);
+
+$(window).on('load', function () {
     validateToken(setUpMap);
-}
-alert('wating for device ready');
+});
