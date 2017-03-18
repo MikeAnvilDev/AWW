@@ -117,7 +117,9 @@ function getMonitors(){
     return monitors;
 }
 
-document.addEventListener("deviceready", function () {
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
     alert('device ready');
     validateToken(setUpMap);
-}, false);
+}
+alert('wating for device ready');
