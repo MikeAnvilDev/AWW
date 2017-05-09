@@ -27,6 +27,7 @@ function recenterMap() {
     }
 }
 function sizeMap() {
+    console.log('sizeMap');
     var availableHeight = $(window).height();
     var headerHeight = $('header').outerHeight();
     var crumbsHeight = $('main p.breadcrumbs').outerHeight();
@@ -37,6 +38,7 @@ function sizeMap() {
 }
 
 function setUpMap() {
+    console.log('setUpMap');
     sizeMap();
     $(window).resize(sizeMap);
     initialize();
@@ -117,8 +119,6 @@ function getMonitors(){
     }
     return monitors;
 }
-
-document.addEventListener("deviceready", function () { alert('actually freaking loaded'); }, false);
 
 $(window).on('load', function () {
     validateToken(setUpMap);

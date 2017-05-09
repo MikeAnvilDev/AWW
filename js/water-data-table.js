@@ -380,7 +380,8 @@ function populateImages(images) {
     var $canvas = $('#ImageCanvas');
     if (images != null) {
         if (images.length > 0) {
-            $.each(images, function (index, value) {
+            $.each(images, function (index, imageObj) {
+                console.log(imageObj);
                 var $img = $('<img />');
                 $canvas.append($img);
                 $img.on('load', function () {
@@ -392,7 +393,7 @@ function populateImages(images) {
                     $canvas.append($wrap);
                     $img.remove();
                     $wrap.hide().fadeIn();
-                }).css({ height: 0, width: 0 }).attr('src', value);
+                }).css({ height: 0, width: 0 }).attr('src', imageObj.fileURL);
 
             });
         } else

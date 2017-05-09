@@ -99,7 +99,7 @@ function validateToken(callback) {
 
 
 function setUpAutoSave($form, keyName) {
-    $form.find('input').blur(function () { storeFormLocally($form, keyName) });
+    $form.find('input').not(':input[type=button], :input[type=submit], :input[type=reset]').blur(function () { storeFormLocally($form, keyName) });
     $form.find('textarea').blur(function () { storeFormLocally($form, keyName) });
     $form.find('select').change(function () { storeFormLocally($form, keyName) });
 }

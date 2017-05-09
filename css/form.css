@@ -659,6 +659,27 @@ div.image-wrap{
             padding-bottom: 10px;
             overflow: hidden;
         }
+        #ImageLoaded div:nth-child(2n+2){
+            width: 50%;
+            float: left;
+            clear: both;
+            padding-right: 5px;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        #ImageLoaded div:nth-child(2n+3){
+            width: 50%;
+            float: right;
+            padding-left: 5px;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        #ImageLoaded div:first-child{
+            width: 100%;
+        }
+
             #ImageLoaded div img{
                 width: 100%;
 	            border-radius: 8px;
@@ -675,6 +696,44 @@ div.image-wrap{
                     text-align: center;
                     font-size: 14px;
                     background-color: rgba(255,255,255,.8);
+                }
+                #ImageLoaded div a{
+                    z-index: 3;
+                    position: absolute;
+                    top: 12px;
+                    right: 12px;
+	                width: 24px;
+	                height: 24px;
+                    border: 0px;
+                    background-color: #878787;
+                    background-position: center center;
+                    background-size: 16px 16px;
+                    background-repeat: no-repeat;
+                    background-image: url(../res/images/icons/view-icon.png);
+
+	                -moz-border-radius: 12px;
+	                -webkit-border-radius: 12px;
+	                border-radius: 12px;
+
+                }
+                #ImageLoaded div span{
+                    z-index: 3;
+                    position: absolute;
+                    top: 12px;
+                    right: 40px;
+	                width: 24px;
+	                height: 24px;
+                    cursor: pointer;
+                    background-color: #878787;
+                    background-position: center center;
+                    background-size: 16px 16px;
+                    background-repeat: no-repeat;
+                    background-image: url(../res/images/icons/trash-icon.png);
+
+	                -moz-border-radius: 12px;
+	                -webkit-border-radius: 12px;
+	                border-radius: 12px;
+
                 }
 @media(max-width:640px) {
     #ImagePreview {

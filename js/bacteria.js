@@ -3,8 +3,8 @@
 function loadData() {
     token = getToken();
     var decodedToken = jwt_decode(token);
-    $('#SubmitterContactId').val(decodedToken.role[1]);
-    $('div.authorization h2').text('Submitted by: ' + decodedToken.role[2]);
+    $('#SubmitterContactId').val(decodedToken.role[2]);
+    $('div.authorization h2').text('Submitted by: ' + decodedToken.role[1]);
     $('#Groupid').val(decodeURIComponent(getQueryVariable('Groupid')));
     $('#Group_Name').val(decodeURIComponent(getQueryVariable('Group_Name')));
     $('#Group_Abbreviation').val(decodeURIComponent(getQueryVariable('Group_Abbreviation')));
@@ -143,6 +143,7 @@ function loadBacteria() {
     loadData();
     setUpCalculations();
     loadMonitors();
+    loadExistingImages();
 }
 function loadAutoSaveAndLocal() {
     storedKeyName = $('#AwwSiteCode').val() + '-bacteria';
@@ -154,6 +155,7 @@ function loadAutoSaveAndLocal() {
 
 $(window).on('load', function () {
     validateToken(loadBacteria);
+    //test();
 });
 
 function submitBactForm(button, validated) {
@@ -190,4 +192,9 @@ function submitBactForm(button, validated) {
     } else {
         displayContentOverlay(false);
     }
+}
+function test() {
+    $('form.ml-validation').hide();
+    $('#Success-Section').show();
+
 }

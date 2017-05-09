@@ -3,8 +3,8 @@
 function loadData() {
     token = getToken();
     var decodedToken = jwt_decode(token);
-    $('#SubmitterContactId').val(decodedToken.role[1]);
-    $('div.authorization h2').text('Submitted by: ' + decodedToken.role[2]);
+    $('#SubmitterContactId').val(decodedToken.role[2]);
+    $('div.authorization h2').text('Submitted by: ' + decodedToken.role[1]);
     $('#Groupid').val(decodeURIComponent(getQueryVariable('Groupid')));
     $('#Group_Name').val(decodeURIComponent(getQueryVariable('Group_Name')));
     $('#Group_Abbreviation').val(decodeURIComponent(getQueryVariable('Group_Abbreviation')));
@@ -149,8 +149,13 @@ function hardnessValidation() {
     // if salinity present, no hardness test
     var error = "";
     if ($('#Salinity').val().length > 0) {
-        if ($('#Hardness').val().length > 0) {
-            error = "Salinity is present so do not enter hardness test.";
+        if (!validateDecimal($('#Salinity').val())) {
+            var salinity = parseFloat($('#Salinity').val());
+            if (salinity > 0) {
+                if ($('#Hardness').val().length > 0) {
+                    error = "Salinity is present so do not enter hardness test.";
+                }
+            }
         }
     }
     return error;
@@ -242,6 +247,7 @@ function loadChemistry() {
     loadData();
     setUpCalculations();
     loadMonitors();
+    loadExistingImages();
 }
 function loadAutoSaveAndLocal() {
     storedKeyName = $('#AwwSiteCode').val() + '-chemistry';
@@ -253,6 +259,7 @@ function loadAutoSaveAndLocal() {
 
 $(window).on('load', function () {
     validateToken(loadChemistry);
+    //test();
 });
 
 function submitChemForm(button, validated) {
@@ -264,6 +271,7 @@ function submitChemForm(button, validated) {
         $.support.cors;
         var token = getToken();
         var formData = $form.serialize();
+        console.log(formData);
         var postToUrl = $form.attr('ml-post-to');
 
         $.ajax({
@@ -283,6 +291,7 @@ function submitChemForm(button, validated) {
                 $('#Success-Section').show();
             },
             error: function (x, y, z) {
+                console.log(x, y, z);
                 displayErrorMessage(true, 'An error has occurred.  Chemistry data could not be submitted.  Your entry is saved and can be submitted at a later time.');
                 displayContentOverlay(false);
             }
@@ -290,4 +299,9 @@ function submitChemForm(button, validated) {
     } else {
         displayContentOverlay(false);
     }
+}
+function test() {
+    $('form.ml-validation').hide();
+    $('#Success-Section').show();
+
 }
