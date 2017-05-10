@@ -51,7 +51,7 @@ function logout(message) {
         localStorage.removeItem('token');
     else
         setCookie('token', '');
-    location.href = "../index.html?error=" + encodeURIComponent(message);
+    location.href = "index.html?error=" + encodeURIComponent(message);
 }
 
 $(document).ready(function () {
