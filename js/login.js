@@ -46,11 +46,17 @@
 function redirectToType() {
     location.href = 'data/type/index.html';
 }
-
+function logout(message) {
+    if (typeof (Storage) !== "undefined")
+        localStorage.removeItem('token');
+    else
+        setCookie('token', '');
+    location.href = "../index.html?error=" + encodeURIComponent(message);
+}
 
 $(document).ready(function () {
     if (getQueryVariable('logout').length > 0)
-        clearTokenWithError('You have successfully logged out.');
+        logout('You have successfully logged out.');
     else {
         var message = getQueryVariable('error');
         if (getQueryVariable('error').length > 0) {

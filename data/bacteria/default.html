@@ -172,8 +172,8 @@
                         <div class="entry-wrap">
                             <label for="AirTemp">Air Temperature</label>
                             <div class="right-units-wrap">
-                                <input type="number" id="AirTemp" name="AirTemp" placeholder="air temperature"
-                                       ml-val ml-val-required="false" ml-val-type="number" ml-val-format="integer"
+                                <input type="number" id="AirTemp" name="AirTemp" pattern="[0-9\.]*" placeholder="air temperature"
+                                       ml-val ml-val-required="false" ml-val-type="number" ml-val-format="decimal"
                                        ml-val-min="" ml-val-max="" ml-val-label="Air Temperature" />
                                 <span>°C</span>
                             </div>
@@ -182,8 +182,8 @@
                         <div class="entry-wrap">
                             <label for="WaterTemp">Water Temperature</label>
                             <div class="right-units-wrap">
-                                <input type="number" id="WaterTemp" name="WaterTemp" placeholder="water temperature"
-                                       ml-val ml-val-required="false" ml-val-type="number" ml-val-format="integer"
+                                <input type="number" id="WaterTemp" name="WaterTemp" pattern="[0-9\.]*" placeholder="water temperature"
+                                       ml-val ml-val-required="false" ml-val-type="number" ml-val-format="decimal"
                                        ml-val-min="" ml-val-max="" ml-val-label="Water Temperature" />
                                 <span>°C</span>
                             </div>
@@ -236,8 +236,8 @@
                         <div class="entry-wrap">
                             <label for="IncubationTemp">Incubation Temperature</label>
                             <div class="right-units-wrap">
-                                <input type="text" id="IncubationTemp" name="IncubationTemp" placeholder="incubation temperature"
-                                       ml-val ml-val-required="false" ml-val-type="number" ml-val-format="integer"
+                                <input type="text" id="IncubationTemp" name="IncubationTemp" pattern="[0-9\.]*" placeholder="incubation temperature"
+                                       ml-val ml-val-required="false" ml-val-type="number" ml-val-format="decimal"
                                        ml-val-min="29" ml-val-max="37" ml-val-label="Incubation Temperature" />
                                 <span>°C</span>
                             </div>
@@ -246,8 +246,8 @@
                         <div class="entry-wrap">
                             <label for="IncubationPeriod">Incubation Period</label>
                             <div class="right-units-wrap">
-                                <input type="text" id="IncubationPeriod" name="IncubationPeriod" placeholder="incubation period"
-                                       ml-val ml-val-required="false" ml-val-type="number" ml-val-format="integer"
+                                <input type="text" id="IncubationPeriod" name="IncubationPeriod" pattern="[0-9\.]*" placeholder="incubation period"
+                                       ml-val ml-val-required="false" ml-val-type="number" ml-val-format="decimal"
                                        ml-val-min="1" ml-val-max="48" ml-val-label="Incubation Period" />
                                 <span>hours</span>
                             </div>
@@ -288,14 +288,14 @@
                     <div class="entry-group">
                         <div class="entry-wrap">
                             <label for="EColi1"># E.coli colonies per plate</label>
-                            <input type="text" id="EColi1" name="EColi1" placeholder="e. coli colony count"
+                            <input type="number" id="EColi1" name="EColi1" placeholder="e. coli colony count"
                                    ml-val ml-val-required="false" ml-val-type="number" ml-val-format="integer"
                                    ml-val-min="" ml-val-max="" ml-val-label="E. Coli Count" />
                             <p>blue-green to dark blue-purple, if colonies are too numerous to count (> 200) report 250</p>
                         </div>
                         <div class="entry-wrap">
                             <label for="ColonyCount1"># Other coliform colonies per plate</label>
-                            <input type="text" id="ColonyCount1" name="ColonyCount1" placeholder="other colony count"
+                            <input type="number" id="ColonyCount1" name="ColonyCount1" placeholder="other colony count"
                                    ml-val ml-val-required="false" ml-val-type="number" ml-val-format="integer"
                                    ml-val-min="" ml-val-max="" ml-val-label="General Coli Count" />
                             <p>pink to dark red, if colonies are too numerous to count (> 200) report 250</p>
@@ -317,13 +317,13 @@
                     <div class="entry-group">
                         <div class="entry-wrap">
                             <label for="EColi2"># E.coli colonies per plate</label>
-                            <input type="text" id="EColi2" name="EColi2" placeholder="e. coli colony count"
+                            <input type="number" id="EColi2" name="EColi2" placeholder="e. coli colony count" pattern="[0-9]*"
                                    ml-val ml-val-required="false" ml-val-type="number" ml-val-format="integer"
                                    ml-val-min="" ml-val-max="" ml-val-label="E. Coli Count" />
                         </div>
                         <div class="entry-wrap">
                             <label for="ColonyCount2"># Other coliform colonies per plate</label>
-                            <input type="text" id="ColonyCount2" name="ColonyCount2" placeholder="other colony count"
+                            <input type="number" id="ColonyCount2" name="ColonyCount2" placeholder="other colony count" pattern="[0-9]*"
                                    ml-val ml-val-required="false" ml-val-type="number" ml-val-format="integer"
                                    ml-val-min="" ml-val-max="" ml-val-label="General Coli Count" />
                         </div>
@@ -344,13 +344,13 @@
                     <div class="entry-group">
                         <div class="entry-wrap">
                             <label for="ecoli3"># E.coli colonies per plate</label>
-                            <input type="text" id="EColi3" name="EColi3" placeholder="e. coli colony count"
+                            <input type="number" id="EColi3" name="EColi3" placeholder="e. coli colony count" pattern="[0-9]*"
                                    ml-val ml-val-required="false" ml-val-type="number" ml-val-format="integer"
                                    ml-val-min="" ml-val-max="" ml-val-label="E. Coli Count" />
                         </div>
                         <div class="entry-wrap">
                             <label for="ColonyCount3"># Other coliform colonies per plate</label>
-                            <input type="text" id="ColonyCount3" name="ColonyCount3"
+                            <input type="number" id="ColonyCount3" name="ColonyCount3" pattern="[0-9]*"
                                    ml-val ml-val-required="false" ml-val-type="number" ml-val-format="integer"
                                    ml-val-min="" ml-val-max="" ml-val-label="General Coli Count" />
                         </div>
