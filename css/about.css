@@ -1,0 +1,32 @@
+﻿div.partners{
+    background: #ffffff;
+    overflow: hidden;
+}
+    div.partners a{
+        float: left;
+        overflow: hidden;
+        border: 0px;
+    }
+        div.partners a.aces{
+            width: 73%;
+        }
+        div.partners a.aaes{
+            width: 27%;
+        }
+        div.partners a img{
+            width: 100%;
+        }
+
+@media(max-width: 540px) {
+    div.partners a{
+        float: none;
+        overflow: hidden;
+        border: 0px;
+    }
+        div.partners a.aces{
+            width: auto;
+        }
+        div.partners a.aaes{
+            width: auto;
+        }
+}

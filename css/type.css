@@ -44,6 +44,9 @@
 #Main-Nav ul li.videos a i {
     background-image: url(../res/images/icons/video-icon.png);
 }
+#Main-Nav ul li.about a i {
+    background-image: url(../res/images/icons/info-icon.png);
+}
 #Main-Nav ul li.logout a i {
     background-image: url(../res/images/icons/logout-icon.png);
 }
