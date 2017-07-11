@@ -14,7 +14,7 @@
   </author>
 
   <preference name="orientation" value="portrait" />
-  <preference name="fullscreen" value="true" />
+  <preference name="fullscreen" value="false" />
   <preference name="detect-data-types" value="false" />
   <preference name="loadUrlTimeoutValue" value="300000" />
   
