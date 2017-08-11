@@ -51,7 +51,7 @@ function clearToken() {
         localStorage.removeItem('token');
     else
         setCookie('token', '');
-    location.href = "../../index.html?error=" + encodeURIComponent("Your session has expired.");
+    location.href = "../index.html?error=" + encodeURIComponent("Your session has expired.");
 }
 function clearTokenWithError(message) {
     if (typeof (Storage) !== "undefined")

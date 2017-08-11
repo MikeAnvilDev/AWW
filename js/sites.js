@@ -28,15 +28,6 @@ function setPositionWatch() {
 function updateWatchedPosition(position) {
     currentLocation = { latitude: parseFloat(position.coords.latitude), longitude: parseFloat(position.coords.longitude) };
 
-    //var $debugLog = $('#debugLog');
-    //if ($debugLog.length == 0) {
-    //    $debugLog = $('<div id="debugLog"></div>');
-    //    $('form').append($debugLog);
-    //}
-    //$debugLog.append((currentLocation.latitude != null ? currentLocation.latitude : 'null') +
-    //    ',' + (currentLocation.longitude != null ? currentLocation.longitude : 'null') + '<br />');
-
-
     var $navBar = $('#SiteList h3');
     if ($navBar.length > 0)
         $navBar.html('<h3>current gps (' + parseFloat(currentLocation.latitude).toFixed(5) + ', ' + parseFloat(currentLocation.longitude).toFixed(5) + ')</h3>');
@@ -53,7 +44,7 @@ function updateWatchedPosition(position) {
     }
 }
 function watchedPositionError(err) {
-    alert('Current location could not be determined.');
+    
 }
 
 function getCurrentLocation() {

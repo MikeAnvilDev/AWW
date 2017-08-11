@@ -16,18 +16,16 @@ function updateWatchedPosition(position) {
     recenterMap();
 }
 function watchedPositionError(err) {
-    console.log('Current location could not be determined.');
+    
 }
 
 function recenterMap() {
-    console.log('recenterMap');
     if (center != null) {
         map.setCenter(center);
         marker.setPosition(center);
     }
 }
 function sizeMap() {
-    console.log('sizeMap');
     var availableHeight = $(window).height();
     var headerHeight = $('header').outerHeight();
     var crumbsHeight = $('main p.breadcrumbs').outerHeight();
@@ -91,7 +89,7 @@ function captureLocation() {
 }
 
 function createEmail() {
-    window.location.href = 'mailto:wwprog@auburn.edu?' +
+    window.location.href = 'mailto:awwprog@auburn.edu?' +
     'subject=Alabama%20Water%20Watch%20Sampling%20Site%20Data&body=' + encodeURIComponent(getEmailBody());
 }
 function getEmailBody(){
