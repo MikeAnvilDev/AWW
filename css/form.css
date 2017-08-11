@@ -438,6 +438,7 @@ div.entry-wrap-full.checklist ul{
     border-radius: 4px;
 }
     div.entry-wrap-full.checklist ul li {
+        display: block;
         padding-bottom: 0px;
         border-bottom: solid 1px #dddddd;
     }
