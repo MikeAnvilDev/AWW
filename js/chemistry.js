@@ -55,28 +55,34 @@ function updateTurbidity() {
 
 function calculateAverageDO() {
     var do1 = $('#DO1').val();
-    if (do1.length > 0) {
-        if (validateDecimal(do1))
-            do1 = 0;
-    } else
-        do1 = 0;
-    do1 = parseFloat(do1);
-
     var do2 = $('#DO2').val();
-    if (do2.length > 0) {
-        if (validateDecimal(do2))
-            do2 = 0;
-    } else
-        do2 = 0;
-    do2 = parseFloat(do2);
 
-    var averageDO = 0;
-    if (Math.abs(do2 - do1) > .6) {
-        averageDO = '';
-    } else
+    if (do1.length > 0 && do2.length > 0) {
+
+        if (do1.length > 0) {
+            if (validateDecimal(do1))
+                do1 = 0;
+        } else
+            do1 = 0;
+        do1 = parseFloat(do1);
+
+        if (do2.length > 0) {
+            if (validateDecimal(do2))
+                do2 = 0;
+        } else
+            do2 = 0;
+        do2 = parseFloat(do2);
+
+        var averageDO = 0;
+        //if (Math.abs(do2 - do1) > .6) {
+        //    averageDO = '';
+        //} else
         averageDO = (do1 + do2) / 2;
 
-    $('#AvgDo').val(averageDO);
+        $('#AvgDo').val(averageDO);
+    }else
+        $('#AvgDo').val('');
+
 }
 function calculateAlkalinity() {
     var drops = $('#Alkalinity').val();
