@@ -54,6 +54,41 @@ function logout(message) {
     location.href = "index.html?error=" + encodeURIComponent(message);
 }
 
+
+function validateExistingToken(callback) {
+    token = getToken();
+
+    if (token != null) {
+        jQuery.support.cors = true;
+        $.ajax({
+            url: 'https://msapps.acesag.auburn.edu/aww/api/home/ValidateToken',
+            dataType: 'json',
+            type: 'GET',
+            contentType: 'application/json',
+            headers: { 'Authorization': 'Bearer ' + token },
+            cache: false,
+            success: function (jsonObj) {
+                if (convertToBoolean(jsonObj.status)) {
+                    storeToken(jsonObj.token);
+                    if (typeof callback === "function")
+                        callback();
+                } else
+                    clearExpiredToken();
+            },
+            error: function (x, y, z) {
+                clearExpiredToken();
+            }
+        });
+    } else
+        clearExpiredToken();
+}
+function clearExpiredToken() {
+    if (typeof (Storage) !== "undefined")
+        localStorage.removeItem('token');
+    else
+        setCookie('token', '');
+}
+
 $(document).ready(function () {
     if (getQueryVariable('logout').length > 0)
         logout('You have successfully logged out.');
@@ -72,6 +107,6 @@ $(document).ready(function () {
         // if token exists validate
         token = getToken();
         if (token != null)
-            validateToken(redirectToType);
+            validateExistingToken(redirectToType);
     }
 });
